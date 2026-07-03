@@ -241,7 +241,7 @@ section[data-testid="stSidebar"] { display: none; }
 # ---------------------------------------------------------------------------
 # Data
 # ---------------------------------------------------------------------------
-@st.cache_data
+@st.cache_data(ttl=60)
 def load_data():
     with open(DATA_JSON, "r", encoding="utf-8") as f:
         return json.load(f)
@@ -578,7 +578,7 @@ def render_screen2(company, data):
         _kpi("Média de Prazo", md_str, sub="Data → Lançamento", hl=True, value_class=md_cls)
         + _kpi("Lançamentos", d.get("lancamentos", 0))
         + _kpi("Dia de Pico", dia.get("data", "—"), sub=dia.get("dia_semana", ""))
-        + _kpi("SKUs Lançados", d.get("skus", 0))
+        + _kpi("Unidades Recebidas", _fmt_int(data[company]["tela1"]["destaque"].get("unidades_recebidas", 0)))
     )
 
     has_ano = ano and ano.get("lancamentos", 0) > 0
