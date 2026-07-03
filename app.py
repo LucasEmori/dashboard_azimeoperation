@@ -190,10 +190,9 @@ section[data-testid="stSidebar"] { display: none; }
 }
 [data-testid="stSelectbox"] [data-baseweb="select"] > div {
     background: #1a2335 !important; border-color: #2a374a !important;
+    color: #e8edf5 !important;
 }
-[data-testid="stSelectbox"] [data-baseweb="select"] [role="combobox"],
-[data-testid="stSelectbox"] [data-baseweb="select"] span,
-[data-testid="stSelectbox"] [data-baseweb="select"] input {
+[data-testid="stSelectbox"] [data-baseweb="select"] * {
     color: #e8edf5 !important;
 }
 [data-testid="stSelectbox"] [data-baseweb="select"] svg { color: #8b9cb5 !important; }
