@@ -184,6 +184,26 @@ section[data-testid="stSidebar"] { display: none; }
 .topbar-meta { font-size: 12px; color: #8b9cb5; line-height: 1.6; }
 .topbar-meta b { color: #cdd9ec; }
 
+/* ---- Selectbox dark theme + label ---- */
+.stSelectbox label, [data-testid="stWidgetLabel"] p {
+    color: #e8edf5 !important; font-weight: 700 !important; font-size: 14px !important;
+}
+[data-testid="stSelectbox"] [data-baseweb="select"] > div {
+    background: #1a2335 !important; border-color: #2a374a !important;
+}
+[data-testid="stSelectbox"] [data-baseweb="select"] [role="combobox"],
+[data-testid="stSelectbox"] [data-baseweb="select"] span,
+[data-testid="stSelectbox"] [data-baseweb="select"] input {
+    color: #e8edf5 !important;
+}
+[data-testid="stSelectbox"] [data-baseweb="select"] svg { color: #8b9cb5 !important; }
+[data-baseweb="popover"] [role="listbox"] { background: #1a2335 !important; }
+[data-baseweb="popover"] [role="option"] { color: #e8edf5 !important; }
+[data-baseweb="popover"] [role="option"]:hover,
+[data-baseweb="popover"] [aria-selected="true"] {
+    background: rgba(255,255,255,0.1) !important;
+}
+
 /* ---- Tablet ---- */
 @media (max-width: 900px) {
     .kpi-row { grid-template-columns: repeat(2, 1fr); }
@@ -319,7 +339,7 @@ def _yoy_block(company, destaque, ano):
     rows = ""
     specs = [
         ("Lançamentos", "lancamentos", _fmt_int),
-        ("Unidades Recebidas", "unidades_recebidas", _fmt_int),
+        ("SKUs", "skus", _fmt_int),
         ("Média de Prazo", "media_prazo", _fmt_media),
     ]
     for label, key, fmt in specs:
@@ -463,16 +483,11 @@ def _trim_keys(trimestres):
             if len(trimestres.get(k, {}).get("meses", [])) == 3]
 
 
-def _trimester_month_chart(company, trimestres):
-    """Chart 1: filtro de trimestre -> barras por mes com Unidades Recebidas."""
+def _trimester_month_chart(company, trimestres, sel):
+    """Chart 1: barras por mes do trimestre selecionado."""
     rgb = _ACCENT_RGB.get(company, "121,134,203")
-    trim_keys = _trim_keys(trimestres)
-    if not trim_keys:
+    if not sel:
         return
-
-    sel = st.selectbox("Trimestre", trim_keys,
-                       format_func=lambda k: trimestres[k]["label"],
-                       key=f"trim1_{company}")
 
     t = trimestres[sel]
     meses = [m["mes"] for m in t["meses"]]
@@ -558,10 +573,20 @@ def render_screen1(company, data):
     )
     st.markdown(html, unsafe_allow_html=True)
 
-    # Graficos trimestrais lado a lado
+    # Filtro de trimestre (acima dos charts para alinhar X-axis)
+    trim_keys = _trim_keys(trimestres)
+    sel = None
+    if trim_keys:
+        col_f, _ = st.columns([1, 1])
+        with col_f:
+            sel = st.selectbox("Trimestre", trim_keys,
+                               format_func=lambda k: trimestres[k]["label"],
+                               key=f"trim1_{company}")
+
+    # Graficos trimestrais lado a lado (X-axis alinhado)
     col_c1, col_c2 = st.columns(2)
     with col_c1:
-        _trimester_month_chart(company, trimestres)
+        _trimester_month_chart(company, trimestres, sel)
     with col_c2:
         _trimester_compare_chart(company, trimestres)
 
@@ -603,11 +628,6 @@ def render_screen2(company, data):
             ("SKUs", ano.get("skus", 0)),
             ("Média Dias", _fmt_media(ano.get("media_prazo"))),
         ], year_prev=True)
-
-    # Injetar unidades_recebidas do tela1 para o bloco YoY (currente vs ano anterior)
-    t1d = data[company]["tela1"].get("destaque", {})
-    d["unidades_recebidas"] = t1d.get("unidades_recebidas", 0)
-    ano["unidades_recebidas"] = data[company]["tela1"].get("unidades_ano_anterior", 0)
 
     html = _wrap_co(company,
         _section_title("produtos", "Produtos Lançados", d.get("mes", ""))
