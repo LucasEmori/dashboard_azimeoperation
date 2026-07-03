@@ -197,11 +197,11 @@ section[data-testid="stSidebar"] { display: none; }
     color: #e8edf5 !important;
 }
 [data-testid="stSelectbox"] [data-baseweb="select"] svg { color: #8b9cb5 !important; }
-[data-baseweb="popover"] [role="listbox"] { background: #1a2335 !important; }
-[data-baseweb="popover"] [role="option"] { color: #e8edf5 !important; }
+/* Open dropdown: white bg -> dark text */
+[data-baseweb="popover"] [role="option"] { color: #1a2335 !important; }
 [data-baseweb="popover"] [role="option"]:hover,
 [data-baseweb="popover"] [aria-selected="true"] {
-    background: rgba(255,255,255,0.1) !important;
+    background: rgba(0,0,0,0.06) !important; color: #1a2335 !important;
 }
 
 /* ---- Tablet ---- */
