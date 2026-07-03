@@ -366,7 +366,7 @@ def _plan_item(it):
 
 
 # ---------------------------------------------------------------------------
-# Plotly - grafico de volume diario
+# Plotly - grafico de volume acumulado (running total) AA vs ano anterior
 # ---------------------------------------------------------------------------
 _ACCENT_RGB = {"alinare": "121,134,203", "novitah": "215,169,169"}
 
@@ -376,56 +376,75 @@ def _daily_volume_chart(company, destaque, ano):
     prev = ano.get("volume_diario") or []
     cur_map = {d["dia"]: d["count"] for d in cur}
     prev_map = {d["dia"]: d["count"] for d in prev}
-    days = sorted(set(cur_map) | set(prev_map))
-    if not days:
+    all_days = set(cur_map) | set(prev_map)
+    if not all_days:
         return None
+    # Eixo X continuo dia 1 -> maior dia observado (alinhado AA vs ano anterior)
+    max_day = max(all_days)
+    days = list(range(1, max_day + 1))
     xs = [f"{d:02d}" for d in days]
-    y_cur = [cur_map.get(d, 0) for d in days]
-    y_prev = [prev_map.get(d, 0) for d in days]
+    daily_cur = [cur_map.get(d, 0) for d in days]
+    daily_prev = [prev_map.get(d, 0) for d in days]
+
+    # Running total (soma cumulativa estilo window function SQL)
+    cum_cur, cum_prev = [], []
+    rc = rp = 0
+    for dc, dp in zip(daily_cur, daily_prev):
+        rc += dc
+        rp += dp
+        cum_cur.append(rc)
+        cum_prev.append(rp)
+
     rgb = _ACCENT_RGB.get(company, "121,134,203")
     cur_year = _year_of(destaque.get("mes"))
     prev_year = _year_of(ano.get("mes"))
+    # Marcadores apenas nos dias com lancamento real
+    mk_cur = [6 if v else 0 for v in daily_cur]
+    mk_prev = [5 if v else 0 for v in daily_prev]
 
     fig = go.Figure()
-    # Ano anterior: mesma familia de matiz, translucido com borda (harmonia)
-    fig.add_trace(go.Bar(
-        x=xs, y=y_prev,
+    # Ano anterior: linha tracejada
+    fig.add_trace(go.Scatter(
+        x=xs, y=cum_prev,
         name=f"{ano.get('mes', '')} · ano anterior",
-        marker_color=f"rgba({rgb},0.28)",
-        marker_line=dict(color=f"rgba({rgb},0.70)", width=1),
-        text=y_prev, textposition="outside",
-        textfont=dict(color="rgba(159,176,200,0.85)", size=9),
-        hovertemplate=f"<b>Dia %{{x}} ({prev_year})</b><br>Lançamentos: %{{y}}<extra></extra>",
+        mode="lines+markers",
+        line=dict(color=f"rgba({rgb},0.55)", width=2, dash="dash"),
+        marker=dict(size=mk_prev, color=f"rgba({rgb},0.65)"),
+        customdata=[[v] for v in daily_prev],
+        hovertemplate=(f"<b>Dia %{{x}} ({prev_year})</b><br>"
+                       f"Acumulado: %{{y}}<br>No dia: %{{customdata[0]}}<extra></extra>"),
     ))
-    # Ano atual: solido, serie foco (labels visiveis)
-    fig.add_trace(go.Bar(
-        x=xs, y=y_cur,
+    # Ano atual: linha solida + area preenchida entre as curvas
+    fig.add_trace(go.Scatter(
+        x=xs, y=cum_cur,
         name=f"{destaque.get('mes', '')} · ano atual",
-        marker_color=f"rgb({rgb})",
-        text=y_cur, textposition="outside",
-        textfont=dict(color="#e8edf5", size=10),
-        hovertemplate=f"<b>Dia %{{x}} ({cur_year})</b><br>Lançamentos: %{{y}}<extra></extra>",
+        mode="lines+markers",
+        line=dict(color=f"rgb({rgb})", width=3),
+        marker=dict(size=mk_cur, color=f"rgb({rgb})"),
+        fill="tonexty", fillcolor=f"rgba({rgb},0.08)",
+        customdata=[[v] for v in daily_cur],
+        hovertemplate=(f"<b>Dia %{{x}} ({cur_year})</b><br>"
+                       f"Acumulado: %{{y}}<br>No dia: %{{customdata[0]}}<extra></extra>"),
     ))
     fig.update_layout(
         paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)",
         font=dict(color="#cdd9ec", size=11, family="system-ui, sans-serif"),
-        margin=dict(l=8, r=8, t=95, b=8),
-        barmode="group", height=420,
+        margin=dict(l=8, r=8, t=95, b=8), height=420,
         title=dict(
-            text=(f"<b>Volume de Lançamentos por Dia</b><br>"
-                  f"<span style='font-size:11px;color:#9fb0c8'>{destaque.get('mes','')} × {ano.get('mes','')}</span>"),
+            text=(f"<b>Volume Acumulado de Lançamentos</b><br>"
+                  f"<span style='font-size:11px;color:#9fb0c8'>Running total · "
+                  f"{destaque.get('mes', '')} × {ano.get('mes', '')}</span>"),
             font=dict(color="#fff", size=14), x=0.5, xanchor="center", y=0.97, yanchor="top"),
-        legend=dict(
-            orientation="h", y=1.0, x=0.5, xanchor="center", yanchor="bottom",
-            bgcolor="rgba(0,0,0,0)", font=dict(size=12, color="#e8edf5"),
-            itemsizing="constant", borderwidth=0),
+        legend=dict(orientation="h", y=1.0, x=0.5, xanchor="center", yanchor="bottom",
+                     bgcolor="rgba(0,0,0,0)", font=dict(size=12, color="#e8edf5"),
+                     itemsizing="constant", borderwidth=0),
         xaxis=dict(title=dict(text="Dia do mês", font=dict(size=11, color="#9fb0c8")),
                    tickangle=-45, showgrid=False, tickfont=dict(size=9, color="#9fb0c8"),
                    linecolor="rgba(255,255,255,0.12)"),
-        yaxis=dict(title=dict(text="Nº de lançamentos", font=dict(size=11, color="#9fb0c8")),
+        yaxis=dict(title=dict(text="Lançamentos acumulados", font=dict(size=11, color="#9fb0c8")),
                    gridcolor="rgba(255,255,255,0.06)", zerolinecolor="rgba(255,255,255,0.12)",
                    rangemode="tozero", tickfont=dict(size=10, color="#9fb0c8")),
-        bargap=0.32, bargroupgap=0.18, showlegend=True,
+        hovermode="x", showlegend=True,
     )
     return fig
 
@@ -509,11 +528,11 @@ def render_screen2(company, data):
     )
     st.markdown(html, unsafe_allow_html=True)
 
-    # Grafico de volume diario (ano atual vs ano anterior)
+    # Grafico de volume acumulado (running total AA vs ano anterior)
     fig = _daily_volume_chart(company, d, ano)
     if fig is not None:
         st.markdown(_wrap_co(company, '<div class="comp-title" style="margin-top:8px;">'
-                                      f'{_SVG["grafico"]} Volume Diário — {d.get("mes","")} × {ano.get("mes","")}'
+                                      f'{_SVG["grafico"]} Volume Acumulado — {d.get("mes","")} × {ano.get("mes","")}'
                                       '</div>'), unsafe_allow_html=True)
         st.plotly_chart(fig, use_container_width=True)
 
