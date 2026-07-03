@@ -132,6 +132,19 @@ def compute(company: str, p3: pd.DataFrame, geral: pd.DataFrame) -> dict:
             "total_unidades": total,
         }
 
+    # Unidades recebidas do ano anterior (mes destaque) para comparativo YoY.
+    # Geral/P2 e o arquivo do ano atual — NFs do ano anterior podem nao existir.
+    ano_prev = config.DESTAQUE_ANO_PASSADO
+    mask_prev = ((p3[data_entrada_col].dt.year == ano_prev.year) &
+                 (p3[data_entrada_col].dt.month == ano_prev.month))
+    p3_prev = p3[mask_prev]
+    if not p3_prev.empty and "_nf" in p3_prev.columns:
+        nfs_prev = list(set(p3_prev["_nf"].dropna().astype(int).unique()))
+        matched = nf_qtd.reindex(nfs_prev).dropna()
+        result["unidades_ano_anterior"] = int(matched.sum()) if not matched.empty else None
+    else:
+        result["unidades_ano_anterior"] = None
+
     result["trimestres"] = trimestres
     return result
 

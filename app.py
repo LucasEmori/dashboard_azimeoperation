@@ -318,8 +318,8 @@ def _comp_card(month, rows, year_prev=False):
 def _yoy_block(company, destaque, ano):
     rows = ""
     specs = [
-        ("Lançamentos", "lancamentos", lambda v: f"{int(v):,}".replace(",", ".")),
-        ("SKUs", "skus", lambda v: f"{int(v):,}".replace(",", ".")),
+        ("Lançamentos", "lancamentos", _fmt_int),
+        ("Unidades Recebidas", "unidades_recebidas", _fmt_int),
         ("Média de Prazo", "media_prazo", _fmt_media),
     ]
     for label, key, fmt in specs:
@@ -457,18 +457,22 @@ def _daily_volume_chart(company, destaque, ano):
 # ---------------------------------------------------------------------------
 # Plotly - graficos trimestrais (Tela 1)
 # ---------------------------------------------------------------------------
+def _trim_keys(trimestres):
+    """Apenas trimestres completos (3 meses) — exclui T3/T4 em andamento."""
+    return [k for k in ("T1", "T2", "T3", "T4")
+            if len(trimestres.get(k, {}).get("meses", [])) == 3]
+
+
 def _trimester_month_chart(company, trimestres):
     """Chart 1: filtro de trimestre -> barras por mes com Unidades Recebidas."""
     rgb = _ACCENT_RGB.get(company, "121,134,203")
-    trim_keys = [k for k in ("T1", "T2", "T3", "T4") if trimestres.get(k, {}).get("meses")]
+    trim_keys = _trim_keys(trimestres)
     if not trim_keys:
         return
 
-    c_sel, _ = st.columns([1, 3])
-    with c_sel:
-        sel = st.selectbox("Trimestre", trim_keys,
-                           format_func=lambda k: trimestres[k]["label"],
-                           key=f"trim1_{company}")
+    sel = st.selectbox("Trimestre", trim_keys,
+                       format_func=lambda k: trimestres[k]["label"],
+                       key=f"trim1_{company}")
 
     t = trimestres[sel]
     meses = [m["mes"] for m in t["meses"]]
@@ -478,19 +482,20 @@ def _trimester_month_chart(company, trimestres):
     fig.add_trace(go.Bar(
         x=meses, y=vals, marker_color=f"rgb({rgb})",
         text=[_fmt_int(v) for v in vals], textposition="outside",
-        textfont=dict(color="#e8edf5", size=11),
+        textfont=dict(color="#e8edf5", size=10),
         hovertemplate="<b>%{x}</b><br>Unidades: %{y}<extra></extra>",
+        width=0.5,
     ))
     fig.update_layout(
         paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)",
-        font=dict(color="#cdd9ec", size=11), margin=dict(l=8, r=8, t=50, b=8), height=340,
-        title=dict(text=f"<b>Unidades Recebidas — {t['label']}</b>",
+        font=dict(color="#cdd9ec", size=11), margin=dict(l=8, r=8, t=48, b=8), height=360,
+        title=dict(text=f"<b>{t['label']}</b>",
                    font=dict(color="#fff", size=13), x=0.5, xanchor="center"),
-        xaxis=dict(tickfont=dict(size=11, color="#9fb0c8"), showgrid=False,
+        xaxis=dict(tickfont=dict(size=10, color="#9fb0c8"), showgrid=False,
                    linecolor="rgba(255,255,255,0.12)"),
-        yaxis=dict(title=dict(text="Unidades", font=dict(size=11, color="#9fb0c8")),
+        yaxis=dict(title=dict(text="Unidades Recebidas", font=dict(size=10, color="#9fb0c8")),
                    gridcolor="rgba(255,255,255,0.06)", rangemode="tozero",
-                   tickfont=dict(size=10, color="#9fb0c8")),
+                   tickfont=dict(size=9, color="#9fb0c8")),
         showlegend=False,
     )
     st.plotly_chart(fig, use_container_width=True)
@@ -499,7 +504,7 @@ def _trimester_month_chart(company, trimestres):
 def _trimester_compare_chart(company, trimestres):
     """Chart 2: comparativo entre trimestres (total de Unidades Recebidas)."""
     rgb = _ACCENT_RGB.get(company, "121,134,203")
-    trim_keys = [k for k in ("T1", "T2", "T3", "T4") if trimestres.get(k, {}).get("meses")]
+    trim_keys = _trim_keys(trimestres)
     if not trim_keys:
         return
 
@@ -510,19 +515,20 @@ def _trimester_compare_chart(company, trimestres):
     fig.add_trace(go.Bar(
         x=labels, y=totals, marker_color=f"rgb({rgb})",
         text=[_fmt_int(v) for v in totals], textposition="outside",
-        textfont=dict(color="#e8edf5", size=12),
+        textfont=dict(color="#e8edf5", size=10),
         hovertemplate="<b>%{x}</b><br>Total: %{y} unidades<extra></extra>",
+        width=0.45,
     ))
     fig.update_layout(
         paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)",
-        font=dict(color="#cdd9ec", size=11), margin=dict(l=8, r=8, t=50, b=8), height=340,
-        title=dict(text="<b>Comparativo entre Trimestres</b>",
+        font=dict(color="#cdd9ec", size=11), margin=dict(l=8, r=8, t=48, b=8), height=360,
+        title=dict(text="<b>Comparativo Trimestral</b>",
                    font=dict(color="#fff", size=13), x=0.5, xanchor="center"),
-        xaxis=dict(tickfont=dict(size=12, color="#9fb0c8"), showgrid=False,
+        xaxis=dict(tickfont=dict(size=10, color="#9fb0c8"), showgrid=False,
                    linecolor="rgba(255,255,255,0.12)"),
-        yaxis=dict(title=dict(text="Total de Unidades", font=dict(size=11, color="#9fb0c8")),
+        yaxis=dict(title=dict(text="Unidades Recebidas", font=dict(size=10, color="#9fb0c8")),
                    gridcolor="rgba(255,255,255,0.06)", rangemode="tozero",
-                   tickfont=dict(size=10, color="#9fb0c8")),
+                   tickfont=dict(size=9, color="#9fb0c8")),
         showlegend=False,
     )
     st.plotly_chart(fig, use_container_width=True)
@@ -552,9 +558,12 @@ def render_screen1(company, data):
     )
     st.markdown(html, unsafe_allow_html=True)
 
-    # Graficos trimestrais
-    _trimester_month_chart(company, trimestres)
-    _trimester_compare_chart(company, trimestres)
+    # Graficos trimestrais lado a lado
+    col_c1, col_c2 = st.columns(2)
+    with col_c1:
+        _trimester_month_chart(company, trimestres)
+    with col_c2:
+        _trimester_compare_chart(company, trimestres)
 
 
 def _comp_block(cards_html, with_ano=False):
@@ -594,6 +603,11 @@ def render_screen2(company, data):
             ("SKUs", ano.get("skus", 0)),
             ("Média Dias", _fmt_media(ano.get("media_prazo"))),
         ], year_prev=True)
+
+    # Injetar unidades_recebidas do tela1 para o bloco YoY (currente vs ano anterior)
+    t1d = data[company]["tela1"].get("destaque", {})
+    d["unidades_recebidas"] = t1d.get("unidades_recebidas", 0)
+    ano["unidades_recebidas"] = data[company]["tela1"].get("unidades_ano_anterior", 0)
 
     html = _wrap_co(company,
         _section_title("produtos", "Produtos Lançados", d.get("mes", ""))

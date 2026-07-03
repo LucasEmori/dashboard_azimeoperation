@@ -210,7 +210,8 @@
           "meses": [],
           "total_unidades": 0
         }
-      }
+      },
+      "unidades_ano_anterior": null
     },
     "tela2": {
       "company": "alinare",
@@ -664,7 +665,8 @@
           "meses": [],
           "total_unidades": 0
         }
-      }
+      },
+      "unidades_ano_anterior": null
     },
     "tela2": {
       "company": "novitah",
