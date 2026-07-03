@@ -184,8 +184,55 @@ section[data-testid="stSidebar"] { display: none; }
 .topbar-meta { font-size: 12px; color: #8b9cb5; line-height: 1.6; }
 .topbar-meta b { color: #cdd9ec; }
 
+/* ---- Tablet ---- */
 @media (max-width: 900px) {
-    .kpi-row, .comp-grid, .comp-grid.with-ano, .yoy-grid { grid-template-columns: 1fr 1fr; }
+    .kpi-row { grid-template-columns: repeat(2, 1fr); }
+    .comp-grid, .comp-grid.with-ano { grid-template-columns: repeat(2, 1fr); }
+    .yoy-grid { grid-template-columns: repeat(2, 1fr); }
+    .kpi-value { font-size: 36px; }
+}
+
+/* ---- Celular ---- */
+@media (max-width: 640px) {
+    .block-container { padding: 0 8px 20px !important; }
+
+    /* Brand band compacta */
+    .brand-band { padding: 14px 16px; flex-wrap: wrap; gap: 12px; }
+    .brand-band .logo-img { width: 42px; height: 42px; }
+    .brand-band .company-name { font-size: 22px; }
+    .brand-band .brand-sub { display: none; } /* redundante c/ topbar */
+
+    /* Tabs: scroll horizontal, labels longos nao quebram */
+    .stTabs [data-baseweb="tab-list"] { overflow-x: auto; flex-wrap: nowrap; justify-content: flex-start; padding: 6px; gap: 4px; }
+    .stTabs [data-baseweb="tab"] { flex-shrink: 0; padding: 8px 14px; font-size: 12px; white-space: nowrap; }
+
+    /* Titulos de secao */
+    .section-title { font-size: 17px; gap: 8px; flex-wrap: wrap; }
+    .section-title svg { width: 18px; height: 18px; }
+    .section-title .pill { font-size: 10px; padding: 3px 9px; }
+
+    /* KPIs: 2 col, valores/padding menores */
+    .kpi-row { grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 16px; }
+    .kpi { padding: 14px; }
+    .kpi-value { font-size: 28px; }
+    .kpi-label { font-size: 10px; letter-spacing: .6px; }
+    .kpi-sub { font-size: 11px; }
+
+    /* Comparativo + YoY: 1 coluna */
+    .comp-grid, .comp-grid.with-ano, .yoy-grid { grid-template-columns: 1fr; }
+    .comp-card, .yoy-card { padding: 12px; }
+    .comp-value { font-size: 22px; }
+    .yoy-now { font-size: 26px; }
+
+    /* Planning: empilha badges sob o nome */
+    .plan-item { flex-direction: column; align-items: flex-start; gap: 10px; }
+    .plan-badges { width: 100%; }
+    .plan-name { font-size: 14px; }
+    .plan-month { font-size: 16px; flex-wrap: wrap; }
+    .plan-month .sub { display: block; width: 100%; margin: 2px 0 0; }
+    .plan-total-value { font-size: 24px; }
+
+    .topbar-meta { font-size: 11px; }
 }
 </style>
 """
