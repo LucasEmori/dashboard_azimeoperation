@@ -1,0 +1,88 @@
+{
+  "alinare": {
+    "notasEntrada": {
+      "currentMonth": {
+        "name": "Junho",
+        "notasSubiram": 47,
+        "skuPorNota": 312,
+        "skuPorFornecedor": 89,
+        "fornecedoresAtivos": 12
+      },
+      "comparison": [
+        {"month": "Fevereiro", "notas": 38, "sku": 245},
+        {"month": "Abril", "notas": 42, "sku": 287},
+        {"month": "Maio", "notas": 51, "sku": 298}
+      ]
+    },
+    "produtosLancados": {
+      "currentMonth": {
+        "name": "Junho",
+        "mediaDias": 8.5,
+        "lancamentos": 34,
+        "diaComMais": {"day": 12, "weekday": "Quarta-feira"},
+        "skusLancados": 52
+      },
+      "comparison": [
+        {"month": "Fevereiro", "lancamentos": 28, "mediaDias": 9.2},
+        {"month": "Abril", "lancamentos": 31, "mediaDias": 7.8},
+        {"month": "Maio", "lancamentos": 39, "mediaDias": 8.1}
+      ]
+    },
+    "proximosLancamentos": {
+      "month": "Julho 2026",
+      "totalSkus": 71,
+      "ready": 2,
+      "process": 4,
+      "items": [
+        {"name": "Coleção Verão 2026", "skus": 15, "programado": "01/07", "status": "ready", "mkt": "sent"},
+        {"name": "Linha Casual Elegance", "skus": 8, "programado": "05/07", "status": "ready", "mkt": "sent"},
+        {"name": "Brincos Celestiais", "skus": 12, "programado": "10/07", "status": "process", "mkt": "pending"},
+        {"name": "Colares Premium", "skus": 6, "programado": "15/07", "status": "process", "mkt": "pending"},
+        {"name": "Anéis Clássicos S2", "skus": 20, "programado": "22/07", "status": "process", "mkt": "pending"},
+        {"name": "Pingentes Especiais", "skus": 10, "programado": "28/07", "status": "process", "mkt": "pending"}
+      ]
+    }
+  },
+  "novitah": {
+    "notasEntrada": {
+      "currentMonth": {
+        "name": "Junho",
+        "notasSubiram": 23,
+        "skuPorNota": 156,
+        "skuPorFornecedor": 52,
+        "fornecedoresAtivos": 8
+      },
+      "comparison": [
+        {"month": "Fevereiro", "notas": 19, "sku": 128},
+        {"month": "Abril", "notas": 21, "sku": 142},
+        {"month": "Maio", "notas": 25, "sku": 161}
+      ]
+    },
+    "produtosLancados": {
+      "currentMonth": {
+        "name": "Junho",
+        "mediaDias": 12.3,
+        "lancamentos": 18,
+        "diaComMais": {"day": 15, "weekday": "Sexta-feira"},
+        "skusLancados": 27
+      },
+      "comparison": [
+        {"month": "Fevereiro", "lancamentos": 14, "mediaDias": 13.5},
+        {"month": "Abril", "lancamentos": 16, "mediaDias": 11.8},
+        {"month": "Maio", "lancamentos": 21, "mediaDias": 10.9}
+      ]
+    },
+    "proximosLancamentos": {
+      "month": "Julho 2026",
+      "totalSkus": 32,
+      "ready": 1,
+      "process": 3,
+      "items": [
+        {"name": "Brincos Modernos", "skus": 9, "programado": "03/07", "status": "ready", "mkt": "sent"},
+        {"name": "Colares Delicados", "skus": 7, "programado": "12/07", "status": "process", "mkt": "pending"},
+        {"name": "Anéis Contemporâneos", "skus": 11, "programado": "18/07", "status": "process", "mkt": "pending"},
+        {"name": "Pulseiras Minimalistas", "skus": 5, "programado": "25/07", "status": "process", "mkt": "pending"}
+      ]
+    }
+  }
+}

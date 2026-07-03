@@ -1,0 +1,1409 @@
+{
+  "meta": {
+    "hoje": "2026-07-03",
+    "destaque": "Junho 2026",
+    "destaque_iso": "2026-06-01",
+    "comparacao": [
+      "Março 2026",
+      "Abril 2026",
+      "Maio 2026"
+    ],
+    "comparacao_iso": [
+      "2026-03-01",
+      "2026-04-01",
+      "2026-05-01"
+    ],
+    "destaque_ano_passado": "Junho 2025",
+    "destaque_ano_passado_iso": "2025-06-01",
+    "proximo_mes": "Julho 2026",
+    "proximo_mes_iso": "2026-07-01"
+  },
+  "alinare": {
+    "tela1": {
+      "company": "alinare",
+      "destaque": {
+        "mes": "Junho 2026",
+        "is_destaque": true,
+        "notas_emitidas": 24,
+        "sku_total": 2511,
+        "sku_por_nota": 104.6,
+        "fornecedores": 5,
+        "sku_por_fornecedor": [
+          {
+            "fornecedor": "AMBER",
+            "skus": 2058
+          },
+          {
+            "fornecedor": "CEREJA",
+            "skus": 254
+          },
+          {
+            "fornecedor": "KIRSTY",
+            "skus": 126
+          },
+          {
+            "fornecedor": "GRACE MONTAGEM",
+            "skus": 44
+          },
+          {
+            "fornecedor": "GRACE IMPORTADO",
+            "skus": 29
+          }
+        ],
+        "notas_detalhe": [
+          {
+            "nf": 957,
+            "skus": 23
+          },
+          {
+            "nf": 960,
+            "skus": 1
+          },
+          {
+            "nf": 961,
+            "skus": 216
+          },
+          {
+            "nf": 962,
+            "skus": 502
+          },
+          {
+            "nf": 963,
+            "skus": 24
+          },
+          {
+            "nf": 964,
+            "skus": 4
+          },
+          {
+            "nf": 967,
+            "skus": 221
+          },
+          {
+            "nf": 968,
+            "skus": 1
+          },
+          {
+            "nf": 970,
+            "skus": 5
+          },
+          {
+            "nf": 972,
+            "skus": 2
+          },
+          {
+            "nf": 973,
+            "skus": 121
+          },
+          {
+            "nf": 975,
+            "skus": 4
+          },
+          {
+            "nf": 976,
+            "skus": 17
+          },
+          {
+            "nf": 977,
+            "skus": 27
+          },
+          {
+            "nf": 978,
+            "skus": 126
+          },
+          {
+            "nf": 979,
+            "skus": 129
+          },
+          {
+            "nf": 980,
+            "skus": 496
+          },
+          {
+            "nf": 981,
+            "skus": 125
+          },
+          {
+            "nf": 983,
+            "skus": 221
+          },
+          {
+            "nf": 984,
+            "skus": 7
+          },
+          {
+            "nf": 985,
+            "skus": 87
+          },
+          {
+            "nf": 986,
+            "skus": 18
+          },
+          {
+            "nf": 987,
+            "skus": 5
+          },
+          {
+            "nf": 988,
+            "skus": 129
+          }
+        ]
+      },
+      "comparacao": [
+        {
+          "mes": "Março 2026",
+          "is_destaque": false,
+          "notas_emitidas": 23,
+          "sku_total": 1449,
+          "sku_por_nota": 63.0,
+          "fornecedores": 9,
+          "sku_por_fornecedor": [
+            {
+              "fornecedor": "AMBER",
+              "skus": 1294
+            },
+            {
+              "fornecedor": "GRACE IMPORTADO",
+              "skus": 53
+            },
+            {
+              "fornecedor": "GRACE AMBER",
+              "skus": 36
+            },
+            {
+              "fornecedor": "GRACE MONTAGEM",
+              "skus": 23
+            },
+            {
+              "fornecedor": "CAROLINE",
+              "skus": 18
+            },
+            {
+              "fornecedor": "DAREE - KIRSTY",
+              "skus": 8
+            },
+            {
+              "fornecedor": "GRACE PRIMO",
+              "skus": 8
+            },
+            {
+              "fornecedor": "CEREJA",
+              "skus": 7
+            },
+            {
+              "fornecedor": "PARK",
+              "skus": 2
+            }
+          ],
+          "notas_detalhe": [
+            {
+              "nf": 891,
+              "skus": 8
+            },
+            {
+              "nf": 892,
+              "skus": 154
+            },
+            {
+              "nf": 893,
+              "skus": 18
+            },
+            {
+              "nf": 895,
+              "skus": 42
+            },
+            {
+              "nf": 896,
+              "skus": 560
+            },
+            {
+              "nf": 897,
+              "skus": 13
+            },
+            {
+              "nf": 898,
+              "skus": 200
+            },
+            {
+              "nf": 899,
+              "skus": 7
+            },
+            {
+              "nf": 901,
+              "skus": 2
+            },
+            {
+              "nf": 902,
+              "skus": 9
+            },
+            {
+              "nf": 903,
+              "skus": 5
+            },
+            {
+              "nf": 904,
+              "skus": 21
+            },
+            {
+              "nf": 905,
+              "skus": 2
+            },
+            {
+              "nf": 906,
+              "skus": 0
+            },
+            {
+              "nf": 907,
+              "skus": 4
+            },
+            {
+              "nf": 908,
+              "skus": 41
+            },
+            {
+              "nf": 909,
+              "skus": 4
+            },
+            {
+              "nf": 910,
+              "skus": 36
+            },
+            {
+              "nf": 911,
+              "skus": 4
+            },
+            {
+              "nf": 912,
+              "skus": 8
+            },
+            {
+              "nf": 913,
+              "skus": 0
+            },
+            {
+              "nf": 914,
+              "skus": 115
+            },
+            {
+              "nf": 915,
+              "skus": 196
+            }
+          ]
+        },
+        {
+          "mes": "Abril 2026",
+          "is_destaque": false,
+          "notas_emitidas": 19,
+          "sku_total": 1310,
+          "sku_por_nota": 68.9,
+          "fornecedores": 8,
+          "sku_por_fornecedor": [
+            {
+              "fornecedor": "AMBER",
+              "skus": 911
+            },
+            {
+              "fornecedor": "SAM",
+              "skus": 165
+            },
+            {
+              "fornecedor": "SALLY",
+              "skus": 89
+            },
+            {
+              "fornecedor": "PARK",
+              "skus": 46
+            },
+            {
+              "fornecedor": "CEREJA",
+              "skus": 30
+            },
+            {
+              "fornecedor": "GRACE MONTAGEM",
+              "skus": 27
+            },
+            {
+              "fornecedor": "CAROLINE",
+              "skus": 24
+            },
+            {
+              "fornecedor": "GRACE IMPORTADO",
+              "skus": 18
+            }
+          ],
+          "notas_detalhe": [
+            {
+              "nf": 916,
+              "skus": 1
+            },
+            {
+              "nf": 917,
+              "skus": 1
+            },
+            {
+              "nf": 918,
+              "skus": 89
+            },
+            {
+              "nf": 919,
+              "skus": 6
+            },
+            {
+              "nf": 920,
+              "skus": 16
+            },
+            {
+              "nf": 921,
+              "skus": 3
+            },
+            {
+              "nf": 922,
+              "skus": 592
+            },
+            {
+              "nf": 923,
+              "skus": 6
+            },
+            {
+              "nf": 924,
+              "skus": 8
+            },
+            {
+              "nf": 925,
+              "skus": 2
+            },
+            {
+              "nf": 926,
+              "skus": 165
+            },
+            {
+              "nf": 927,
+              "skus": 29
+            },
+            {
+              "nf": 928,
+              "skus": 24
+            },
+            {
+              "nf": 929,
+              "skus": 46
+            },
+            {
+              "nf": 930,
+              "skus": 1
+            },
+            {
+              "nf": 931,
+              "skus": 1
+            },
+            {
+              "nf": 932,
+              "skus": 151
+            },
+            {
+              "nf": 933,
+              "skus": 2
+            },
+            {
+              "nf": 934,
+              "skus": 167
+            }
+          ]
+        },
+        {
+          "mes": "Maio 2026",
+          "is_destaque": false,
+          "notas_emitidas": 18,
+          "sku_total": 1506,
+          "sku_por_nota": 83.7,
+          "fornecedores": 7,
+          "sku_por_fornecedor": [
+            {
+              "fornecedor": "AMBER",
+              "skus": 934
+            },
+            {
+              "fornecedor": "CEREJA",
+              "skus": 420
+            },
+            {
+              "fornecedor": "PARK",
+              "skus": 58
+            },
+            {
+              "fornecedor": "ED",
+              "skus": 48
+            },
+            {
+              "fornecedor": "GRACE MONTAGEM",
+              "skus": 34
+            },
+            {
+              "fornecedor": "GRACE IMPORTADO",
+              "skus": 8
+            },
+            {
+              "fornecedor": "LOJAS AROS",
+              "skus": 4
+            }
+          ],
+          "notas_detalhe": [
+            {
+              "nf": 936,
+              "skus": 35
+            },
+            {
+              "nf": 937,
+              "skus": 896
+            },
+            {
+              "nf": 938,
+              "skus": 16
+            },
+            {
+              "nf": 939,
+              "skus": 4
+            },
+            {
+              "nf": 941,
+              "skus": 7
+            },
+            {
+              "nf": 942,
+              "skus": 25
+            },
+            {
+              "nf": 943,
+              "skus": 18
+            },
+            {
+              "nf": 944,
+              "skus": 7
+            },
+            {
+              "nf": 945,
+              "skus": 13
+            },
+            {
+              "nf": 946,
+              "skus": 23
+            },
+            {
+              "nf": 947,
+              "skus": 127
+            },
+            {
+              "nf": 948,
+              "skus": 2
+            },
+            {
+              "nf": 949,
+              "skus": 119
+            },
+            {
+              "nf": 951,
+              "skus": 1
+            },
+            {
+              "nf": 953,
+              "skus": 76
+            },
+            {
+              "nf": 954,
+              "skus": 80
+            },
+            {
+              "nf": 955,
+              "skus": 48
+            },
+            {
+              "nf": 956,
+              "skus": 9
+            }
+          ]
+        }
+      ]
+    },
+    "tela2": {
+      "company": "alinare",
+      "destaque": {
+        "mes": "Junho 2026",
+        "is_destaque": true,
+        "lancamentos": 2326,
+        "skus": 1998,
+        "media_prazo": 2.2,
+        "mediana_prazo": 1.0,
+        "removidos_negativos": 181,
+        "dia_pico": {
+          "data": "19/06",
+          "dia_semana": "Sexta-feira",
+          "quantidade": 522
+        },
+        "volume_diario": [
+          {
+            "dia": 1,
+            "data": "01/06",
+            "count": 185
+          },
+          {
+            "dia": 2,
+            "data": "02/06",
+            "count": 1
+          },
+          {
+            "dia": 3,
+            "data": "03/06",
+            "count": 66
+          },
+          {
+            "dia": 5,
+            "data": "05/06",
+            "count": 262
+          },
+          {
+            "dia": 10,
+            "data": "10/06",
+            "count": 214
+          },
+          {
+            "dia": 11,
+            "data": "11/06",
+            "count": 9
+          },
+          {
+            "dia": 12,
+            "data": "12/06",
+            "count": 52
+          },
+          {
+            "dia": 15,
+            "data": "15/06",
+            "count": 49
+          },
+          {
+            "dia": 16,
+            "data": "16/06",
+            "count": 149
+          },
+          {
+            "dia": 17,
+            "data": "17/06",
+            "count": 43
+          },
+          {
+            "dia": 18,
+            "data": "18/06",
+            "count": 17
+          },
+          {
+            "dia": 19,
+            "data": "19/06",
+            "count": 522
+          },
+          {
+            "dia": 22,
+            "data": "22/06",
+            "count": 23
+          },
+          {
+            "dia": 24,
+            "data": "24/06",
+            "count": 45
+          },
+          {
+            "dia": 25,
+            "data": "25/06",
+            "count": 471
+          },
+          {
+            "dia": 26,
+            "data": "26/06",
+            "count": 1
+          },
+          {
+            "dia": 30,
+            "data": "30/06",
+            "count": 217
+          }
+        ]
+      },
+      "comparacao": [
+        {
+          "mes": "Março 2026",
+          "is_destaque": false,
+          "lancamentos": 1470,
+          "skus": 1334,
+          "media_prazo": 1.1,
+          "mediana_prazo": 1.0,
+          "removidos_negativos": 297,
+          "dia_pico": null,
+          "volume_diario": null
+        },
+        {
+          "mes": "Abril 2026",
+          "is_destaque": false,
+          "lancamentos": 2236,
+          "skus": 1743,
+          "media_prazo": 1.6,
+          "mediana_prazo": 1.0,
+          "removidos_negativos": 647,
+          "dia_pico": null,
+          "volume_diario": null
+        },
+        {
+          "mes": "Maio 2026",
+          "is_destaque": false,
+          "lancamentos": 1718,
+          "skus": 1496,
+          "media_prazo": 2.8,
+          "mediana_prazo": 3.0,
+          "removidos_negativos": 45,
+          "dia_pico": null,
+          "volume_diario": null
+        }
+      ],
+      "ano_anterior": {
+        "mes": "Junho 2025",
+        "is_destaque": false,
+        "lancamentos": 1030,
+        "skus": 1018,
+        "media_prazo": 0.5,
+        "mediana_prazo": 0.0,
+        "removidos_negativos": 255,
+        "dia_pico": null,
+        "volume_diario": [
+          {
+            "dia": 3,
+            "data": "03/06",
+            "count": 17
+          },
+          {
+            "dia": 5,
+            "data": "05/06",
+            "count": 6
+          },
+          {
+            "dia": 9,
+            "data": "09/06",
+            "count": 57
+          },
+          {
+            "dia": 10,
+            "data": "10/06",
+            "count": 5
+          },
+          {
+            "dia": 11,
+            "data": "11/06",
+            "count": 2
+          },
+          {
+            "dia": 13,
+            "data": "13/06",
+            "count": 223
+          },
+          {
+            "dia": 16,
+            "data": "16/06",
+            "count": 96
+          },
+          {
+            "dia": 23,
+            "data": "23/06",
+            "count": 2
+          },
+          {
+            "dia": 24,
+            "data": "24/06",
+            "count": 592
+          },
+          {
+            "dia": 27,
+            "data": "27/06",
+            "count": 30
+          }
+        ]
+      }
+    },
+    "tela3": {
+      "company": "alinare",
+      "mes": "Julho 2026",
+      "total_itens": 7,
+      "status_ok": 5,
+      "status_processo": 2,
+      "mkt_ok": 7,
+      "mkt_processo": 0,
+      "itens": [
+        {
+          "empresa": "alinare",
+          "data": "06/07",
+          "descricao": "Pocket 1 - Sparckle + ZC",
+          "embarque": "60",
+          "status_raw": "Programado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "alinare",
+          "data": "09/07",
+          "descricao": "Moissanite Leve (Fruta ED68)",
+          "embarque": "68",
+          "status_raw": "Programado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "alinare",
+          "data": "13/07",
+          "descricao": "Zircônia - Seleção do Estoque 4",
+          "embarque": "Estoque 4",
+          "status_raw": "Programado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "alinare",
+          "data": "Sem data",
+          "descricao": "Moissa BR E69 (seleção pocket 2 - E60???)",
+          "embarque": "69",
+          "status_raw": "Em etiquetagem",
+          "status": "EM PROCESSO",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "alinare",
+          "data": "18/07",
+          "descricao": "Pocket 2 - Color Mix + Pedra Natural E61/68 (peridoto)",
+          "embarque": "65/67/69/61/68",
+          "status_raw": "Fila Etiquetagem",
+          "status": "EM PROCESSO",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "alinare",
+          "data": "Sem data",
+          "descricao": "Grego",
+          "embarque": "Feninjer",
+          "status_raw": "Finalizado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "alinare",
+          "data": "Sem data",
+          "descricao": "Festa",
+          "embarque": "Feninjer",
+          "status_raw": "Finalizado",
+          "status": "OK",
+          "mkt": "OK"
+        }
+      ]
+    }
+  },
+  "novitah": {
+    "tela1": {
+      "company": "novitah",
+      "destaque": {
+        "mes": "Junho 2026",
+        "is_destaque": true,
+        "notas_emitidas": 16,
+        "sku_total": 1468,
+        "sku_por_nota": 91.8,
+        "fornecedores": 9,
+        "sku_por_fornecedor": [
+          {
+            "fornecedor": "GRANT",
+            "skus": 745
+          },
+          {
+            "fornecedor": "CAROLINE",
+            "skus": 405
+          },
+          {
+            "fornecedor": "KIRSTY",
+            "skus": 184
+          },
+          {
+            "fornecedor": "P.A.",
+            "skus": 87
+          },
+          {
+            "fornecedor": "GF BRUTOS",
+            "skus": 18
+          },
+          {
+            "fornecedor": "LIMEIRA FUNDICAO - INDUSTRIA E COMERCIO DE BIJOUTERIAS LTDA",
+            "skus": 16
+          },
+          {
+            "fornecedor": "NOBRE CARACELLI",
+            "skus": 8
+          },
+          {
+            "fornecedor": "FGF FUNDIDOS",
+            "skus": 4
+          },
+          {
+            "fornecedor": "BILDAD UND E COM DE BIJ LT EPP",
+            "skus": 1
+          }
+        ],
+        "notas_detalhe": [
+          {
+            "nf": 345,
+            "skus": 6
+          },
+          {
+            "nf": 346,
+            "skus": 8
+          },
+          {
+            "nf": 347,
+            "skus": 273
+          },
+          {
+            "nf": 348,
+            "skus": 0
+          },
+          {
+            "nf": 349,
+            "skus": 154
+          },
+          {
+            "nf": 350,
+            "skus": 30
+          },
+          {
+            "nf": 351,
+            "skus": 1
+          },
+          {
+            "nf": 352,
+            "skus": 12
+          },
+          {
+            "nf": 354,
+            "skus": 16
+          },
+          {
+            "nf": 356,
+            "skus": 85
+          },
+          {
+            "nf": 357,
+            "skus": 70
+          },
+          {
+            "nf": 358,
+            "skus": 673
+          },
+          {
+            "nf": 359,
+            "skus": 2
+          },
+          {
+            "nf": 360,
+            "skus": 4
+          },
+          {
+            "nf": 361,
+            "skus": 2
+          },
+          {
+            "nf": 362,
+            "skus": 132
+          }
+        ]
+      },
+      "comparacao": [
+        {
+          "mes": "Março 2026",
+          "is_destaque": false,
+          "notas_emitidas": 17,
+          "sku_total": 349,
+          "sku_por_nota": 20.5,
+          "fornecedores": 10,
+          "sku_por_fornecedor": [
+            {
+              "fornecedor": "KIRSTY",
+              "skus": 255
+            },
+            {
+              "fornecedor": "GRANT",
+              "skus": 75
+            },
+            {
+              "fornecedor": "VIE DUTRA",
+              "skus": 9
+            },
+            {
+              "fornecedor": "CAROLINE",
+              "skus": 8
+            },
+            {
+              "fornecedor": "NOBRE CARACELLI",
+              "skus": 1
+            },
+            {
+              "fornecedor": "LIMEIRA FUNDICAO - INDUSTRIA E COMERCIO DE BIJOUTERIAS LTDA",
+              "skus": 1
+            },
+            {
+              "fornecedor": "MAUI COMERCIO DE FOLHEADOS E BRUTOS - GABRIELA HERNANDES DE",
+              "skus": 0
+            },
+            {
+              "fornecedor": "WENZEL JOIAS",
+              "skus": 0
+            },
+            {
+              "fornecedor": "BILDAD UND E COM DE BIJ LT EPP",
+              "skus": 0
+            },
+            {
+              "fornecedor": "GF BRUTOS",
+              "skus": 0
+            }
+          ],
+          "notas_detalhe": [
+            {
+              "nf": 290,
+              "skus": 0
+            },
+            {
+              "nf": 291,
+              "skus": 8
+            },
+            {
+              "nf": 293,
+              "skus": 40
+            },
+            {
+              "nf": 294,
+              "skus": 0
+            },
+            {
+              "nf": 296,
+              "skus": 0
+            },
+            {
+              "nf": 297,
+              "skus": 0
+            },
+            {
+              "nf": 299,
+              "skus": 0
+            },
+            {
+              "nf": 300,
+              "skus": 0
+            },
+            {
+              "nf": 302,
+              "skus": 35
+            },
+            {
+              "nf": 304,
+              "skus": 0
+            },
+            {
+              "nf": 305,
+              "skus": 253
+            },
+            {
+              "nf": 306,
+              "skus": 1
+            },
+            {
+              "nf": 307,
+              "skus": 1
+            },
+            {
+              "nf": 308,
+              "skus": 1
+            },
+            {
+              "nf": 309,
+              "skus": 1
+            },
+            {
+              "nf": 310,
+              "skus": 2
+            },
+            {
+              "nf": 311,
+              "skus": 7
+            }
+          ]
+        },
+        {
+          "mes": "Abril 2026",
+          "is_destaque": false,
+          "notas_emitidas": 18,
+          "sku_total": 888,
+          "sku_por_nota": 49.3,
+          "fornecedores": 8,
+          "sku_por_fornecedor": [
+            {
+              "fornecedor": "CAROLINE",
+              "skus": 636
+            },
+            {
+              "fornecedor": "BARCELOS LIMEIRO",
+              "skus": 192
+            },
+            {
+              "fornecedor": "GF BRUTOS",
+              "skus": 38
+            },
+            {
+              "fornecedor": "LIMEIRA FUNDICAO - INDUSTRIA E COMERCIO DE BIJOUTERIAS LTDA",
+              "skus": 15
+            },
+            {
+              "fornecedor": "FGF FUNDIDOS",
+              "skus": 3
+            },
+            {
+              "fornecedor": "INDUSTRIA E COMERCIO DE FERRAMENTAS E BIJUTERIAS ROAL LTDA",
+              "skus": 2
+            },
+            {
+              "fornecedor": "BILDAD UND E COM DE BIJ LT EPP",
+              "skus": 1
+            },
+            {
+              "fornecedor": "NOBRE CARACELLI",
+              "skus": 1
+            }
+          ],
+          "notas_detalhe": [
+            {
+              "nf": 312,
+              "skus": 2
+            },
+            {
+              "nf": 313,
+              "skus": 0
+            },
+            {
+              "nf": 314,
+              "skus": 1
+            },
+            {
+              "nf": 315,
+              "skus": 3
+            },
+            {
+              "nf": 316,
+              "skus": 1
+            },
+            {
+              "nf": 317,
+              "skus": 1
+            },
+            {
+              "nf": 319,
+              "skus": 28
+            },
+            {
+              "nf": 321,
+              "skus": 6
+            },
+            {
+              "nf": 322,
+              "skus": 57
+            },
+            {
+              "nf": 323,
+              "skus": 74
+            },
+            {
+              "nf": 324,
+              "skus": 27
+            },
+            {
+              "nf": 328,
+              "skus": 71
+            },
+            {
+              "nf": 329,
+              "skus": 325
+            },
+            {
+              "nf": 330,
+              "skus": 239
+            },
+            {
+              "nf": 331,
+              "skus": 13
+            },
+            {
+              "nf": 332,
+              "skus": 17
+            },
+            {
+              "nf": 333,
+              "skus": 15
+            },
+            {
+              "nf": 334,
+              "skus": 8
+            }
+          ]
+        },
+        {
+          "mes": "Maio 2026",
+          "is_destaque": false,
+          "notas_emitidas": 5,
+          "sku_total": 494,
+          "sku_por_nota": 98.8,
+          "fornecedores": 4,
+          "sku_por_fornecedor": [
+            {
+              "fornecedor": "CAROLINE",
+              "skus": 480
+            },
+            {
+              "fornecedor": "GF BRUTOS",
+              "skus": 12
+            },
+            {
+              "fornecedor": "VANESSA PEDRONI LIMA BIJUTERIAS",
+              "skus": 2
+            },
+            {
+              "fornecedor": "FGF FUNDIDOS",
+              "skus": 0
+            }
+          ],
+          "notas_detalhe": [
+            {
+              "nf": 335,
+              "skus": 0
+            },
+            {
+              "nf": 337,
+              "skus": 12
+            },
+            {
+              "nf": 338,
+              "skus": 2
+            },
+            {
+              "nf": 339,
+              "skus": 461
+            },
+            {
+              "nf": 343,
+              "skus": 19
+            }
+          ]
+        }
+      ]
+    },
+    "tela2": {
+      "company": "novitah",
+      "destaque": {
+        "mes": "Junho 2026",
+        "is_destaque": true,
+        "lancamentos": 1473,
+        "skus": 1328,
+        "media_prazo": 1.5,
+        "mediana_prazo": 0.0,
+        "removidos_negativos": 186,
+        "dia_pico": {
+          "data": "30/06",
+          "dia_semana": "Terça-feira",
+          "quantidade": 493
+        },
+        "volume_diario": [
+          {
+            "dia": 3,
+            "data": "03/06",
+            "count": 14
+          },
+          {
+            "dia": 5,
+            "data": "05/06",
+            "count": 239
+          },
+          {
+            "dia": 8,
+            "data": "08/06",
+            "count": 80
+          },
+          {
+            "dia": 12,
+            "data": "12/06",
+            "count": 76
+          },
+          {
+            "dia": 17,
+            "data": "17/06",
+            "count": 6
+          },
+          {
+            "dia": 19,
+            "data": "19/06",
+            "count": 155
+          },
+          {
+            "dia": 22,
+            "data": "22/06",
+            "count": 169
+          },
+          {
+            "dia": 24,
+            "data": "24/06",
+            "count": 15
+          },
+          {
+            "dia": 26,
+            "data": "26/06",
+            "count": 226
+          },
+          {
+            "dia": 30,
+            "data": "30/06",
+            "count": 493
+          }
+        ]
+      },
+      "comparacao": [
+        {
+          "mes": "Março 2026",
+          "is_destaque": false,
+          "lancamentos": 752,
+          "skus": 737,
+          "media_prazo": 1.8,
+          "mediana_prazo": 3.0,
+          "removidos_negativos": 556,
+          "dia_pico": null,
+          "volume_diario": null
+        },
+        {
+          "mes": "Abril 2026",
+          "is_destaque": false,
+          "lancamentos": 731,
+          "skus": 720,
+          "media_prazo": 1.9,
+          "mediana_prazo": 1.0,
+          "removidos_negativos": 3,
+          "dia_pico": null,
+          "volume_diario": null
+        },
+        {
+          "mes": "Maio 2026",
+          "is_destaque": false,
+          "lancamentos": 1255,
+          "skus": 917,
+          "media_prazo": 1.4,
+          "mediana_prazo": 1.0,
+          "removidos_negativos": 242,
+          "dia_pico": null,
+          "volume_diario": null
+        }
+      ],
+      "ano_anterior": {
+        "mes": "Junho 2025",
+        "is_destaque": false,
+        "lancamentos": 574,
+        "skus": 543,
+        "media_prazo": 2.9,
+        "mediana_prazo": 3.0,
+        "removidos_negativos": 271,
+        "dia_pico": null,
+        "volume_diario": [
+          {
+            "dia": 2,
+            "data": "02/06",
+            "count": 6
+          },
+          {
+            "dia": 6,
+            "data": "06/06",
+            "count": 108
+          },
+          {
+            "dia": 10,
+            "data": "10/06",
+            "count": 1
+          },
+          {
+            "dia": 13,
+            "data": "13/06",
+            "count": 82
+          },
+          {
+            "dia": 20,
+            "data": "20/06",
+            "count": 327
+          },
+          {
+            "dia": 23,
+            "data": "23/06",
+            "count": 3
+          },
+          {
+            "dia": 25,
+            "data": "25/06",
+            "count": 18
+          },
+          {
+            "dia": 27,
+            "data": "27/06",
+            "count": 29
+          }
+        ]
+      }
+    },
+    "tela3": {
+      "company": "novitah",
+      "mes": "Julho 2026",
+      "total_itens": 4,
+      "status_ok": 2,
+      "status_processo": 2,
+      "mkt_ok": 4,
+      "mkt_processo": 0,
+      "itens": [
+        {
+          "empresa": "novitah",
+          "data": "01/07",
+          "descricao": "Grant/ Caroline/ Kirsty",
+          "embarque": "58/63/66/67",
+          "status_raw": "Finalizado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "novitah",
+          "data": "09/07",
+          "descricao": "Grant/ Caroline/ Kirsty/ Nacionais",
+          "embarque": "58/66/67",
+          "status_raw": "Programado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "novitah",
+          "data": "14/07",
+          "descricao": "Kirsty/ Grant",
+          "embarque": "66/67",
+          "status_raw": "Fila Etiquetagem",
+          "status": "EM PROCESSO",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "novitah",
+          "data": "25/07",
+          "descricao": "Kirsty",
+          "embarque": "66",
+          "status_raw": "Fila Etiquetagem",
+          "status": "EM PROCESSO",
+          "mkt": "OK"
+        }
+      ]
+    }
+  }
+}

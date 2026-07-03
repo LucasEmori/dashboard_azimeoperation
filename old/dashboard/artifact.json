@@ -1,0 +1,15 @@
+{
+  "title": "Dashboard Joias - Alinare & Novitah",
+  "slug": "dashboard-joias-alinare-novitah",
+  "status": "active",
+  "preview": {
+    "type": "html",
+    "entry": "index.html"
+  },
+  "document": {
+    "format": "html_template_v1",
+    "templatePath": "template.html",
+    "generatedPreviewPath": "index.html",
+    "dataPath": "data.json"
+  }
+}

@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - Alinare & Novitah</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      /* Alinare Colors */
+      --alinare-bg: #1a237e;
+      --alinare-surface: #283593;
+      --alinare-accent: #3949ab;
+      --alinare-text: #ffffff;
+
+      /* Novitah Colors */
+      --novitah-bg: #a07a7a;
+      --novitah-surface: #8d6b6b;
+      --novitah-accent: #b88e8e;
+      --novitah-text: #ffffff;
+
+      /* Shared */
+      --spacing-sm: 8px;
+      --spacing-md: 16px;
+      --spacing-lg: 24px;
+      --spacing-xl: 32px;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      background: #0a0e1a;
+      color: white;
+      min-height: 100vh;
+    }
+
+    /* Navigation */
+    .nav {
+      display: flex;
+      justify-content: center;
+      gap: var(--spacing-md);
+      padding: var(--spacing-lg);
+      background: #121826;
+      border-bottom: 1px solid #2a374a;
+    }
+
+    .nav-btn {
+      padding: var(--spacing-sm) var(--spacing-lg);
+      border: none;
+      border-radius: 4px;
+      background: transparent;
+      color: #8b9cb5;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      border-bottom: 2px solid transparent;
+    }
+
+    .nav-btn:hover {
+      color: white;
+    }
+
+    .nav-btn.active {
+      color: white;
+      border-bottom-color: white;
+    }
+
+    /* Screens */
+    .screen {
+      display: none;
+    }
+
+    .screen.active {
+      display: block;
+    }
+
+    /* Split Container */
+    .split-container {
+      display: flex;
+      min-height: calc(100vh - 72px);
+    }
+
+    .split-side {
+      flex: 1;
+      padding: var(--spacing-xl) var(--spacing-xl) var(--spacing-xl) var(--spacing-xl);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .split-side.alinare {
+      background: var(--alinare-bg);
+      border-right: 1px solid #0a0e1a;
+    }
+
+    .split-side.novitah {
+      background: var(--novitah-bg);
+    }
+
+    /* Logo Area */
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-md);
+      margin-bottom: var(--spacing-lg);
+    }
+
+    .logo-placeholder {
+      width: 40px;
+      height: 40px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      font-size: 18px;
+      letter-spacing: -0.5px;
+    }
+
+    .logo-placeholder.alinare {
+      background: var(--alinare-surface);
+    }
+
+    .logo-placeholder.novitah {
+      background: var(--novitah-surface);
+    }
+
+    .company-name {
+      font-size: 24px;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+    }
+
+    /* Screen Title */
+    .screen-title {
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: var(--spacing-lg);
+      padding-bottom: var(--spacing-sm);
+      border-bottom: 1px solid rgba(255,255,255,0.12);
+    }
+
+    /* Metrics Grid */
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--spacing-md);
+      margin-bottom: var(--spacing-lg);
+    }
+
+    .metric-card {
+      background: rgba(255,255,255,0.04);
+      border-radius: 4px;
+      padding: var(--spacing-lg);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .metric-card.current-month {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+    }
+
+    .metric-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      opacity: 0.7;
+      margin-bottom: var(--spacing-sm);
+    }
+
+    .metric-month {
+      font-size: 13px;
+      font-weight: 500;
+      opacity: 0.9;
+      margin-bottom: var(--spacing-md);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .metric-value {
+      font-size: 36px;
+      font-weight: 600;
+      font-variant-numeric: tabular-nums;
+      line-height: 1;
+      letter-spacing: -0.5px;
+    }
+
+    .metric-value.large {
+      font-size: 48px;
+    }
+
+    .comparison-label {
+      font-size: 11px;
+      opacity: 0.6;
+      margin-bottom: 2px;
+    }
+
+    /* Comparison Section */
+    .comparison-section {
+      margin-top: var(--spacing-md);
+    }
+
+    .comparison-title {
+      font-size: 14px;
+      font-weight: 500;
+      margin-bottom: var(--spacing-md);
+      opacity: 0.9;
+    }
+
+    .comparison-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--spacing-md);
+    }
+
+    .comparison-card {
+      background: rgba(255,255,255,0.04);
+      border-radius: 4px;
+      padding: var(--spacing-md);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .comparison-month {
+      font-size: 13px;
+      font-weight: 500;
+      margin-bottom: var(--spacing-sm);
+      opacity: 0.8;
+    }
+
+    .comparison-value {
+      font-size: 24px;
+      font-weight: 600;
+      font-variant-numeric: tabular-nums;
+      letter-spacing: -0.3px;
+    }
+
+    /* Planning Section (Screen 3) */
+    .planning-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-sm);
+    }
+
+    .planning-item {
+      background: rgba(255,255,255,0.04);
+      border-radius: 4px;
+      padding: var(--spacing-md);
+      border: 1px solid rgba(255,255,255,0.08);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .planning-item.status-ready {
+      background: rgba(76, 175, 80, 0.12);
+      border-color: rgba(76, 175, 80, 0.25);
+    }
+
+    .planning-item.status-process {
+      background: rgba(255, 193, 7, 0.1);
+      border-color: rgba(255, 193, 7, 0.2);
+    }
+
+    .planning-name {
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .planning-meta {
+      font-size: 12px;
+      opacity: 0.6;
+      margin-top: 2px;
+    }
+
+    .planning-status {
+      padding: 4px 10px;
+      border-radius: 3px;
+      font-size: 11px;
+      font-weight: 500;
+    }
+
+    .planning-status.ready {
+      background: rgba(76, 175, 80, 0.2);
+      color: #81c784;
+    }
+
+    .planning-status.process {
+      background: rgba(255, 193, 7, 0.2);
+      color: #ffd54f;
+    }
+
+    .mkt-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 3px 8px;
+      border-radius: 3px;
+      font-size: 10px;
+      font-weight: 500;
+      margin-left: var(--spacing-sm);
+    }
+
+    .mkt-badge.sent {
+      background: rgba(76, 175, 80, 0.15);
+      color: #81c784;
+    }
+
+    .mkt-badge.pending {
+      background: rgba(255, 193, 7, 0.15);
+      color: #ffd54f;
+    }
+
+    /* SVG Icons */
+    .icon {
+      width: 14px;
+      height: 14px;
+      fill: currentColor;
+      opacity: 0.7;
+    }
+
+    .icon-check {
+      width: 12px;
+      height: 12px;
+    }
+
+    .month-header {
+      font-size: 15px;
+      font-weight: 500;
+      opacity: 0.9;
+      margin-bottom: var(--spacing-lg);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .split-container {
+        flex-direction: column;
+      }
+
+      .split-side.alinare {
+        border-right: none;
+        border-bottom: 1px solid #0a0e1a;
+      }
+
+      .metrics-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .comparison-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Data source indicator */
+    .data-source {
+      position: fixed;
+      bottom: var(--spacing-md);
+      right: var(--spacing-md);
+      padding: var(--spacing-sm) var(--spacing-md);
+      background: rgba(0,0,0,0.5);
+      border-radius: 4px;
+      font-size: 11px;
+      opacity: 0.5;
+      font-weight: 400;
+    }
+
+    /* Status dots */
+    .status-dot {
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      margin-right: 6px;
+    }
+
+    .status-dot.success {
+      background: #81c784;
+    }
+
+    .status-dot.warning {
+      background: #ffd54f;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="nav">
+    <button class="nav-btn active" onclick="showScreen(1)">Notas de Entrada</button>
+    <button class="nav-btn" onclick="showScreen(2)">Produtos Lançados</button>
+    <button class="nav-btn" onclick="showScreen(3)">Próximos Lançamentos</button>
+  </nav>
+
+  <!-- SVG Icons -->
+  <svg style="display: none;">
+    <symbol id="icon-pin" viewBox="0 0 16 16">
+      <path d="M8 0a3 3 0 00-3 3c0 1.5.5 3 2 4.5V14a1 1 0 001 1h0a1 1 0 001-1v-6.5C10.5 6 11 4.5 11 3a3 3 0 00-3-3zm0 2a1 1 0 110 2 1 1 0 010-2z"/>
+    </symbol>
+    <symbol id="icon-calendar" viewBox="0 0 16 16">
+      <path d="M5 0h1v1H5V0zM4 2h8a2 2 0 012 2v10a2 2 0 01-2 2H4a2 2 0 01-2-2V4a2 2 0 012-2zm0 1a1 1 0 00-1 1v10a1 1 0 001 1h8a1 1 0 001-1V4a1 1 0 00-1-1H4zm1 3h2v2H5V6zm4 0h2v2H9V6zM5 10h2v2H5v-2zm4 0h2v2H9v-2z"/>
+    </symbol>
+    <symbol id="icon-check" viewBox="0 0 16 16">
+      <path d="M13.5 3.5l-8 8L2.5 8.5l-1 1l4 4l9-9l-1-1z"/>
+    </symbol>
+    <symbol id="icon-clock" viewBox="0 0 16 16">
+      <path d="M8 0a8 8 0 100 16A8 8 0 008 0zm0 2a6 6 0 110 12A6 6 0 018 2zm1 2H7v5h4V8H9V4z"/>
+    </symbol>
+  </svg>
+
+  <!-- Screen 1: Notas de Entrada -->
+  <div id="screen1" class="screen active">
+    <div class="split-container">
+      <!-- Alinare Side -->
+      <div class="split-side alinare">
+        <div class="logo-area">
+          <div class="logo-placeholder alinare">A</div>
+          <span class="company-name">ALINARE</span>
+        </div>
+
+        <h2 class="screen-title">Notas de Entrada</h2>
+
+        <!-- Current Month Highlight -->
+        <div class="metric-card current-month">
+          <div class="metric-month">
+            <svg class="icon"><use href="#icon-pin"/></svg>
+            Junho — Mês Passado
+          </div>
+          <div class="metrics-grid" style="margin-bottom: 0;">
+            <div>
+              <div class="metric-label">Notas que Subiram</div>
+              <div class="metric-value large">47</div>
+            </div>
+            <div>
+              <div class="metric-label">SKU por Nota</div>
+              <div class="metric-value large">312</div>
+            </div>
+            <div>
+              <div class="metric-label">SKU por Fornecedor</div>
+              <div class="metric-value large">89</div>
+            </div>
+            <div>
+              <div class="metric-label">Fornecedores Ativos</div>
+              <div class="metric-value large">12</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Comparison -->
+        <div class="comparison-section">
+          <div class="comparison-title">Comparativo Últimos Meses</div>
+          <div class="comparison-grid">
+            <div class="comparison-card">
+              <div class="comparison-month">Fevereiro</div>
+              <div class="comparison-label">Notas</div>
+              <div class="comparison-value">38</div>
+              <div class="comparison-label" style="margin-top: 6px;">SKU</div>
+              <div class="comparison-value">245</div>
+            </div>
+            <div class="comparison-card">
+              <div class="comparison-month">Abril</div>
+              <div class="comparison-label">Notas</div>
+              <div class="comparison-value">42</div>
+              <div class="comparison-label" style="margin-top: 6px;">SKU</div>
+              <div class="comparison-value">287</div>
+            </div>
+            <div class="comparison-card">
+              <div class="comparison-month">Maio</div>
+              <div class="comparison-label">Notas</div>
+              <div class="comparison-value">51</div>
+              <div class="comparison-label" style="margin-top: 6px;">SKU</div>
+              <div class="comparison-value">298</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Novitah Side -->
+      <div class="split-side novitah">
+        <div class="logo-area">
+          <div class="logo-placeholder novitah">N</div>
+          <span class="company-name">NOVITAH</span>
+        </div>
+
+        <h2 class="screen-title">Notas de Entrada</h2>
+
+        <!-- Current Month Highlight -->
+        <div class="metric-card current-month">
+          <div class="metric-month">
+            <svg class="icon"><use href="#icon-pin"/></svg>
+            Junho — Mês Passado
+          </div>
+          <div class="metrics-grid" style="margin-bottom: 0;">
+            <div>
+              <div class="metric-label">Notas que Subiram</div>
+              <div class="metric-value large">23</div>
+            </div>
+            <div>
+              <div class="metric-label">SKU por Nota</div>
+              <div class="metric-value large">156</div>
+            </div>
+            <div>
+              <div class="metric-label">SKU por Fornecedor</div>
+              <div class="metric-value large">52</div>
+            </div>
+            <div>
+              <div class="metric-label">Fornecedores Ativos</div>
+              <div class="metric-value large">8</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Comparison -->
+        <div class="comparison-section">
+          <div class="comparison-title">Comparativo Últimos Meses</div>
+          <div class="comparison-grid">
+            <div class="comparison-card">
+              <div class="comparison-month">Fevereiro</div>
+              <div class="comparison-label">Notas</div>
+              <div class="comparison-value">19</div>
+              <div class="comparison-label" style="margin-top: 6px;">SKU</div>
+              <div class="comparison-value">128</div>
+            </div>
+            <div class="comparison-card">
+              <div class="comparison-month">Abril</div>
+              <div class="comparison-label">Notas</div>
+              <div class="comparison-value">21</div>
+              <div class="comparison-label" style="margin-top: 6px;">SKU</div>
+              <div class="comparison-value">142</div>
+            </div>
+            <div class="comparison-card">
+              <div class="comparison-month">Maio</div>
+              <div class="comparison-label">Notas</div>
+              <div class="comparison-value">25</div>
+              <div class="comparison-label" style="margin-top: 6px;">SKU</div>
+              <div class="comparison-value">161</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Screen 2: Produtos Lançados -->
+  <div id="screen2" class="screen">
+    <div class="split-container">
+      <!-- Alinare Side -->
+      <div class="split-side alinare">
+        <div class="logo-area">
+          <div class="logo-placeholder alinare">A</div>
+          <span class="company-name">ALINARE</span>
+        </div>
+
+        <h2 class="screen-title">Produtos Lançados</h2>
+
+        <!-- Current Month Highlight -->
+        <div class="metric-card current-month">
+          <div class="metric-month">
+            <svg class="icon"><use href="#icon-pin"/></svg>
+            Junho — Mês Passado
+          </div>
+          <div class="metrics-grid" style="margin-bottom: 0;">
+            <div>
+              <div class="metric-label">Média de Dias</div>
+              <div class="metric-value large">8.5</div>
+              <div class="comparison-label">Data até Lançamento</div>
+            </div>
+            <div>
+              <div class="metric-label">Lançamentos</div>
+              <div class="metric-value large">34</div>
+            </div>
+            <div>
+              <div class="metric-label">Dia com Mais</div>
+              <div class="metric-value large">12</div>
+              <div class="comparison-label">Quarta-feira</div>
+            </div>
+            <div>
+              <div class="metric-label">SKUs Lançados</div>
+              <div class="metric-value large">52</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Comparison -->
+        <div class="comparison-section">
+          <div class="comparison-title">Comparativo Últimos Meses</div>
+          <div class="comparison-grid">
+            <div class="comparison-card">
+              <div class="comparison-month">Fevereiro</div>
+              <div class="comparison-label">Lançamentos</div>
+              <div class="comparison-value">28</div>
+              <div class="comparison-label" style="margin-top: 6px;">Média Dias</div>
+              <div class="comparison-value">9.2</div>
+            </div>
+            <div class="comparison-card">
+              <div class="comparison-month">Abril</div>
+              <div class="comparison-label">Lançamentos</div>
+              <div class="comparison-value">31</div>
+              <div class="comparison-label" style="margin-top: 6px;">Média Dias</div>
+              <div class="comparison-value">7.8</div>
+            </div>
+            <div class="comparison-card">
+              <div class="comparison-month">Maio</div>
+              <div class="comparison-label">Lançamentos</div>
+              <div class="comparison-value">39</div>
+              <div class="comparison-label" style="margin-top: 6px;">Média Dias</div>
+              <div class="comparison-value">8.1</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Novitah Side -->
+      <div class="split-side novitah">
+        <div class="logo-area">
+          <div class="logo-placeholder novitah">N</div>
+          <span class="company-name">NOVITAH</span>
+        </div>
+
+        <h2 class="screen-title">Produtos Lançados</h2>
+
+        <!-- Current Month Highlight -->
+        <div class="metric-card current-month">
+          <div class="metric-month">
+            <svg class="icon"><use href="#icon-pin"/></svg>
+            Junho — Mês Passado
+          </div>
+          <div class="metrics-grid" style="margin-bottom: 0;">
+            <div>
+              <div class="metric-label">Média de Dias</div>
+              <div class="metric-value large">12.3</div>
+              <div class="comparison-label">Data até Lançamento</div>
+            </div>
+            <div>
+              <div class="metric-label">Lançamentos</div>
+              <div class="metric-value large">18</div>
+            </div>
+            <div>
+              <div class="metric-label">Dia com Mais</div>
+              <div class="metric-value large">15</div>
+              <div class="comparison-label">Sexta-feira</div>
+            </div>
+            <div>
+              <div class="metric-label">SKUs Lançados</div>
+              <div class="metric-value large">27</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Comparison -->
+        <div class="comparison-section">
+          <div class="comparison-title">Comparativo Últimos Meses</div>
+          <div class="comparison-grid">
+            <div class="comparison-card">
+              <div class="comparison-month">Fevereiro</div>
+              <div class="comparison-label">Lançamentos</div>
+              <div class="comparison-value">14</div>
+              <div class="comparison-label" style="margin-top: 6px;">Média Dias</div>
+              <div class="comparison-value">13.5</div>
+            </div>
+            <div class="comparison-card">
+              <div class="comparison-month">Abril</div>
+              <div class="comparison-label">Lançamentos</div>
+              <div class="comparison-value">16</div>
+              <div class="comparison-label" style="margin-top: 6px;">Média Dias</div>
+              <div class="comparison-value">11.8</div>
+            </div>
+            <div class="comparison-card">
+              <div class="comparison-month">Maio</div>
+              <div class="comparison-label">Lançamentos</div>
+              <div class="comparison-value">21</div>
+              <div class="comparison-label" style="margin-top: 6px;">Média Dias</div>
+              <div class="comparison-value">10.9</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Screen 3: Próximos Lançamentos -->
+  <div id="screen3" class="screen">
+    <div class="split-container">
+      <!-- Alinare Side -->
+      <div class="split-side alinare">
+        <div class="logo-area">
+          <div class="logo-placeholder alinare">A</div>
+          <span class="company-name">ALINARE</span>
+        </div>
+
+        <h2 class="screen-title">Próximos Lançamentos</h2>
+
+        <div class="month-header">
+          <svg class="icon"><use href="#icon-calendar"/></svg>
+          Julho 2026
+        </div>
+
+        <div class="planning-list">
+          <div class="planning-item status-ready">
+            <div>
+              <div class="planning-name">Coleção Verão 2026</div>
+              <div class="planning-meta">15 SKUs — Programado: 01/07</div>
+            </div>
+            <div>
+              <span class="planning-status ready">Pronto</span>
+              <span class="mkt-badge sent">
+                <svg class="icon-check"><use href="#icon-check"/></svg>
+                MKT
+              </span>
+            </div>
+          </div>
+
+          <div class="planning-item status-ready">
+            <div>
+              <div class="planning-name">Linha Casual Elegance</div>
+              <div class="planning-meta">8 SKUs — Programado: 05/07</div>
+            </div>
+            <div>
+              <span class="planning-status ready">Lançado</span>
+              <span class="mkt-badge sent">
+                <svg class="icon-check"><use href="#icon-check"/></svg>
+                MKT
+              </span>
+            </div>
+          </div>
+
+          <div class="planning-item status-process">
+            <div>
+              <div class="planning-name">Brincos Celestiais</div>
+              <div class="planning-meta">12 SKUs — Programado: 10/07</div>
+            </div>
+            <div>
+              <span class="planning-status process">Em Processo</span>
+              <span class="mkt-badge pending">MKT</span>
+            </div>
+          </div>
+
+          <div class="planning-item status-process">
+            <div>
+              <div class="planning-name">Colares Premium</div>
+              <div class="planning-meta">6 SKUs — Programado: 15/07</div>
+            </div>
+            <div>
+              <span class="planning-status process">Em Processo</span>
+              <span class="mkt-badge pending">MKT</span>
+            </div>
+          </div>
+
+          <div class="planning-item status-process">
+            <div>
+              <div class="planning-name">Anéis Clássicos S2</div>
+              <div class="planning-meta">20 SKUs — Programado: 22/07</div>
+            </div>
+            <div>
+              <span class="planning-status process">Em Processo</span>
+              <span class="mkt-badge pending">MKT</span>
+            </div>
+          </div>
+
+          <div class="planning-item status-process">
+            <div>
+              <div class="planning-name">Pingentes Especiais</div>
+              <div class="planning-meta">10 SKUs — Programado: 28/07</div>
+            </div>
+            <div>
+              <span class="planning-status process">Em Processo</span>
+              <span class="mkt-badge pending">MKT</span>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top: var(--spacing-lg); padding: var(--spacing-md); background: rgba(255,255,255,0.04); border-radius: 4px; border: 1px solid rgba(255,255,255,0.08);">
+          <div style="font-size: 12px; opacity: 0.7;">Total do Mês</div>
+          <div style="font-size: 28px; font-weight: 600; margin-top: var(--spacing-sm);">71 SKUs</div>
+          <div style="font-size: 12px; margin-top: var(--spacing-sm);">
+            <span class="status-dot success"></span>2 Prontos
+            <span class="status-dot warning" style="margin-left: var(--spacing-md);"></span>4 Em Processo
+          </div>
+        </div>
+      </div>
+
+      <!-- Novitah Side -->
+      <div class="split-side novitah">
+        <div class="logo-area">
+          <div class="logo-placeholder novitah">N</div>
+          <span class="company-name">NOVITAH</span>
+        </div>
+
+        <h2 class="screen-title">Próximos Lançamentos</h2>
+
+        <div class="month-header">
+          <svg class="icon"><use href="#icon-calendar"/></svg>
+          Julho 2026
+        </div>
+
+        <div class="planning-list">
+          <div class="planning-item status-ready">
+            <div>
+              <div class="planning-name">Brincos Modernos</div>
+              <div class="planning-meta">9 SKUs — Programado: 03/07</div>
+            </div>
+            <div>
+              <span class="planning-status ready">Finalizado</span>
+              <span class="mkt-badge sent">
+                <svg class="icon-check"><use href="#icon-check"/></svg>
+                MKT
+              </span>
+            </div>
+          </div>
+
+          <div class="planning-item status-process">
+            <div>
+              <div class="planning-name">Colares Delicados</div>
+              <div class="planning-meta">7 SKUs — Programado: 12/07</div>
+            </div>
+            <div>
+              <span class="planning-status process">Em Processo</span>
+              <span class="mkt-badge pending">MKT</span>
+            </div>
+          </div>
+
+          <div class="planning-item status-process">
+            <div>
+              <div class="planning-name">Anéis Contemporâneos</div>
+              <div class="planning-meta">11 SKUs — Programado: 18/07</div>
+            </div>
+            <div>
+              <span class="planning-status process">Em Processo</span>
+              <span class="mkt-badge pending">MKT</span>
+            </div>
+          </div>
+
+          <div class="planning-item status-process">
+            <div>
+              <div class="planning-name">Pulseiras Minimalistas</div>
+              <div class="planning-meta">5 SKUs — Programado: 25/07</div>
+            </div>
+            <div>
+              <span class="planning-status process">Em Processo</span>
+              <span class="mkt-badge pending">MKT</span>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top: var(--spacing-lg); padding: var(--spacing-md); background: rgba(255,255,255,0.04); border-radius: 4px; border: 1px solid rgba(255,255,255,0.08);">
+          <div style="font-size: 12px; opacity: 0.7;">Total do Mês</div>
+          <div style="font-size: 28px; font-weight: 600; margin-top: var(--spacing-sm);">32 SKUs</div>
+          <div style="font-size: 12px; margin-top: var(--spacing-sm);">
+            <span class="status-dot success"></span>1 Pronto
+            <span class="status-dot warning" style="margin-left: var(--spacing-md);"></span>3 Em Processo
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="data-source">
+    Dados placeholder — Aguardando planilhas da pasta /data
+  </div>
+
+  <script>
+    function showScreen(num) {
+      document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+      document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+      document.getElementById('screen' + num).classList.add('active');
+      document.querySelectorAll('.nav-btn')[num - 1].classList.add('active');
+    }
+  </script>
+</body>
+</html>

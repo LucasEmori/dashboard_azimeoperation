@@ -1,0 +1,36 @@
+{
+  "createdAt": "2026-07-02",
+  "description": "Dashboard de visualização de dados para reunião mensal das joalherias Alinare e Novitah",
+  "dataSource": "Local placeholder - aguardando planilhas da pasta /data",
+  "screens": [
+    {
+      "name": "Notas de Entrada",
+      "source": "Planilha 3 - Notas de Entrada",
+      "metrics": ["Notas subiram", "SKU por nota", "SKU por fornecedor"]
+    },
+    {
+      "name": "Produtos Lançados",
+      "source": "Planilha 1 - Produtos Lançados",
+      "metrics": ["Média de dias", "Quantidade de lançamentos", "Dia com mais lançamentos"]
+    },
+    {
+      "name": "Próximos Lançamentos",
+      "source": "Planilha 2 - Geral (aba Lançamentos)",
+      "metrics": ["Prévia de lançamentos do próximo mês com status"]
+    }
+  ],
+  "brandColors": {
+    "alinare": {
+      "primary": "#1a237e",
+      "surface": "#283593",
+      "accent": "#3949ab",
+      "text": "#ffffff"
+    },
+    "novitah": {
+      "primary": "#a07a7a",
+      "surface": "#8d6b6b",
+      "accent": "#b88e8e",
+      "text": "#ffffff"
+    }
+  }
+}

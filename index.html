@@ -1,0 +1,832 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - Alinare &amp; Novitah</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      /* Alinare */
+      --alinare-bg: #1a237e;
+      --alinare-surface: #283593;
+      --alinare-accent: #3949ab;
+      --alinare-text: #ffffff;
+
+      /* Novitah */
+      --novitah-bg: #a07a7a;
+      --novitah-surface: #8d6b6b;
+      --novitah-accent: #b88e8e;
+      --novitah-text: #ffffff;
+
+      --border-width: 2px;
+      --spacing-sm: 8px;
+      --spacing-md: 16px;
+      --spacing-lg: 24px;
+      --spacing-xl: 32px;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      background: #0a0e1a;
+      color: white;
+      min-height: 100vh;
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* Hidden radio inputs drive screen state (no JS allowed in live artifacts) */
+    .nav-state { position: absolute; opacity: 0; pointer-events: none; }
+
+    /* Navigation */
+    .nav {
+      display: flex;
+      justify-content: center;
+      gap: var(--spacing-md);
+      padding: var(--spacing-lg);
+      background: #121826;
+      border-bottom: 1px solid #2a374a;
+    }
+
+    .nav-btn {
+      padding: var(--spacing-sm) var(--spacing-lg);
+      border: none;
+      border-radius: 8px;
+      background: #1e2736;
+      color: #8b9cb5;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .nav-btn:hover { background: #2a374a; color: white; }
+    .nav-btn svg { width: 16px; height: 16px; }
+
+    /* Active label driven by checked radio */
+    #nav1:checked ~ .nav label[for="nav1"],
+    #nav2:checked ~ .nav label[for="nav2"],
+    #nav3:checked ~ .nav label[for="nav3"] {
+      background: #3a4a5f;
+      color: white;
+    }
+
+    /* Screens wrapper */
+    .screens { display: block; }
+
+    /* Screens */
+    .screen { display: none; }
+    #nav1:checked ~ .screens #screen1,
+    #nav2:checked ~ .screens #screen2,
+    #nav3:checked ~ .screens #screen3 { display: block; }
+
+    /* Split Container */
+    .split-container {
+      display: flex;
+      min-height: calc(100vh - 78px);
+    }
+
+    .split-side {
+      flex: 1;
+      padding: var(--spacing-xl);
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+
+    .split-side.alinare {
+      background: var(--alinare-bg);
+      border-right: var(--border-width) solid #0a0e1a;
+    }
+
+    .split-side.novitah { background: var(--novitah-bg); }
+
+    /* Logo Area */
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-md);
+      margin-bottom: var(--spacing-xl);
+    }
+
+    .logo-img {
+      width: 48px;
+      height: 48px;
+      border-radius: 8px;
+      object-fit: cover;
+      border: 2px solid rgba(255,255,255,0.25);
+      background: rgba(255,255,255,0.1);
+    }
+
+    .company-name {
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    /* Screen Title */
+    .screen-title {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: var(--spacing-lg);
+      padding-bottom: var(--spacing-md);
+      border-bottom: 2px solid rgba(255,255,255,0.15);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .screen-title svg { width: 28px; height: 28px; opacity: 0.9; }
+
+    /* Metrics Grid */
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--spacing-md);
+      margin-bottom: var(--spacing-xl);
+    }
+
+    .metric-card {
+      background: rgba(255,255,255,0.08);
+      border-radius: 12px;
+      padding: var(--spacing-lg);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .metric-card.current-month {
+      background: rgba(255,255,255,0.2);
+      border: 2px solid rgba(255,255,255,0.5);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+    }
+
+    .metric-label {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      opacity: 0.8;
+      margin-bottom: var(--spacing-sm);
+    }
+
+    .metric-month {
+      font-size: 15px;
+      font-weight: 600;
+      opacity: 0.95;
+      margin-bottom: var(--spacing-md);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .metric-month svg { width: 18px; height: 18px; opacity: 0.9; }
+
+    .metric-value {
+      font-size: 42px;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .metric-value.large { font-size: 56px; }
+
+    .metric-sub {
+      font-size: 12px;
+      opacity: 0.7;
+      margin-top: 6px;
+    }
+
+    /* Comparison */
+    .comparison-section { margin-top: var(--spacing-lg); }
+
+    .comparison-title {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: var(--spacing-md);
+      opacity: 0.9;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .comparison-title svg { width: 18px; height: 18px; opacity: 0.8; }
+
+    .comparison-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--spacing-md);
+    }
+
+    .comparison-card {
+      background: rgba(255,255,255,0.06);
+      border-radius: 10px;
+      padding: var(--spacing-md);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .comparison-month {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: var(--spacing-sm);
+      opacity: 0.85;
+    }
+
+    .comparison-label {
+      font-size: 12px;
+      opacity: 0.7;
+      margin-bottom: 4px;
+    }
+
+    .comparison-value {
+      font-size: 28px;
+      font-weight: 700;
+    }
+
+    /* Planning list */
+    .planning-month {
+      margin-bottom: var(--spacing-lg);
+      font-size: 20px;
+      opacity: 0.95;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .planning-month svg { width: 20px; height: 20px; opacity: 0.9; }
+
+    .planning-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-md);
+    }
+
+    .planning-item {
+      background: rgba(255,255,255,0.08);
+      border-radius: 10px;
+      padding: var(--spacing-md);
+      border: 1px solid rgba(255,255,255,0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .planning-item.status-ready {
+      background: rgba(76, 175, 80, 0.2);
+      border-color: rgba(76, 175, 80, 0.5);
+    }
+
+    .planning-item.status-process {
+      background: rgba(255, 193, 7, 0.15);
+      border-color: rgba(255, 193, 7, 0.4);
+    }
+
+    .planning-name { font-size: 15px; font-weight: 600; }
+    .planning-meta { font-size: 13px; opacity: 0.75; margin-top: 4px; }
+
+    .planning-badges { display: flex; gap: 8px; align-items: center; }
+
+    .planning-status {
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .planning-status.ready {
+      background: rgba(76, 175, 80, 0.3);
+      color: #b9f6ca;
+    }
+
+    .planning-status.process {
+      background: rgba(255, 193, 7, 0.3);
+      color: #fff59d;
+    }
+
+    .mkt-badge {
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    .mkt-badge.sent {
+      background: rgba(76, 175, 80, 0.3);
+      color: #b9f6ca;
+    }
+
+    .mkt-badge.pending {
+      background: rgba(255, 193, 7, 0.3);
+      color: #fff59d;
+    }
+
+    .planning-total {
+      margin-top: var(--spacing-lg);
+      padding: var(--spacing-md);
+      background: rgba(255,255,255,0.06);
+      border-radius: 8px;
+    }
+
+    .planning-total-value {
+      font-size: 32px;
+      font-weight: 700;
+      margin-top: var(--spacing-sm);
+    }
+
+    .planning-total-breakdown {
+      font-size: 14px;
+      margin-top: var(--spacing-sm);
+      display: flex;
+      gap: var(--spacing-md);
+    }
+
+    .dot { display: inline-block; margin-right: 4px; }
+    .dot.ready { color: #b9f6ca; }
+    .dot.process { color: #fff59d; }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .split-container { flex-direction: column; }
+      .split-side.alinare {
+        border-right: none;
+        border-bottom: var(--border-width) solid #0a0e1a;
+      }
+      .metrics-grid { grid-template-columns: 1fr; }
+      .comparison-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <input type="radio" name="nav" id="nav1" class="nav-state" checked>
+  <input type="radio" name="nav" id="nav2" class="nav-state">
+  <input type="radio" name="nav" id="nav3" class="nav-state">
+
+  <!-- Navigation -->
+  <nav class="nav" data-od-id="main-nav">
+    <label class="nav-btn" for="nav1" data-od-id="nav-notas">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="16" y2="17"/></svg>
+      Notas de Entrada
+    </label>
+    <label class="nav-btn" for="nav2" data-od-id="nav-produtos">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
+      Produtos LanÃ§ados
+    </label>
+    <label class="nav-btn" for="nav3" data-od-id="nav-proximos">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      PrÃ³ximos LanÃ§amentos
+    </label>
+  </nav>
+
+  <main class="screens">
+    <!-- Screen 1: Notas de Entrada -->
+    <section id="screen1" class="screen" data-screen-label="01 Notas de Entrada" data-od-id="screen-notas">
+      <div class="split-container">
+        <!-- Alinare -->
+        <div class="split-side alinare" data-od-id="alinare-notas">
+          <div class="logo-area">
+            <img class="logo-img" src="mr3tdgjs-alinareatacado_logo.jpg" alt="Alinare">
+            <span class="company-name">ALINARE</span>
+          </div>
+
+          <h2 class="screen-title">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            Notas de Entrada
+          </h2>
+
+          <div class="metric-card current-month">
+            <div class="metric-month">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              Junho (MÃªs anterior)
+            </div>
+            <div class="metrics-grid" style="margin-bottom: 0;">
+              <div data-od-id="alinare-notas-subiram">
+                <div class="metric-label">Notas que Subiram</div>
+                <div class="metric-value large">47</div>
+              </div>
+              <div data-od-id="alinare-notas-sku-nota">
+                <div class="metric-label">SKU por Nota</div>
+                <div class="metric-value large">312</div>
+              </div>
+              <div data-od-id="alinare-notas-sku-forn">
+                <div class="metric-label">SKU por Fornecedor</div>
+                <div class="metric-value large">89</div>
+              </div>
+              <div data-od-id="alinare-notas-forn-atv">
+                <div class="metric-label">Fornecedores Ativos</div>
+                <div class="metric-value large">12</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="comparison-section">
+            <div class="comparison-title">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+              Comparativo Ãšltimos Meses
+            </div>
+            <div class="comparison-grid">
+              <div class="comparison-card" data-od-id="alinare-notas-comp-0">
+                <div class="comparison-month">Fevereiro</div>
+                <div class="comparison-label">Notas</div>
+                <div class="comparison-value">38</div>
+                <div class="comparison-label" style="margin-top: 8px;">SKU</div>
+                <div class="comparison-value">245</div>
+              </div>
+              <div class="comparison-card" data-od-id="alinare-notas-comp-1">
+                <div class="comparison-month">Abril</div>
+                <div class="comparison-label">Notas</div>
+                <div class="comparison-value">42</div>
+                <div class="comparison-label" style="margin-top: 8px;">SKU</div>
+                <div class="comparison-value">287</div>
+              </div>
+              <div class="comparison-card" data-od-id="alinare-notas-comp-2">
+                <div class="comparison-month">Maio</div>
+                <div class="comparison-label">Notas</div>
+                <div class="comparison-value">51</div>
+                <div class="comparison-label" style="margin-top: 8px;">SKU</div>
+                <div class="comparison-value">298</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Novitah -->
+        <div class="split-side novitah" data-od-id="novitah-notas">
+          <div class="logo-area">
+            <img class="logo-img" src="mr3tdgju-novitahjewelry_logo.jpg" alt="Novitah">
+            <span class="company-name">NOVITAH</span>
+          </div>
+
+          <h2 class="screen-title">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            Notas de Entrada
+          </h2>
+
+          <div class="metric-card current-month">
+            <div class="metric-month">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              Junho (MÃªs anterior)
+            </div>
+            <div class="metrics-grid" style="margin-bottom: 0;">
+              <div data-od-id="novitah-notas-subiram">
+                <div class="metric-label">Notas que Subiram</div>
+                <div class="metric-value large">23</div>
+              </div>
+              <div data-od-id="novitah-notas-sku-nota">
+                <div class="metric-label">SKU por Nota</div>
+                <div class="metric-value large">156</div>
+              </div>
+              <div data-od-id="novitah-notas-sku-forn">
+                <div class="metric-label">SKU por Fornecedor</div>
+                <div class="metric-value large">52</div>
+              </div>
+              <div data-od-id="novitah-notas-forn-atv">
+                <div class="metric-label">Fornecedores Ativos</div>
+                <div class="metric-value large">8</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="comparison-section">
+            <div class="comparison-title">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+              Comparativo Ãšltimos Meses
+            </div>
+            <div class="comparison-grid">
+              <div class="comparison-card" data-od-id="novitah-notas-comp-0">
+                <div class="comparison-month">Fevereiro</div>
+                <div class="comparison-label">Notas</div>
+                <div class="comparison-value">19</div>
+                <div class="comparison-label" style="margin-top: 8px;">SKU</div>
+                <div class="comparison-value">128</div>
+              </div>
+              <div class="comparison-card" data-od-id="novitah-notas-comp-1">
+                <div class="comparison-month">Abril</div>
+                <div class="comparison-label">Notas</div>
+                <div class="comparison-value">21</div>
+                <div class="comparison-label" style="margin-top: 8px;">SKU</div>
+                <div class="comparison-value">142</div>
+              </div>
+              <div class="comparison-card" data-od-id="novitah-notas-comp-2">
+                <div class="comparison-month">Maio</div>
+                <div class="comparison-label">Notas</div>
+                <div class="comparison-value">25</div>
+                <div class="comparison-label" style="margin-top: 8px;">SKU</div>
+                <div class="comparison-value">161</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screen 2: Produtos LanÃ§ados -->
+    <section id="screen2" class="screen" data-screen-label="02 Produtos LanÃ§ados" data-od-id="screen-produtos">
+      <div class="split-container">
+        <!-- Alinare -->
+        <div class="split-side alinare" data-od-id="alinare-produtos">
+          <div class="logo-area">
+            <img class="logo-img" src="mr3tdgjs-alinareatacado_logo.jpg" alt="Alinare">
+            <span class="company-name">ALINARE</span>
+          </div>
+
+          <h2 class="screen-title">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
+            Produtos LanÃ§ados
+          </h2>
+
+          <div class="metric-card current-month">
+            <div class="metric-month">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              Junho (MÃªs anterior)
+            </div>
+            <div class="metrics-grid" style="margin-bottom: 0;">
+              <div data-od-id="alinare-prod-media">
+                <div class="metric-label">MÃ©dia de Dias</div>
+                <div class="metric-value large">8.5</div>
+                <div class="metric-sub">Data &rarr; LanÃ§amento</div>
+              </div>
+              <div data-od-id="alinare-prod-lanc">
+                <div class="metric-label">LanÃ§amentos</div>
+                <div class="metric-value large">34</div>
+              </div>
+              <div data-od-id="alinare-prod-dia">
+                <div class="metric-label">Dia com Mais</div>
+                <div class="metric-value large">12</div>
+                <div class="metric-sub">Quarta-feira</div>
+              </div>
+              <div data-od-id="alinare-prod-sku">
+                <div class="metric-label">SKUs LanÃ§ados</div>
+                <div class="metric-value large">52</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="comparison-section">
+            <div class="comparison-title">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+              Comparativo Ãšltimos Meses
+            </div>
+            <div class="comparison-grid">
+              <div class="comparison-card" data-od-id="alinare-prod-comp-0">
+                <div class="comparison-month">Fevereiro</div>
+                <div class="comparison-label">LanÃ§amentos</div>
+                <div class="comparison-value">28</div>
+                <div class="comparison-label" style="margin-top: 8px;">MÃ©dia Dias</div>
+                <div class="comparison-value">9.2</div>
+              </div>
+              <div class="comparison-card" data-od-id="alinare-prod-comp-1">
+                <div class="comparison-month">Abril</div>
+                <div class="comparison-label">LanÃ§amentos</div>
+                <div class="comparison-value">31</div>
+                <div class="comparison-label" style="margin-top: 8px;">MÃ©dia Dias</div>
+                <div class="comparison-value">7.8</div>
+              </div>
+              <div class="comparison-card" data-od-id="alinare-prod-comp-2">
+                <div class="comparison-month">Maio</div>
+                <div class="comparison-label">LanÃ§amentos</div>
+                <div class="comparison-value">39</div>
+                <div class="comparison-label" style="margin-top: 8px;">MÃ©dia Dias</div>
+                <div class="comparison-value">8.1</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Novitah -->
+        <div class="split-side novitah" data-od-id="novitah-produtos">
+          <div class="logo-area">
+            <img class="logo-img" src="mr3tdgju-novitahjewelry_logo.jpg" alt="Novitah">
+            <span class="company-name">NOVITAH</span>
+          </div>
+
+          <h2 class="screen-title">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
+            Produtos LanÃ§ados
+          </h2>
+
+          <div class="metric-card current-month">
+            <div class="metric-month">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              Junho (MÃªs anterior)
+            </div>
+            <div class="metrics-grid" style="margin-bottom: 0;">
+              <div data-od-id="novitah-prod-media">
+                <div class="metric-label">MÃ©dia de Dias</div>
+                <div class="metric-value large">12.3</div>
+                <div class="metric-sub">Data &rarr; LanÃ§amento</div>
+              </div>
+              <div data-od-id="novitah-prod-lanc">
+                <div class="metric-label">LanÃ§amentos</div>
+                <div class="metric-value large">18</div>
+              </div>
+              <div data-od-id="novitah-prod-dia">
+                <div class="metric-label">Dia com Mais</div>
+                <div class="metric-value large">15</div>
+                <div class="metric-sub">Sexta-feira</div>
+              </div>
+              <div data-od-id="novitah-prod-sku">
+                <div class="metric-label">SKUs LanÃ§ados</div>
+                <div class="metric-value large">27</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="comparison-section">
+            <div class="comparison-title">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+              Comparativo Ãšltimos Meses
+            </div>
+            <div class="comparison-grid">
+              <div class="comparison-card" data-od-id="novitah-prod-comp-0">
+                <div class="comparison-month">Fevereiro</div>
+                <div class="comparison-label">LanÃ§amentos</div>
+                <div class="comparison-value">14</div>
+                <div class="comparison-label" style="margin-top: 8px;">MÃ©dia Dias</div>
+                <div class="comparison-value">13.5</div>
+              </div>
+              <div class="comparison-card" data-od-id="novitah-prod-comp-1">
+                <div class="comparison-month">Abril</div>
+                <div class="comparison-label">LanÃ§amentos</div>
+                <div class="comparison-value">16</div>
+                <div class="comparison-label" style="margin-top: 8px;">MÃ©dia Dias</div>
+                <div class="comparison-value">11.8</div>
+              </div>
+              <div class="comparison-card" data-od-id="novitah-prod-comp-2">
+                <div class="comparison-month">Maio</div>
+                <div class="comparison-label">LanÃ§amentos</div>
+                <div class="comparison-value">21</div>
+                <div class="comparison-label" style="margin-top: 8px;">MÃ©dia Dias</div>
+                <div class="comparison-value">10.9</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screen 3: PrÃ³ximos LanÃ§amentos -->
+    <section id="screen3" class="screen" data-screen-label="03 PrÃ³ximos LanÃ§amentos" data-od-id="screen-proximos">
+      <div class="split-container">
+        <!-- Alinare -->
+        <div class="split-side alinare" data-od-id="alinare-proximos">
+          <div class="logo-area">
+            <img class="logo-img" src="mr3tdgjs-alinareatacado_logo.jpg" alt="Alinare">
+            <span class="company-name">ALINARE</span>
+          </div>
+
+          <h2 class="screen-title">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            PrÃ³ximos LanÃ§amentos
+          </h2>
+
+          <div class="planning-month">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            Julho 2026
+          </div>
+
+          <div class="planning-list">
+            <div class="planning-item status-ready" data-od-id="alinare-prox-item-0">
+              <div>
+                <div class="planning-name">ColeÃ§Ã£o VerÃ£o 2026</div>
+                <div class="planning-meta">15 SKUs &bull; Programado: 01/07</div>
+              </div>
+              <div class="planning-badges">
+                <span class="planning-status ready">Pronto</span>
+                <span class="mkt-badge sent">MKT enviado</span>
+              </div>
+            </div>
+            <div class="planning-item status-ready" data-od-id="alinare-prox-item-1">
+              <div>
+                <div class="planning-name">Linha Casual Elegance</div>
+                <div class="planning-meta">8 SKUs &bull; Programado: 05/07</div>
+              </div>
+              <div class="planning-badges">
+                <span class="planning-status ready">Pronto</span>
+                <span class="mkt-badge sent">MKT enviado</span>
+              </div>
+            </div>
+            <div class="planning-item status-process" data-od-id="alinare-prox-item-2">
+              <div>
+                <div class="planning-name">Brincos Celestiais</div>
+                <div class="planning-meta">12 SKUs &bull; Programado: 10/07</div>
+              </div>
+              <div class="planning-badges">
+                <span class="planning-status process">Em processo</span>
+                <span class="mkt-badge pending">MKT pendente</span>
+              </div>
+            </div>
+            <div class="planning-item status-process" data-od-id="alinare-prox-item-3">
+              <div>
+                <div class="planning-name">Colares Premium</div>
+                <div class="planning-meta">6 SKUs &bull; Programado: 15/07</div>
+              </div>
+              <div class="planning-badges">
+                <span class="planning-status process">Em processo</span>
+                <span class="mkt-badge pending">MKT pendente</span>
+              </div>
+            </div>
+            <div class="planning-item status-process" data-od-id="alinare-prox-item-4">
+              <div>
+                <div class="planning-name">AnÃ©is ClÃ¡ssicos S2</div>
+                <div class="planning-meta">20 SKUs &bull; Programado: 22/07</div>
+              </div>
+              <div class="planning-badges">
+                <span class="planning-status process">Em processo</span>
+                <span class="mkt-badge pending">MKT pendente</span>
+              </div>
+            </div>
+            <div class="planning-item status-process" data-od-id="alinare-prox-item-5">
+              <div>
+                <div class="planning-name">Pingentes Especiais</div>
+                <div class="planning-meta">10 SKUs &bull; Programado: 28/07</div>
+              </div>
+              <div class="planning-badges">
+                <span class="planning-status process">Em processo</span>
+                <span class="mkt-badge pending">MKT pendente</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="planning-total" data-od-id="alinare-prox-total">
+            <div style="font-size: 14px; opacity: 0.7;">Total do MÃªs</div>
+            <div class="planning-total-value">71 SKUs</div>
+            <div class="planning-total-breakdown">
+              <span><span class="dot ready">&bull;</span>2 Prontos</span>
+              <span><span class="dot process">&bull;</span>4 Em processo</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Novitah -->
+        <div class="split-side novitah" data-od-id="novitah-proximos">
+          <div class="logo-area">
+            <img class="logo-img" src="mr3tdgju-novitahjewelry_logo.jpg" alt="Novitah">
+            <span class="company-name">NOVITAH</span>
+          </div>
+
+          <h2 class="screen-title">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            PrÃ³ximos LanÃ§amentos
+          </h2>
+
+          <div class="planning-month">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            Julho 2026
+          </div>
+
+          <div class="planning-list">
+            <div class="planning-item status-ready" data-od-id="novitah-prox-item-0">
+              <div>
+                <div class="planning-name">Brincos Modernos</div>
+                <div class="planning-meta">9 SKUs &bull; Programado: 03/07</div>
+              </div>
+              <div class="planning-badges">
+                <span class="planning-status ready">Pronto</span>
+                <span class="mkt-badge sent">MKT enviado</span>
+              </div>
+            </div>
+            <div class="planning-item status-process" data-od-id="novitah-prox-item-1">
+              <div>
+                <div class="planning-name">Colares Delicados</div>
+                <div class="planning-meta">7 SKUs &bull; Programado: 12/07</div>
+              </div>
+              <div class="planning-badges">
+                <span class="planning-status process">Em processo</span>
+                <span class="mkt-badge pending">MKT pendente</span>
+              </div>
+            </div>
+            <div class="planning-item status-process" data-od-id="novitah-prox-item-2">
+              <div>
+                <div class="planning-name">AnÃ©is ContemporÃ¢neos</div>
+                <div class="planning-meta">11 SKUs &bull; Programado: 18/07</div>
+              </div>
+              <div class="planning-badges">
+                <span class="planning-status process">Em processo</span>
+                <span class="mkt-badge pending">MKT pendente</span>
+              </div>
+            </div>
+            <div class="planning-item status-process" data-od-id="novitah-prox-item-3">
+              <div>
+                <div class="planning-name">Pulseiras Minimalistas</div>
+                <div class="planning-meta">5 SKUs &bull; Programado: 25/07</div>
+              </div>
+              <div class="planning-badges">
+                <span class="planning-status process">Em processo</span>
+                <span class="mkt-badge pending">MKT pendente</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="planning-total" data-od-id="novitah-prox-total">
+            <div style="font-size: 14px; opacity: 0.7;">Total do MÃªs</div>
+            <div class="planning-total-value">32 SKUs</div>
+            <div class="planning-total-breakdown">
+              <span><span class="dot ready">&bull;</span>1 Pronto</span>
+              <span><span class="dot process">&bull;</span>3 Em processo</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

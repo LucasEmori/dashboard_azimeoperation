@@ -1,0 +1,336 @@
+{
+  "alinare": {
+    "notas_entrada": {
+      "company": "alinare",
+      "destaque": {
+        "month": "Junho",
+        "month_date": "2026-06-01",
+        "is_destaque": true,
+        "notas_subiram": 18,
+        "sku_total": 2438,
+        "sku_por_nota": 135.4,
+        "fornecedores_ativos": 4
+      },
+      "comparison": [
+        {
+          "month": "Maio",
+          "month_date": "2026-05-01",
+          "is_destaque": false,
+          "notas_subiram": 13,
+          "sku_total": 1464,
+          "sku_por_nota": 112.6,
+          "fornecedores_ativos": 6
+        },
+        {
+          "month": "Abril",
+          "month_date": "2026-04-01",
+          "is_destaque": false,
+          "notas_subiram": 9,
+          "sku_total": 1241,
+          "sku_por_nota": 137.9,
+          "fornecedores_ativos": 5
+        },
+        {
+          "month": "Março",
+          "month_date": "2026-03-01",
+          "is_destaque": false,
+          "notas_subiram": 13,
+          "sku_total": 1329,
+          "sku_por_nota": 102.2,
+          "fornecedores_ativos": 5
+        }
+      ],
+      "sku_por_fornecedor_destaque": [
+        {
+          "fornecedor": "AMBER",
+          "skus": 1971
+        },
+        {
+          "fornecedor": "CEREJA",
+          "skus": 129
+        },
+        {
+          "fornecedor": "KIRSTY",
+          "skus": 126
+        },
+        {
+          "fornecedor": "GRANT",
+          "skus": 125
+        }
+      ],
+      "match_coverage": {
+        "empresa_nfs_in_geral": 131,
+        "p3_nfs_total": 829,
+        "p3_nfs_matched": 130
+      }
+    },
+    "produtos_lancados": {
+      "company": "alinare",
+      "destaque": {
+        "month": "Junho",
+        "month_date": "2026-06-01",
+        "is_destaque": true,
+        "media_dias": 3.6,
+        "lancamentos": 45,
+        "skus": 1998,
+        "dia_com_mais": {
+          "date": "2026-06-19",
+          "day": 19,
+          "weekday": "Sexta-feira",
+          "count": 522
+        }
+      },
+      "comparison": [
+        {
+          "month": "Maio",
+          "month_date": "2026-05-01",
+          "is_destaque": false,
+          "media_dias": -2.5,
+          "lancamentos": 42,
+          "skus": 1496,
+          "dia_com_mais": null
+        },
+        {
+          "month": "Abril",
+          "month_date": "2026-04-01",
+          "is_destaque": false,
+          "media_dias": 0.6,
+          "lancamentos": 48,
+          "skus": 1743,
+          "dia_com_mais": null
+        },
+        {
+          "month": "Março",
+          "month_date": "2026-03-01",
+          "is_destaque": false,
+          "media_dias": 227.7,
+          "lancamentos": 52,
+          "skus": 1334,
+          "dia_com_mais": null
+        }
+      ]
+    },
+    "proximos_lancamentos": {
+      "company": "alinare",
+      "month": "Julho 2026",
+      "items": [
+        {
+          "data": "06/07",
+          "descricao": "Pocket 1 - Sparckle + ZC ",
+          "embarque": "60",
+          "status": "ready",
+          "status_raw": "Programado",
+          "mkt": "pending"
+        },
+        {
+          "data": "09/07",
+          "descricao": "Moissanite Leve (Fruta ED68)",
+          "embarque": "68",
+          "status": "ready",
+          "status_raw": "Programado",
+          "mkt": "pending"
+        },
+        {
+          "data": "13/07",
+          "descricao": "Zircônia - Seleção do Estoque 4 ",
+          "embarque": "Estoque 4",
+          "status": "ready",
+          "status_raw": "Programado",
+          "mkt": "pending"
+        },
+        {
+          "data": "18/07",
+          "descricao": "Pocket 2 - Color Mix + Pedra Natural E61/68 (peridoto)",
+          "embarque": "65/67/69/61/68",
+          "status": "process",
+          "status_raw": "Fila Etiquetagem",
+          "mkt": "pending"
+        }
+      ],
+      "total_skus": 931,
+      "ready": 3,
+      "process": 1,
+      "mkt_sent": 0,
+      "mkt_pending": 4
+    }
+  },
+  "novitah": {
+    "notas_entrada": {
+      "company": "novitah",
+      "destaque": {
+        "month": "Junho",
+        "month_date": "2026-06-01",
+        "is_destaque": true,
+        "notas_subiram": 15,
+        "sku_total": 1468,
+        "sku_por_nota": 97.9,
+        "fornecedores_ativos": 10
+      },
+      "comparison": [
+        {
+          "month": "Maio",
+          "month_date": "2026-05-01",
+          "is_destaque": false,
+          "notas_subiram": 4,
+          "sku_total": 494,
+          "sku_por_nota": 123.5,
+          "fornecedores_ativos": 3
+        },
+        {
+          "month": "Abril",
+          "month_date": "2026-04-01",
+          "is_destaque": false,
+          "notas_subiram": 17,
+          "sku_total": 888,
+          "sku_por_nota": 52.2,
+          "fornecedores_ativos": 9
+        },
+        {
+          "month": "Março",
+          "month_date": "2026-03-01",
+          "is_destaque": false,
+          "notas_subiram": 10,
+          "sku_total": 349,
+          "sku_por_nota": 34.9,
+          "fornecedores_ativos": 6
+        }
+      ],
+      "sku_por_fornecedor_destaque": [
+        {
+          "fornecedor": "GRANT",
+          "skus": 745
+        },
+        {
+          "fornecedor": "CAROLINE",
+          "skus": 400
+        },
+        {
+          "fornecedor": "KIRSTY",
+          "skus": 184
+        },
+        {
+          "fornecedor": "P.A",
+          "skus": 85
+        },
+        {
+          "fornecedor": "GF BRUTOS",
+          "skus": 18
+        },
+        {
+          "fornecedor": "LIMEIRA FUNDICAO - INDUSTRIA E COMERCIO DE BIJOUTERIAS LTDA",
+          "skus": 16
+        },
+        {
+          "fornecedor": "NOBRE CARACELLI",
+          "skus": 8
+        },
+        {
+          "fornecedor": "FGF FUNDIDOS",
+          "skus": 4
+        },
+        {
+          "fornecedor": "P.A.",
+          "skus": 2
+        },
+        {
+          "fornecedor": "BILDAD UND E COM DE BIJ LT EPP",
+          "skus": 1
+        }
+      ],
+      "match_coverage": {
+        "empresa_nfs_in_geral": 54,
+        "p3_nfs_total": 719,
+        "p3_nfs_matched": 54
+      }
+    },
+    "produtos_lancados": {
+      "company": "novitah",
+      "destaque": {
+        "month": "Junho",
+        "month_date": "2026-06-01",
+        "is_destaque": true,
+        "media_dias": -0.1,
+        "lancamentos": 16,
+        "skus": 1328,
+        "dia_com_mais": {
+          "date": "2026-06-30",
+          "day": 30,
+          "weekday": "Terça-feira",
+          "count": 493
+        }
+      },
+      "comparison": [
+        {
+          "month": "Maio",
+          "month_date": "2026-05-01",
+          "is_destaque": false,
+          "media_dias": -0.5,
+          "lancamentos": 14,
+          "skus": 917,
+          "dia_com_mais": null
+        },
+        {
+          "month": "Abril",
+          "month_date": "2026-04-01",
+          "is_destaque": false,
+          "media_dias": -1.8,
+          "lancamentos": 23,
+          "skus": 720,
+          "dia_com_mais": null
+        },
+        {
+          "month": "Março",
+          "month_date": "2026-03-01",
+          "is_destaque": false,
+          "media_dias": 12.5,
+          "lancamentos": 19,
+          "skus": 737,
+          "dia_com_mais": null
+        }
+      ]
+    },
+    "proximos_lancamentos": {
+      "company": "novitah",
+      "month": "Julho 2026",
+      "items": [
+        {
+          "data": "01/07",
+          "descricao": "Grant/ Caroline/ Kirsty",
+          "embarque": "58/63/66/67",
+          "status": "ready",
+          "status_raw": "Finalizado",
+          "mkt": "pending"
+        },
+        {
+          "data": "09/07",
+          "descricao": "Grant/ Caroline/ Kirsty/ Nacionais",
+          "embarque": "58/66/67",
+          "status": "ready",
+          "status_raw": "Programado",
+          "mkt": "pending"
+        },
+        {
+          "data": "14/07",
+          "descricao": "Kirsty/ Grant",
+          "embarque": "66/67",
+          "status": "process",
+          "status_raw": "Fila Etiquetagem",
+          "mkt": "pending"
+        },
+        {
+          "data": "25/07",
+          "descricao": "Kirsty",
+          "embarque": "66",
+          "status": "process",
+          "status_raw": "Fila Etiquetagem",
+          "mkt": "pending"
+        }
+      ],
+      "total_skus": 0,
+      "ready": 2,
+      "process": 2,
+      "mkt_sent": 0,
+      "mkt_pending": 4
+    }
+  }
+}
