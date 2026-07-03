@@ -23,11 +23,12 @@
       "company": "alinare",
       "destaque": {
         "mes": "Junho 2026",
-        "is_destaque": true,
+        "mes_num": 6,
         "notas_emitidas": 24,
         "sku_total": 2511,
         "sku_por_nota": 104.6,
-        "fornecedores": 5,
+        "unidades_recebidas": 82645,
+        "is_destaque": true,
         "sku_por_fornecedor": [
           {
             "fornecedor": "AMBER",
@@ -147,382 +148,69 @@
             "nf": 988,
             "skus": 129
           }
-        ]
+        ],
+        "fornecedores": 5
       },
-      "comparacao": [
-        {
-          "mes": "Março 2026",
-          "is_destaque": false,
-          "notas_emitidas": 23,
-          "sku_total": 1449,
-          "sku_por_nota": 63.0,
-          "fornecedores": 9,
-          "sku_por_fornecedor": [
+      "trimestres": {
+        "T1": {
+          "label": "1º Trimestre",
+          "meses": [
             {
-              "fornecedor": "AMBER",
-              "skus": 1294
+              "mes": "Janeiro",
+              "unidades_recebidas": 57618,
+              "notas_emitidas": 33
             },
             {
-              "fornecedor": "GRACE IMPORTADO",
-              "skus": 53
+              "mes": "Fevereiro",
+              "unidades_recebidas": 16426,
+              "notas_emitidas": 16
             },
             {
-              "fornecedor": "GRACE AMBER",
-              "skus": 36
-            },
-            {
-              "fornecedor": "GRACE MONTAGEM",
-              "skus": 23
-            },
-            {
-              "fornecedor": "CAROLINE",
-              "skus": 18
-            },
-            {
-              "fornecedor": "DAREE - KIRSTY",
-              "skus": 8
-            },
-            {
-              "fornecedor": "GRACE PRIMO",
-              "skus": 8
-            },
-            {
-              "fornecedor": "CEREJA",
-              "skus": 7
-            },
-            {
-              "fornecedor": "PARK",
-              "skus": 2
+              "mes": "Março",
+              "unidades_recebidas": 56714,
+              "notas_emitidas": 23
             }
           ],
-          "notas_detalhe": [
-            {
-              "nf": 891,
-              "skus": 8
-            },
-            {
-              "nf": 892,
-              "skus": 154
-            },
-            {
-              "nf": 893,
-              "skus": 18
-            },
-            {
-              "nf": 895,
-              "skus": 42
-            },
-            {
-              "nf": 896,
-              "skus": 560
-            },
-            {
-              "nf": 897,
-              "skus": 13
-            },
-            {
-              "nf": 898,
-              "skus": 200
-            },
-            {
-              "nf": 899,
-              "skus": 7
-            },
-            {
-              "nf": 901,
-              "skus": 2
-            },
-            {
-              "nf": 902,
-              "skus": 9
-            },
-            {
-              "nf": 903,
-              "skus": 5
-            },
-            {
-              "nf": 904,
-              "skus": 21
-            },
-            {
-              "nf": 905,
-              "skus": 2
-            },
-            {
-              "nf": 906,
-              "skus": 0
-            },
-            {
-              "nf": 907,
-              "skus": 4
-            },
-            {
-              "nf": 908,
-              "skus": 41
-            },
-            {
-              "nf": 909,
-              "skus": 4
-            },
-            {
-              "nf": 910,
-              "skus": 36
-            },
-            {
-              "nf": 911,
-              "skus": 4
-            },
-            {
-              "nf": 912,
-              "skus": 8
-            },
-            {
-              "nf": 913,
-              "skus": 0
-            },
-            {
-              "nf": 914,
-              "skus": 115
-            },
-            {
-              "nf": 915,
-              "skus": 196
-            }
-          ]
+          "total_unidades": 130758
         },
-        {
-          "mes": "Abril 2026",
-          "is_destaque": false,
-          "notas_emitidas": 19,
-          "sku_total": 1310,
-          "sku_por_nota": 68.9,
-          "fornecedores": 8,
-          "sku_por_fornecedor": [
+        "T2": {
+          "label": "2º Trimestre",
+          "meses": [
             {
-              "fornecedor": "AMBER",
-              "skus": 911
+              "mes": "Abril",
+              "unidades_recebidas": 56368,
+              "notas_emitidas": 19
             },
             {
-              "fornecedor": "SAM",
-              "skus": 165
+              "mes": "Maio",
+              "unidades_recebidas": 37590,
+              "notas_emitidas": 18
             },
             {
-              "fornecedor": "SALLY",
-              "skus": 89
-            },
-            {
-              "fornecedor": "PARK",
-              "skus": 46
-            },
-            {
-              "fornecedor": "CEREJA",
-              "skus": 30
-            },
-            {
-              "fornecedor": "GRACE MONTAGEM",
-              "skus": 27
-            },
-            {
-              "fornecedor": "CAROLINE",
-              "skus": 24
-            },
-            {
-              "fornecedor": "GRACE IMPORTADO",
-              "skus": 18
+              "mes": "Junho 2026",
+              "unidades_recebidas": 82645,
+              "notas_emitidas": 24
             }
           ],
-          "notas_detalhe": [
-            {
-              "nf": 916,
-              "skus": 1
-            },
-            {
-              "nf": 917,
-              "skus": 1
-            },
-            {
-              "nf": 918,
-              "skus": 89
-            },
-            {
-              "nf": 919,
-              "skus": 6
-            },
-            {
-              "nf": 920,
-              "skus": 16
-            },
-            {
-              "nf": 921,
-              "skus": 3
-            },
-            {
-              "nf": 922,
-              "skus": 592
-            },
-            {
-              "nf": 923,
-              "skus": 6
-            },
-            {
-              "nf": 924,
-              "skus": 8
-            },
-            {
-              "nf": 925,
-              "skus": 2
-            },
-            {
-              "nf": 926,
-              "skus": 165
-            },
-            {
-              "nf": 927,
-              "skus": 29
-            },
-            {
-              "nf": 928,
-              "skus": 24
-            },
-            {
-              "nf": 929,
-              "skus": 46
-            },
-            {
-              "nf": 930,
-              "skus": 1
-            },
-            {
-              "nf": 931,
-              "skus": 1
-            },
-            {
-              "nf": 932,
-              "skus": 151
-            },
-            {
-              "nf": 933,
-              "skus": 2
-            },
-            {
-              "nf": 934,
-              "skus": 167
-            }
-          ]
+          "total_unidades": 176603
         },
-        {
-          "mes": "Maio 2026",
-          "is_destaque": false,
-          "notas_emitidas": 18,
-          "sku_total": 1506,
-          "sku_por_nota": 83.7,
-          "fornecedores": 7,
-          "sku_por_fornecedor": [
+        "T3": {
+          "label": "3º Trimestre",
+          "meses": [
             {
-              "fornecedor": "AMBER",
-              "skus": 934
-            },
-            {
-              "fornecedor": "CEREJA",
-              "skus": 420
-            },
-            {
-              "fornecedor": "PARK",
-              "skus": 58
-            },
-            {
-              "fornecedor": "ED",
-              "skus": 48
-            },
-            {
-              "fornecedor": "GRACE MONTAGEM",
-              "skus": 34
-            },
-            {
-              "fornecedor": "GRACE IMPORTADO",
-              "skus": 8
-            },
-            {
-              "fornecedor": "LOJAS AROS",
-              "skus": 4
+              "mes": "Julho",
+              "unidades_recebidas": 21,
+              "notas_emitidas": 1
             }
           ],
-          "notas_detalhe": [
-            {
-              "nf": 936,
-              "skus": 35
-            },
-            {
-              "nf": 937,
-              "skus": 896
-            },
-            {
-              "nf": 938,
-              "skus": 16
-            },
-            {
-              "nf": 939,
-              "skus": 4
-            },
-            {
-              "nf": 941,
-              "skus": 7
-            },
-            {
-              "nf": 942,
-              "skus": 25
-            },
-            {
-              "nf": 943,
-              "skus": 18
-            },
-            {
-              "nf": 944,
-              "skus": 7
-            },
-            {
-              "nf": 945,
-              "skus": 13
-            },
-            {
-              "nf": 946,
-              "skus": 23
-            },
-            {
-              "nf": 947,
-              "skus": 127
-            },
-            {
-              "nf": 948,
-              "skus": 2
-            },
-            {
-              "nf": 949,
-              "skus": 119
-            },
-            {
-              "nf": 951,
-              "skus": 1
-            },
-            {
-              "nf": 953,
-              "skus": 76
-            },
-            {
-              "nf": 954,
-              "skus": 80
-            },
-            {
-              "nf": 955,
-              "skus": 48
-            },
-            {
-              "nf": 956,
-              "skus": 9
-            }
-          ]
+          "total_unidades": 21
+        },
+        "T4": {
+          "label": "4º Trimestre",
+          "meses": [],
+          "total_unidades": 0
         }
-      ]
+      }
     },
     "tela2": {
       "company": "alinare",
@@ -805,11 +493,12 @@
       "company": "novitah",
       "destaque": {
         "mes": "Junho 2026",
-        "is_destaque": true,
+        "mes_num": 6,
         "notas_emitidas": 16,
         "sku_total": 1468,
         "sku_por_nota": 91.8,
-        "fornecedores": 9,
+        "unidades_recebidas": 54535,
+        "is_destaque": true,
         "sku_por_fornecedor": [
           {
             "fornecedor": "GRANT",
@@ -913,294 +602,69 @@
             "nf": 362,
             "skus": 132
           }
-        ]
+        ],
+        "fornecedores": 9
       },
-      "comparacao": [
-        {
-          "mes": "Março 2026",
-          "is_destaque": false,
-          "notas_emitidas": 17,
-          "sku_total": 349,
-          "sku_por_nota": 20.5,
-          "fornecedores": 10,
-          "sku_por_fornecedor": [
+      "trimestres": {
+        "T1": {
+          "label": "1º Trimestre",
+          "meses": [
             {
-              "fornecedor": "KIRSTY",
-              "skus": 255
+              "mes": "Janeiro",
+              "unidades_recebidas": 98,
+              "notas_emitidas": 22
             },
             {
-              "fornecedor": "GRANT",
-              "skus": 75
+              "mes": "Fevereiro",
+              "unidades_recebidas": 0,
+              "notas_emitidas": 7
             },
             {
-              "fornecedor": "VIE DUTRA",
-              "skus": 9
-            },
-            {
-              "fornecedor": "CAROLINE",
-              "skus": 8
-            },
-            {
-              "fornecedor": "NOBRE CARACELLI",
-              "skus": 1
-            },
-            {
-              "fornecedor": "LIMEIRA FUNDICAO - INDUSTRIA E COMERCIO DE BIJOUTERIAS LTDA",
-              "skus": 1
-            },
-            {
-              "fornecedor": "MAUI COMERCIO DE FOLHEADOS E BRUTOS - GABRIELA HERNANDES DE",
-              "skus": 0
-            },
-            {
-              "fornecedor": "WENZEL JOIAS",
-              "skus": 0
-            },
-            {
-              "fornecedor": "BILDAD UND E COM DE BIJ LT EPP",
-              "skus": 0
-            },
-            {
-              "fornecedor": "GF BRUTOS",
-              "skus": 0
+              "mes": "Março",
+              "unidades_recebidas": 6783,
+              "notas_emitidas": 17
             }
           ],
-          "notas_detalhe": [
-            {
-              "nf": 290,
-              "skus": 0
-            },
-            {
-              "nf": 291,
-              "skus": 8
-            },
-            {
-              "nf": 293,
-              "skus": 40
-            },
-            {
-              "nf": 294,
-              "skus": 0
-            },
-            {
-              "nf": 296,
-              "skus": 0
-            },
-            {
-              "nf": 297,
-              "skus": 0
-            },
-            {
-              "nf": 299,
-              "skus": 0
-            },
-            {
-              "nf": 300,
-              "skus": 0
-            },
-            {
-              "nf": 302,
-              "skus": 35
-            },
-            {
-              "nf": 304,
-              "skus": 0
-            },
-            {
-              "nf": 305,
-              "skus": 253
-            },
-            {
-              "nf": 306,
-              "skus": 1
-            },
-            {
-              "nf": 307,
-              "skus": 1
-            },
-            {
-              "nf": 308,
-              "skus": 1
-            },
-            {
-              "nf": 309,
-              "skus": 1
-            },
-            {
-              "nf": 310,
-              "skus": 2
-            },
-            {
-              "nf": 311,
-              "skus": 7
-            }
-          ]
+          "total_unidades": 6881
         },
-        {
-          "mes": "Abril 2026",
-          "is_destaque": false,
-          "notas_emitidas": 18,
-          "sku_total": 888,
-          "sku_por_nota": 49.3,
-          "fornecedores": 8,
-          "sku_por_fornecedor": [
+        "T2": {
+          "label": "2º Trimestre",
+          "meses": [
             {
-              "fornecedor": "CAROLINE",
-              "skus": 636
+              "mes": "Abril",
+              "unidades_recebidas": 26868,
+              "notas_emitidas": 18
             },
             {
-              "fornecedor": "BARCELOS LIMEIRO",
-              "skus": 192
+              "mes": "Maio",
+              "unidades_recebidas": 13819,
+              "notas_emitidas": 5
             },
             {
-              "fornecedor": "GF BRUTOS",
-              "skus": 38
-            },
-            {
-              "fornecedor": "LIMEIRA FUNDICAO - INDUSTRIA E COMERCIO DE BIJOUTERIAS LTDA",
-              "skus": 15
-            },
-            {
-              "fornecedor": "FGF FUNDIDOS",
-              "skus": 3
-            },
-            {
-              "fornecedor": "INDUSTRIA E COMERCIO DE FERRAMENTAS E BIJUTERIAS ROAL LTDA",
-              "skus": 2
-            },
-            {
-              "fornecedor": "BILDAD UND E COM DE BIJ LT EPP",
-              "skus": 1
-            },
-            {
-              "fornecedor": "NOBRE CARACELLI",
-              "skus": 1
+              "mes": "Junho 2026",
+              "unidades_recebidas": 54535,
+              "notas_emitidas": 16
             }
           ],
-          "notas_detalhe": [
-            {
-              "nf": 312,
-              "skus": 2
-            },
-            {
-              "nf": 313,
-              "skus": 0
-            },
-            {
-              "nf": 314,
-              "skus": 1
-            },
-            {
-              "nf": 315,
-              "skus": 3
-            },
-            {
-              "nf": 316,
-              "skus": 1
-            },
-            {
-              "nf": 317,
-              "skus": 1
-            },
-            {
-              "nf": 319,
-              "skus": 28
-            },
-            {
-              "nf": 321,
-              "skus": 6
-            },
-            {
-              "nf": 322,
-              "skus": 57
-            },
-            {
-              "nf": 323,
-              "skus": 74
-            },
-            {
-              "nf": 324,
-              "skus": 27
-            },
-            {
-              "nf": 328,
-              "skus": 71
-            },
-            {
-              "nf": 329,
-              "skus": 325
-            },
-            {
-              "nf": 330,
-              "skus": 239
-            },
-            {
-              "nf": 331,
-              "skus": 13
-            },
-            {
-              "nf": 332,
-              "skus": 17
-            },
-            {
-              "nf": 333,
-              "skus": 15
-            },
-            {
-              "nf": 334,
-              "skus": 8
-            }
-          ]
+          "total_unidades": 95222
         },
-        {
-          "mes": "Maio 2026",
-          "is_destaque": false,
-          "notas_emitidas": 5,
-          "sku_total": 494,
-          "sku_por_nota": 98.8,
-          "fornecedores": 4,
-          "sku_por_fornecedor": [
+        "T3": {
+          "label": "3º Trimestre",
+          "meses": [
             {
-              "fornecedor": "CAROLINE",
-              "skus": 480
-            },
-            {
-              "fornecedor": "GF BRUTOS",
-              "skus": 12
-            },
-            {
-              "fornecedor": "VANESSA PEDRONI LIMA BIJUTERIAS",
-              "skus": 2
-            },
-            {
-              "fornecedor": "FGF FUNDIDOS",
-              "skus": 0
+              "mes": "Julho",
+              "unidades_recebidas": 7771,
+              "notas_emitidas": 5
             }
           ],
-          "notas_detalhe": [
-            {
-              "nf": 335,
-              "skus": 0
-            },
-            {
-              "nf": 337,
-              "skus": 12
-            },
-            {
-              "nf": 338,
-              "skus": 2
-            },
-            {
-              "nf": 339,
-              "skus": 461
-            },
-            {
-              "nf": 343,
-              "skus": 19
-            }
-          ]
+          "total_unidades": 7771
+        },
+        "T4": {
+          "label": "4º Trimestre",
+          "meses": [],
+          "total_unidades": 0
         }
-      ]
+      }
     },
     "tela2": {
       "company": "novitah",

@@ -256,6 +256,11 @@ def _fmt_media(v):
     return f"+{v:.1f}" if v > 0 else f"{v:.1f}"
 
 
+def _fmt_int(v):
+    """Inteiro com separador de milhar brasileiro (ponto)."""
+    return f"{int(v or 0):,}".replace(",", ".")
+
+
 def _delta_pct(now, prev):
     if prev in (None, 0) or now is None:
         return None
@@ -450,36 +455,106 @@ def _daily_volume_chart(company, destaque, ano):
 
 
 # ---------------------------------------------------------------------------
+# Plotly - graficos trimestrais (Tela 1)
+# ---------------------------------------------------------------------------
+def _trimester_month_chart(company, trimestres):
+    """Chart 1: filtro de trimestre -> barras por mes com Unidades Recebidas."""
+    rgb = _ACCENT_RGB.get(company, "121,134,203")
+    trim_keys = [k for k in ("T1", "T2", "T3", "T4") if trimestres.get(k, {}).get("meses")]
+    if not trim_keys:
+        return
+
+    c_sel, _ = st.columns([1, 3])
+    with c_sel:
+        sel = st.selectbox("Trimestre", trim_keys,
+                           format_func=lambda k: trimestres[k]["label"],
+                           key=f"trim1_{company}")
+
+    t = trimestres[sel]
+    meses = [m["mes"] for m in t["meses"]]
+    vals = [m["unidades_recebidas"] for m in t["meses"]]
+
+    fig = go.Figure()
+    fig.add_trace(go.Bar(
+        x=meses, y=vals, marker_color=f"rgb({rgb})",
+        text=[_fmt_int(v) for v in vals], textposition="outside",
+        textfont=dict(color="#e8edf5", size=11),
+        hovertemplate="<b>%{x}</b><br>Unidades: %{y}<extra></extra>",
+    ))
+    fig.update_layout(
+        paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)",
+        font=dict(color="#cdd9ec", size=11), margin=dict(l=8, r=8, t=50, b=8), height=340,
+        title=dict(text=f"<b>Unidades Recebidas — {t['label']}</b>",
+                   font=dict(color="#fff", size=13), x=0.5, xanchor="center"),
+        xaxis=dict(tickfont=dict(size=11, color="#9fb0c8"), showgrid=False,
+                   linecolor="rgba(255,255,255,0.12)"),
+        yaxis=dict(title=dict(text="Unidades", font=dict(size=11, color="#9fb0c8")),
+                   gridcolor="rgba(255,255,255,0.06)", rangemode="tozero",
+                   tickfont=dict(size=10, color="#9fb0c8")),
+        showlegend=False,
+    )
+    st.plotly_chart(fig, use_container_width=True)
+
+
+def _trimester_compare_chart(company, trimestres):
+    """Chart 2: comparativo entre trimestres (total de Unidades Recebidas)."""
+    rgb = _ACCENT_RGB.get(company, "121,134,203")
+    trim_keys = [k for k in ("T1", "T2", "T3", "T4") if trimestres.get(k, {}).get("meses")]
+    if not trim_keys:
+        return
+
+    labels = [trimestres[k]["label"] for k in trim_keys]
+    totals = [trimestres[k]["total_unidades"] for k in trim_keys]
+
+    fig = go.Figure()
+    fig.add_trace(go.Bar(
+        x=labels, y=totals, marker_color=f"rgb({rgb})",
+        text=[_fmt_int(v) for v in totals], textposition="outside",
+        textfont=dict(color="#e8edf5", size=12),
+        hovertemplate="<b>%{x}</b><br>Total: %{y} unidades<extra></extra>",
+    ))
+    fig.update_layout(
+        paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)",
+        font=dict(color="#cdd9ec", size=11), margin=dict(l=8, r=8, t=50, b=8), height=340,
+        title=dict(text="<b>Comparativo entre Trimestres</b>",
+                   font=dict(color="#fff", size=13), x=0.5, xanchor="center"),
+        xaxis=dict(tickfont=dict(size=12, color="#9fb0c8"), showgrid=False,
+                   linecolor="rgba(255,255,255,0.12)"),
+        yaxis=dict(title=dict(text="Total de Unidades", font=dict(size=11, color="#9fb0c8")),
+                   gridcolor="rgba(255,255,255,0.06)", rangemode="tozero",
+                   tickfont=dict(size=10, color="#9fb0c8")),
+        showlegend=False,
+    )
+    st.plotly_chart(fig, use_container_width=True)
+
+
+# ---------------------------------------------------------------------------
 # Screens
 # ---------------------------------------------------------------------------
 def render_screen1(company, data):
     t1 = data[company]["tela1"]
     d = t1.get("destaque", {})
-    comps = t1.get("comparacao", [])
+    trimestres = t1.get("trimestres", {})
     forn = d.get("sku_por_fornecedor", []) or []
     top_forn = forn[0] if forn else {}
 
     kpis = (
         _kpi("Notas Emitidas", d.get("notas_emitidas", 0), hl=True)
-        + _kpi("Total de SKUs", f'{d.get("sku_total", 0):,}'.replace(",", "."), sub=f'{d.get("sku_por_nota", 0):.0f} SKU/nota em média')
+        + _kpi("Total de SKUs únicos", _fmt_int(d.get("sku_total", 0)),
+               sub=f'{d.get("sku_por_nota", 0):.0f} SKU/nota em média')
         + _kpi("Top Fornecedor", top_forn.get("skus", 0) if top_forn else "—",
                sub=top_forn.get("fornecedor", "—") if top_forn else "—")
-        + _kpi("Fornecedores Ativos", d.get("fornecedores", 0))
+        + _kpi("Unidades Recebidas", _fmt_int(d.get("unidades_recebidas", 0)))
     )
-    comp_cards = "".join(
-        _comp_card(c.get("mes"), [
-            ("Notas", c.get("notas_emitidas", 0)),
-            ("SKUs totais", f'{c.get("sku_total", 0):,}'.replace(",", ".")),
-        ]) for c in comps
-    )
-    html = (
-        _wrap_co(company,
-            _section_title("notas", "Notas de Entrada", d.get("mes", ""))
-            + f'<div class="kpi-row">{kpis}</div>'
-            + (_comp_block(comp_cards) if comps else "")
-        )
+    html = _wrap_co(company,
+        _section_title("notas", "Notas de Entrada", d.get("mes", ""))
+        + f'<div class="kpi-row">{kpis}</div>'
     )
     st.markdown(html, unsafe_allow_html=True)
+
+    # Graficos trimestrais
+    _trimester_month_chart(company, trimestres)
+    _trimester_compare_chart(company, trimestres)
 
 
 def _comp_block(cards_html, with_ano=False):
