@@ -489,7 +489,7 @@ def _trimester_month_chart(company, trimestres, sel):
         return
 
     t = trimestres[sel]
-    meses = [m["mes"] for m in t["meses"]]
+    meses = [m["mes"].split()[0] for m in t["meses"]]
     vals = [m["unidades_recebidas"] for m in t["meses"]]
 
     fig = go.Figure()
