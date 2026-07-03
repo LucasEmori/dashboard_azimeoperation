@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# Projeto
+old/
+.opencode/
+.streamlit/secrets.toml
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Importante: data/ e output/ PERMANECEM no repo
+# - data/   : planilhas Excel (pipeline lê no botão "Atualizar")
+# - output/ : data.json (fallback caso o pipeline não rode no host)
