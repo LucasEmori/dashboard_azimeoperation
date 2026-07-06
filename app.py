@@ -282,7 +282,7 @@ _CSS_LIGHT = """
 .kpi-value.green { color: #2e7d32 !important; }
 .kpi-value.red { color: #c62828 !important; }
 .section-title { color: #1a2233 !important; }
-.section-title .pill { color: #e8edf5 !important; }
+.section-title .pill { color: #1a2233 !important; background: rgba(var(--accent-rgb),0.22) !important; }
 .topbar { background: #ffffff !important; border-color: #d0d7e2 !important; box-shadow: 0 2px 8px rgba(0,0,0,0.05) !important; }
 .topbar-meta, .topbar-meta b { color: #4a5a72 !important; }
 .stTabs [data-baseweb="tab-list"] { background: #e4e8f0 !important; border-color: #c8d0dc !important; }
@@ -487,6 +487,24 @@ def _plan_item(it):
 _ACCENT_RGB = {"alinare": "121,134,203", "novitah": "215,169,169"}
 
 
+def _chart_clr():
+    """Cor de texto para graficos baseada no tema ativo (dark/light)."""
+    is_dark = st.session_state.get("dark_theme", True)
+    return "#e8edf5" if is_dark else "#1a2233"
+
+def _chart_title_clr():
+    is_dark = st.session_state.get("dark_theme", True)
+    return "#fff" if is_dark else "#1a2233"
+
+def _chart_grid_clr():
+    is_dark = st.session_state.get("dark_theme", True)
+    return "rgba(255,255,255,0.06)" if is_dark else "rgba(0,0,0,0.08)"
+
+def _chart_axisline_clr():
+    is_dark = st.session_state.get("dark_theme", True)
+    return "rgba(255,255,255,0.12)" if is_dark else "rgba(0,0,0,0.15)"
+
+
 def _daily_volume_chart(company, destaque, ano):
     cur = destaque.get("volume_diario") or []
     prev = ano.get("volume_diario") or []
@@ -544,22 +562,22 @@ def _daily_volume_chart(company, destaque, ano):
     ))
     fig.update_layout(
         paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)",
-        font=dict(color="#cdd9ec", size=11, family="system-ui, sans-serif"),
+        font=dict(color=_chart_clr(), size=11, family="system-ui, sans-serif"),
         margin=dict(l=8, r=8, t=95, b=8), height=420,
         title=dict(
             text=(f"<b>Volume Acumulado de Lançamentos</b><br>"
-                  f"<span style='font-size:11px;color:#9fb0c8'>Running total · "
+                  f"<span style='font-size:11px;color:{_chart_clr()}'>Running total · "
                   f"{destaque.get('mes', '')} × {ano.get('mes', '')}</span>"),
-            font=dict(color="#fff", size=14), x=0.5, xanchor="center", y=0.97, yanchor="top"),
+            font=dict(color=_chart_title_clr(), size=14), x=0.5, xanchor="center", y=0.97, yanchor="top"),
         legend=dict(orientation="h", y=1.0, x=0.5, xanchor="center", yanchor="bottom",
-                     bgcolor="rgba(0,0,0,0)", font=dict(size=12, color="#e8edf5"),
+                     bgcolor="rgba(0,0,0,0)", font=dict(size=12, color=_chart_clr()),
                      itemsizing="constant", borderwidth=0),
-        xaxis=dict(title=dict(text="Dia do mês", font=dict(size=11, color="#9fb0c8")),
-                   tickangle=-45, showgrid=False, tickfont=dict(size=9, color="#9fb0c8"),
-                   linecolor="rgba(255,255,255,0.12)"),
-        yaxis=dict(title=dict(text="Lançamentos acumulados", font=dict(size=11, color="#9fb0c8")),
-                   gridcolor="rgba(255,255,255,0.06)", zerolinecolor="rgba(255,255,255,0.12)",
-                   rangemode="tozero", tickfont=dict(size=10, color="#9fb0c8")),
+        xaxis=dict(title=dict(text="Dia do mês", font=dict(size=11, color=_chart_clr())),
+                   tickangle=-45, showgrid=False, tickfont=dict(size=9, color=_chart_clr()),
+                   linecolor=_chart_axisline_clr()),
+        yaxis=dict(title=dict(text="Lançamentos acumulados", font=dict(size=11, color=_chart_clr())),
+                   gridcolor=_chart_grid_clr(), zerolinecolor=_chart_axisline_clr(),
+                   rangemode="tozero", tickfont=dict(size=10, color=_chart_clr())),
         hovermode="x", showlegend=True,
     )
     return fig
@@ -588,20 +606,20 @@ def _trimester_month_chart(company, trimestres, sel):
     fig.add_trace(go.Bar(
         x=meses, y=vals, marker_color=f"rgb({rgb})",
         text=[_fmt_int(v) for v in vals], textposition="outside",
-        textfont=dict(color="#e8edf5", size=10),
+        textfont=dict(color=_chart_clr(), size=10),
         hovertemplate="<b>%{x}</b><br>Unidades: %{y}<extra></extra>",
         width=0.5,
     ))
     fig.update_layout(
         paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)",
-        font=dict(color="#cdd9ec", size=11), margin=dict(l=8, r=8, t=48, b=8), height=360,
+        font=dict(color=_chart_clr(), size=11), margin=dict(l=8, r=8, t=48, b=8), height=360,
         title=dict(text=f"<b>{t['label']}</b>",
-                   font=dict(color="#fff", size=13), x=0.5, xanchor="center"),
-        xaxis=dict(tickfont=dict(size=10, color="#9fb0c8"), showgrid=False,
-                   linecolor="rgba(255,255,255,0.12)"),
-        yaxis=dict(title=dict(text="Unidades Recebidas", font=dict(size=10, color="#9fb0c8")),
-                   gridcolor="rgba(255,255,255,0.06)", rangemode="tozero",
-                   tickfont=dict(size=9, color="#9fb0c8")),
+                   font=dict(color=_chart_title_clr(), size=13), x=0.5, xanchor="center"),
+        xaxis=dict(tickfont=dict(size=10, color=_chart_clr()), showgrid=False,
+                   linecolor=_chart_axisline_clr()),
+        yaxis=dict(title=dict(text="Unidades Recebidas", font=dict(size=10, color=_chart_clr())),
+                   gridcolor=_chart_grid_clr(), rangemode="tozero",
+                   tickfont=dict(size=9, color=_chart_clr())),
         showlegend=False,
     )
     st.plotly_chart(fig, use_container_width=True)
@@ -621,20 +639,20 @@ def _trimester_compare_chart(company, trimestres):
     fig.add_trace(go.Bar(
         x=labels, y=totals, marker_color=f"rgb({rgb})",
         text=[_fmt_int(v) for v in totals], textposition="outside",
-        textfont=dict(color="#e8edf5", size=10),
+        textfont=dict(color=_chart_clr(), size=10),
         hovertemplate="<b>%{x}</b><br>Total: %{y} unidades<extra></extra>",
         width=0.45,
     ))
     fig.update_layout(
         paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)",
-        font=dict(color="#cdd9ec", size=11), margin=dict(l=8, r=8, t=48, b=8), height=360,
+        font=dict(color=_chart_clr(), size=11), margin=dict(l=8, r=8, t=48, b=8), height=360,
         title=dict(text="<b>Comparativo Trimestral</b>",
-                   font=dict(color="#fff", size=13), x=0.5, xanchor="center"),
-        xaxis=dict(tickfont=dict(size=10, color="#9fb0c8"), showgrid=False,
-                   linecolor="rgba(255,255,255,0.12)"),
-        yaxis=dict(title=dict(text="Unidades Recebidas", font=dict(size=10, color="#9fb0c8")),
-                   gridcolor="rgba(255,255,255,0.06)", rangemode="tozero",
-                   tickfont=dict(size=9, color="#9fb0c8")),
+                   font=dict(color=_chart_title_clr(), size=13), x=0.5, xanchor="center"),
+        xaxis=dict(tickfont=dict(size=10, color=_chart_clr()), showgrid=False,
+                   linecolor=_chart_axisline_clr()),
+        yaxis=dict(title=dict(text="Unidades Recebidas", font=dict(size=10, color=_chart_clr())),
+                   gridcolor=_chart_grid_clr(), rangemode="tozero",
+                   tickfont=dict(size=9, color=_chart_clr())),
         showlegend=False,
     )
     st.plotly_chart(fig, use_container_width=True)
@@ -814,7 +832,7 @@ def main():
             render_company("novitah", data)
     with c_toggle:
         st.write("")
-        st.toggle("Escuro", value=dark, key="dark_theme")
+        st.toggle("Tema", value=dark, key="dark_theme", label_visibility="collapsed")
 
     st.markdown(f'<div class="data-note">Dados processados em: {meta.get("hoje","")} &bull; '
                 f'Fonte: output/data.json</div>', unsafe_allow_html=True)
