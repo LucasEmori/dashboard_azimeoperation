@@ -66,9 +66,10 @@ def _calc_month(df, data_col, dlanc_col, prod_col, md, is_destaque, weekdays, wi
 
     total_linhas = len(mdf)
     skus = int(mdf[prod_col].nunique()) if prod_col else 0
-    # Lançamentos Realizados: datas distintas com lançamento (coluna H = Data Lancamento)
+    # Lançamentos Realizados: dias com >=300 linhas (coluna H = Data Lancamento)
     if dlanc_col in mdf.columns and not mdf[dlanc_col].dropna().empty:
-        lancamentos_realizados = int(mdf[dlanc_col].dt.date.nunique())
+        by_date = mdf.groupby(mdf[dlanc_col].dt.date).size()
+        lancamentos_realizados = int((by_date >= 300).sum())
     else:
         lancamentos_realizados = 0
 

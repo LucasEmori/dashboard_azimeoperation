@@ -55,6 +55,18 @@ _CSS = """
 * { box-sizing: border-box; }
 html, body, .stApp { font-variant-numeric: tabular-nums; }
 .stApp { background: #0a0e1a; color: #e8edf5; }
+/* Transicao suave para troca de tema */
+.stApp, .kpi, .kpi.hl, .kpi-label, .kpi-value, .kpi-sub,
+.section-title, .section-title .pill,
+.comp-card, .comp-title, .comp-month, .comp-label, .comp-value,
+.yoy, .yoy-title, .yoy-card, .yoy-now, .yoy-prev, .yoy-card .yl,
+.plan-month, .plan-item, .plan-name, .plan-meta,
+.plan-total, .plan-total-value, .plan-total-bd,
+.data-note, .topbar, .topbar-meta, .topbar-meta b,
+.stTabs [data-baseweb="tab-list"], .stTabs [data-baseweb="tab"] {
+    transition: background-color 0.35s ease, color 0.35s ease,
+                border-color 0.35s ease, box-shadow 0.35s ease;
+}
 section[data-testid="stSidebar"] { display: none; }
 #MainMenu, footer { visibility: hidden; }
 .block-container { padding: 0 12px 24px !important; max-width: 1400px !important; margin: 0 auto; }
@@ -252,6 +264,74 @@ section[data-testid="stSidebar"] { display: none; }
     .plan-total-value { font-size: 24px; }
 
     .topbar-meta { font-size: 11px; }
+}
+</style>
+"""
+
+_CSS_LIGHT = """
+<style>
+/* Light theme overrides — ativado quando dark_theme=False */
+.stApp { background: #f0f2f6 !important; color: #1a2233 !important; }
+.kpi { background: #ffffff !important; border-color: #d0d7e2 !important; }
+.kpi.hl { background: rgba(var(--accent-rgb),0.07) !important; border-color: rgba(var(--accent-rgb),0.3) !important; box-shadow: 0 4px 14px rgba(0,0,0,0.06) !important; }
+.kpi-label, .kpi-sub { color: #5e6e85 !important; }
+.kpi-value { color: #1a2233 !important; }
+.kpi-value.green { color: #2e7d32 !important; }
+.kpi-value.red { color: #c62828 !important; }
+.section-title { color: #1a2233 !important; }
+.section-title .pill { color: #e8edf5 !important; }
+.topbar { background: #ffffff !important; border-color: #d0d7e2 !important; box-shadow: 0 2px 8px rgba(0,0,0,0.05) !important; }
+.topbar-meta, .topbar-meta b { color: #4a5a72 !important; }
+.stTabs [data-baseweb="tab-list"] { background: #e4e8f0 !important; border-color: #c8d0dc !important; }
+.stTabs [data-baseweb="tab"] { color: #5e6e85 !important; }
+.stTabs [data-baseweb="tab"]:hover { color: #1a2233 !important; background: rgba(0,0,0,0.04) !important; }
+.stTabs [aria-selected="true"] { color: #1a2233 !important; background: #ffffff !important; box-shadow: 0 2px 6px rgba(0,0,0,0.08) !important; }
+.comp-title { color: #4a5a72 !important; }
+.comp-card { background: #ffffff !important; border-color: #d0d7e2 !important; }
+.comp-card.year-prev { background: rgba(255,235,150,0.15) !important; border-style: dashed !important; }
+.comp-month, .comp-value { color: #1a2233 !important; }
+.comp-month .ybadge { color: #7c6b00 !important; background: rgba(255,235,150,0.5) !important; }
+.comp-label { color: #5e6e85 !important; }
+.yoy { background: rgba(var(--accent-rgb),0.05) !important; border-color: rgba(var(--accent-rgb),0.2) !important; }
+.yoy-title { color: #1a2233 !important; }
+.yoy-card { background: #ffffff !important; box-shadow: 0 2px 8px rgba(0,0,0,0.04) !important; }
+.yoy-now { color: #1a2233 !important; }
+.yoy-prev { color: #5e6e85 !important; }
+.yoy-card .yl { color: #5e6e85 !important; }
+.yoy-delta.up { color: #2e7d32 !important; }
+.yoy-delta.down { color: #c62828 !important; }
+.plan-month { color: #1a2233 !important; }
+.plan-month .sub { color: #5e6e85 !important; }
+.plan-item { background: #ffffff !important; border-color: #d0d7e2 !important; }
+.plan-item.ready { background: rgba(76,175,80,0.08) !important; }
+.plan-item.process { background: rgba(255,193,7,0.06) !important; }
+.plan-name { color: #1a2233 !important; }
+.plan-meta { color: #5e6e85 !important; }
+.pst.ready { color: #2e7d32 !important; background: rgba(76,175,80,0.15) !important; }
+.pst.process { color: #f57f17 !important; background: rgba(255,193,7,0.15) !important; }
+.mktb.sent { color: #2e7d32 !important; background: rgba(76,175,80,0.15) !important; }
+.mktb.pending { color: #f57f17 !important; background: rgba(255,193,7,0.15) !important; }
+.plan-total { background: rgba(var(--accent-rgb),0.06) !important; border-color: rgba(var(--accent-rgb),0.2) !important; }
+.plan-total-value { color: #1a2233 !important; }
+.plan-total-bd { color: #5e6e85 !important; }
+.dot.ready { color: #2e7d32 !important; }
+.dot.process { color: #f57f17 !important; }
+.data-note { color: #5e6e85 !important; }
+[data-testid="stSelectbox"] [data-baseweb="select"] > div {
+    background: #ffffff !important; border-color: #c8d0dc !important;
+    color: #1a2335 !important;
+}
+[data-testid="stSelectbox"] [data-baseweb="select"] * {
+    color: #1a2335 !important;
+}
+[data-testid="stSelectbox"] [data-baseweb="select"] svg { color: #6b7a8f !important; }
+[data-baseweb="popover"] [role="option"] { color: #1a2335 !important; }
+[data-baseweb="popover"] [role="option"]:hover,
+[data-baseweb="popover"] [aria-selected="true"] {
+    background: rgba(0,0,0,0.04) !important; color: #1a2335 !important;
+}
+.stSelectbox label, [data-testid="stWidgetLabel"] p {
+    color: #4a5a72 !important;
 }
 </style>
 """
@@ -695,11 +775,14 @@ def render_company(company, data):
 # Main
 # ---------------------------------------------------------------------------
 def main():
+    dark = st.session_state.get("dark_theme", True)
     st.markdown(_CSS, unsafe_allow_html=True)
+    if not dark:
+        st.markdown(_CSS_LIGHT, unsafe_allow_html=True)
     data = load_data()
     meta = data.get("meta", {})
 
-    # Top bar: meta + botao atualizar
+    # Top bar: meta + toggle + atualizar
     meta_html = (f'<div class="topbar-meta">'
                  f'Destaque: <b>{meta.get("destaque","")}</b> &nbsp;|&nbsp; '
                  f'Comparativo: <b>{", ".join(meta.get("comparacao",[]))}</b>')
@@ -707,18 +790,21 @@ def main():
         meta_html += f' &nbsp;|&nbsp; Ano anterior: <b>{meta.get("destaque_ano_passado","")}</b>'
     meta_html += f' &nbsp;|&nbsp; Planejamento: <b>{meta.get("proximo_mes","")}</b></div>'
 
-    c_meta, c_btn = st.columns([7, 1])
+    c_meta, c_actions = st.columns([6, 1.5])
     with c_meta:
         st.markdown(f'<div class="topbar">{meta_html}</div>', unsafe_allow_html=True)
-    with c_btn:
-        st.write("")
-        if st.button("↻ Atualizar", help="Reprocessa as planilhas e atualiza os dados",
-                     use_container_width=True):
-            with st.spinner("Reprocessando planilhas..."):
-                subprocess.run([sys.executable, "-m", "src.pipeline"],
-                               cwd=str(BASE_DIR), capture_output=True, text=True)
-            st.cache_data.clear()
-            st.rerun()
+    with c_actions:
+        col_t, col_b = st.columns([0.6, 1])
+        with col_t:
+            st.toggle("🌙" if dark else "☀️", value=dark, key="dark_theme")
+        with col_b:
+            if st.button("↻ Atualizar", help="Reprocessa as planilhas e atualiza os dados",
+                         use_container_width=True):
+                with st.spinner("Reprocessando planilhas..."):
+                    subprocess.run([sys.executable, "-m", "src.pipeline"],
+                                   cwd=str(BASE_DIR), capture_output=True, text=True)
+                st.cache_data.clear()
+                st.rerun()
 
     # Abas de empresa
     tab_a, tab_n = st.tabs(["ALINARE", "NOVITAH"])
