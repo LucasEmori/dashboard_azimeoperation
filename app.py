@@ -790,19 +790,19 @@ def main():
         meta_html += f' &nbsp;|&nbsp; Ano anterior: <b>{meta.get("destaque_ano_passado","")}</b>'
     meta_html += f' &nbsp;|&nbsp; Planejamento: <b>{meta.get("proximo_mes","")}</b></div>'
 
-    c_meta, c_toggle = st.columns([8, 1])
-    with c_meta:
-        st.markdown(f'<div class="topbar">{meta_html}</div>', unsafe_allow_html=True)
+    st.markdown(f'<div class="topbar">{meta_html}</div>', unsafe_allow_html=True)
+
+    # Abas de empresa + toggle tema na mesma linha
+    c_tabs, c_toggle = st.columns([9, 1])
+    with c_tabs:
+        tab_a, tab_n = st.tabs(["ALINARE", "NOVITAH"])
+        with tab_a:
+            render_company("alinare", data)
+        with tab_n:
+            render_company("novitah", data)
     with c_toggle:
         st.write("")
         st.toggle("🌙" if dark else "☀️", value=dark, key="dark_theme")
-
-    # Abas de empresa
-    tab_a, tab_n = st.tabs(["ALINARE", "NOVITAH"])
-    with tab_a:
-        render_company("alinare", data)
-    with tab_n:
-        render_company("novitah", data)
 
     st.markdown(f'<div class="data-note">Dados processados em: {meta.get("hoje","")} &bull; '
                 f'Fonte: output/data.json</div>', unsafe_allow_html=True)
