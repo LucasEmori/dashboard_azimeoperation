@@ -265,6 +265,9 @@ section[data-testid="stSidebar"] { display: none; }
 
     .topbar-meta { font-size: 11px; }
 }
+
+/* ---- Toggle (switch) ---- */
+[data-testid="stToggle"] label { color: #cdd9ec !important; font-weight: 600; }
 </style>
 """
 
@@ -333,6 +336,15 @@ _CSS_LIGHT = """
 .stSelectbox label, [data-testid="stWidgetLabel"] p {
     color: #4a5a72 !important;
 }
+/* Toggle widget */
+[data-baseweb="checkbox"] > div { border-color: #c8d0dc !important; background: #ffffff !important; }
+[data-baseweb="checkbox"] label { color: #4a5a72 !important; }
+/* Streamlit toggle (switch) */
+[data-testid="stToggle"] [role="checkbox"][aria-checked="true"] { background: var(--accent) !important; }
+[data-testid="stToggle"] [role="checkbox"][aria-checked="false"] { background: #c8d0dc !important; }
+[data-testid="stToggle"] label { color: #4a5a72 !important; }
+/* Brand band sub text no light */
+.brand-band .brand-sub { color: rgba(255,255,255,0.9) !important; }
 </style>
 """
 
@@ -802,7 +814,7 @@ def main():
             render_company("novitah", data)
     with c_toggle:
         st.write("")
-        st.toggle("🌙" if dark else "☀️", value=dark, key="dark_theme")
+        st.toggle("Escuro", value=dark, key="dark_theme")
 
     st.markdown(f'<div class="data-note">Dados processados em: {meta.get("hoje","")} &bull; '
                 f'Fonte: output/data.json</div>', unsafe_allow_html=True)
