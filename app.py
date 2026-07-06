@@ -790,21 +790,12 @@ def main():
         meta_html += f' &nbsp;|&nbsp; Ano anterior: <b>{meta.get("destaque_ano_passado","")}</b>'
     meta_html += f' &nbsp;|&nbsp; Planejamento: <b>{meta.get("proximo_mes","")}</b></div>'
 
-    c_meta, c_actions = st.columns([6, 1.5])
+    c_meta, c_toggle = st.columns([8, 1])
     with c_meta:
         st.markdown(f'<div class="topbar">{meta_html}</div>', unsafe_allow_html=True)
-    with c_actions:
-        col_t, col_b = st.columns([0.6, 1])
-        with col_t:
-            st.toggle("🌙" if dark else "☀️", value=dark, key="dark_theme")
-        with col_b:
-            if st.button("↻ Atualizar", help="Reprocessa as planilhas e atualiza os dados",
-                         use_container_width=True):
-                with st.spinner("Reprocessando planilhas..."):
-                    subprocess.run([sys.executable, "-m", "src.pipeline"],
-                                   cwd=str(BASE_DIR), capture_output=True, text=True)
-                st.cache_data.clear()
-                st.rerun()
+    with c_toggle:
+        st.write("")
+        st.toggle("🌙" if dark else "☀️", value=dark, key="dark_theme")
 
     # Abas de empresa
     tab_a, tab_n = st.tabs(["ALINARE", "NOVITAH"])
