@@ -66,6 +66,11 @@ def _calc_month(df, data_col, dlanc_col, prod_col, md, is_destaque, weekdays, wi
 
     total_linhas = len(mdf)
     skus = int(mdf[prod_col].nunique()) if prod_col else 0
+    # Lançamentos Realizados: datas distintas com lançamento (coluna H = Data Lancamento)
+    if dlanc_col in mdf.columns and not mdf[dlanc_col].dropna().empty:
+        lancamentos_realizados = int(mdf[dlanc_col].dt.date.nunique())
+    else:
+        lancamentos_realizados = 0
 
     # Media de prazo: H - G, remover negativos
     both = mdf.dropna(subset=[data_col, dlanc_col]).copy()
@@ -107,6 +112,7 @@ def _calc_month(df, data_col, dlanc_col, prod_col, md, is_destaque, weekdays, wi
         "mes": f"{config.month_label(md)} {md.year}",
         "is_destaque": is_destaque,
         "lancamentos": total_linhas,
+        "lancamentos_realizados": lancamentos_realizados,
         "skus": skus,
         "media_prazo": media,
         "mediana_prazo": mediana,
@@ -121,6 +127,7 @@ def _empty_entry(md, is_destaque) -> dict:
         "mes": f"{config.month_label(md)} {md.year}",
         "is_destaque": is_destaque,
         "lancamentos": 0,
+        "lancamentos_realizados": 0,
         "skus": 0,
         "media_prazo": None,
         "mediana_prazo": None,

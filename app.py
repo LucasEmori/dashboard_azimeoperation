@@ -337,8 +337,8 @@ def _comp_card(month, rows, year_prev=False):
 def _yoy_block(company, destaque, ano):
     rows = ""
     specs = [
-        ("Lançamentos", "lancamentos", _fmt_int),
-        ("SKUs", "skus", _fmt_int),
+        ("SKU's Únicos", "skus", _fmt_int),
+        ("Lançamentos Realizados", "lancamentos_realizados", _fmt_int),
         ("Média de Prazo", "media_prazo", _fmt_media),
     ]
     for label, key, fmt in specs:
@@ -609,21 +609,21 @@ def render_screen2(company, data):
 
     kpis = (
         _kpi("Média de Prazo", md_str, sub="Data → Lançamento", hl=True, value_class=md_cls)
-        + _kpi("Lançamentos", d.get("lancamentos", 0))
+        + _kpi("SKU's Únicos", d.get("skus", 0))
         + _kpi("Dia de Pico", dia.get("data", "—"), sub=dia.get("dia_semana", ""))
-        + _kpi("Unidades Recebidas", _fmt_int(data[company]["tela1"]["destaque"].get("unidades_recebidas", 0)))
+        + _kpi("Lançamentos Realizados", d.get("lancamentos_realizados", 0))
     )
 
     has_ano = ano and ano.get("lancamentos", 0) > 0
     comp_cards = "".join(
         _comp_card(c.get("mes"), [
-            ("Lançamentos", c.get("lancamentos", 0)),
+            ("Lançamentos Realizados", c.get("lancamentos_realizados", 0)),
             ("Média Dias", _fmt_media(c.get("media_prazo"))),
         ]) for c in comps
     )
     if has_ano:
         comp_cards += _comp_card(ano.get("mes"), [
-            ("Lançamentos", ano.get("lancamentos", 0)),
+            ("Lançamentos Realizados", ano.get("lancamentos_realizados", 0)),
             ("SKUs", ano.get("skus", 0)),
             ("Média Dias", _fmt_media(ano.get("media_prazo"))),
         ], year_prev=True)
