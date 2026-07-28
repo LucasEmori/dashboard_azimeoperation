@@ -49,10 +49,17 @@ def find_file(company: str, prefix: str) -> str:
     return matches[0] if matches else None
 
 
+def _use_bq() -> bool:
+    return config.DATA_SOURCE == "bq"
+
+
 # ---------------------------------------------------------------------------
 # Planilha 1 - Produtos Lancados
 # ---------------------------------------------------------------------------
 def load_p1(company: str) -> pd.DataFrame:
+    if _use_bq():
+        from . import bq
+        return bq.load_p1_bq(company)
     path = find_file(company, config.BASE_DIR.name and "1")
     if path is None:
         log.warning("P1 nao encontrada para %s", company)
@@ -71,6 +78,9 @@ def load_p1(company: str) -> pd.DataFrame:
 # Planilha 3 - Notas de Entrada
 # ---------------------------------------------------------------------------
 def load_p3(company: str) -> pd.DataFrame:
+    if _use_bq():
+        from . import bq
+        return bq.load_p3_bq(company)
     path = find_file(company, "3")
     if path is None:
         log.warning("P3 nao encontrada para %s", company)
@@ -93,6 +103,9 @@ def load_p3(company: str) -> pd.DataFrame:
 # Planilha 2 - Geral
 # ---------------------------------------------------------------------------
 def load_geral(company: str) -> pd.DataFrame:
+    if _use_bq():
+        from . import bq
+        return bq.load_geral_bq(company)
     path = find_file(company, "2")
     if path is None:
         log.warning("Geral nao encontrada para %s", company)
@@ -197,3 +210,9 @@ def parse_lancamentos(ws) -> list[dict]:
         })
 
     return records
+
+
+def load_lancamentos_bq() -> list[dict]:
+    """Tela 3 via BigQuery (bronze.lancamentos). Delega ao adapter bq."""
+    from . import bq
+    return bq.load_lancamentos_bq()

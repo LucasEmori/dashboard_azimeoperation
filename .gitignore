@@ -15,6 +15,14 @@ old/
 .DS_Store
 Thumbs.db
 
+.env
+
+# Credenciais GCP / service accounts (NUNCA commitar)
+operationsdw-*.json
+*-afecd52f8582.json
+*.service-account.json
+credentials/
+
 # Importante: data/ e output/ PERMANECEM no repo
 # - data/   : planilhas Excel (pipeline lê no botão "Atualizar")
 # - output/ : data.json (fallback caso o pipeline não rode no host)

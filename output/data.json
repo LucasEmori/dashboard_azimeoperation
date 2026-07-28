@@ -1,20 +1,20 @@
 {
   "meta": {
-    "hoje": "2026-07-06",
-    "destaque": "Junho 2026",
-    "destaque_iso": "2026-06-01",
+    "hoje": "2026-07-28",
+    "destaque": "Julho 2026",
+    "destaque_iso": "2026-07-01",
     "comparacao": [
-      "Março 2026",
       "Abril 2026",
-      "Maio 2026"
+      "Maio 2026",
+      "Junho 2026"
     ],
     "comparacao_iso": [
-      "2026-03-01",
       "2026-04-01",
-      "2026-05-01"
+      "2026-05-01",
+      "2026-06-01"
     ],
-    "destaque_ano_passado": "Junho 2025",
-    "destaque_ano_passado_iso": "2025-06-01",
+    "destaque_ano_passado": "Julho 2025",
+    "destaque_ano_passado_iso": "2025-07-01",
     "proximo_mes": "Julho 2026",
     "proximo_mes_iso": "2026-07-01"
   },
@@ -22,134 +22,166 @@
     "tela1": {
       "company": "alinare",
       "destaque": {
-        "mes": "Junho 2026",
-        "mes_num": 6,
-        "notas_emitidas": 24,
-        "sku_total": 2511,
-        "sku_por_nota": 104.6,
-        "unidades_recebidas": 82645,
+        "mes": "Julho 2026",
+        "mes_num": 7,
+        "notas_emitidas": 28,
+        "sku_total": 1479,
+        "sku_por_nota": 52.8,
+        "unidades_recebidas": 56983,
         "is_destaque": true,
         "sku_por_fornecedor": [
           {
             "fornecedor": "AMBER",
-            "skus": 2058
+            "skus": 614
           },
           {
             "fornecedor": "CEREJA",
-            "skus": 254
-          },
-          {
-            "fornecedor": "KIRSTY",
-            "skus": 126
-          },
-          {
-            "fornecedor": "GRACE MONTAGEM",
-            "skus": 44
+            "skus": 273
           },
           {
             "fornecedor": "GRACE IMPORTADO",
-            "skus": 29
+            "skus": 208
+          },
+          {
+            "fornecedor": "GRACE MONTAGEM",
+            "skus": 123
+          },
+          {
+            "fornecedor": "CAROLINE",
+            "skus": 107
+          },
+          {
+            "fornecedor": "V & V",
+            "skus": 57
+          },
+          {
+            "fornecedor": "SAM",
+            "skus": 47
+          },
+          {
+            "fornecedor": "MICHELE",
+            "skus": 33
+          },
+          {
+            "fornecedor": "DAREE - KIRSTY",
+            "skus": 17
           }
         ],
         "notas_detalhe": [
           {
-            "nf": 957,
-            "skus": 23
+            "nf": 1005,
+            "skus": 161
           },
           {
-            "nf": 960,
-            "skus": 1
+            "nf": 999,
+            "skus": 119
           },
           {
-            "nf": 961,
-            "skus": 216
-          },
-          {
-            "nf": 962,
-            "skus": 502
-          },
-          {
-            "nf": 963,
-            "skus": 24
-          },
-          {
-            "nf": 964,
-            "skus": 4
-          },
-          {
-            "nf": 967,
-            "skus": 221
-          },
-          {
-            "nf": 968,
-            "skus": 1
-          },
-          {
-            "nf": 970,
-            "skus": 5
-          },
-          {
-            "nf": 972,
-            "skus": 2
-          },
-          {
-            "nf": 973,
-            "skus": 121
-          },
-          {
-            "nf": 975,
-            "skus": 4
-          },
-          {
-            "nf": 976,
+            "nf": 990,
             "skus": 17
           },
           {
-            "nf": 977,
-            "skus": 27
+            "nf": 1002,
+            "skus": 2
           },
           {
-            "nf": 978,
-            "skus": 126
+            "nf": 993,
+            "skus": 51
           },
           {
-            "nf": 979,
-            "skus": 129
+            "nf": 991,
+            "skus": 107
           },
           {
-            "nf": 980,
-            "skus": 496
+            "nf": 1001,
+            "skus": 1
           },
           {
-            "nf": 981,
-            "skus": 125
-          },
-          {
-            "nf": 983,
-            "skus": 221
-          },
-          {
-            "nf": 984,
-            "skus": 7
-          },
-          {
-            "nf": 985,
-            "skus": 87
-          },
-          {
-            "nf": 986,
-            "skus": 18
-          },
-          {
-            "nf": 987,
+            "nf": 989,
             "skus": 5
           },
           {
-            "nf": 988,
-            "skus": 129
+            "nf": 1007,
+            "skus": 25
+          },
+          {
+            "nf": 1000,
+            "skus": 3
+          },
+          {
+            "nf": 1006,
+            "skus": 27
+          },
+          {
+            "nf": 997,
+            "skus": 33
+          },
+          {
+            "nf": 996,
+            "skus": 17
+          },
+          {
+            "nf": 995,
+            "skus": 109
+          },
+          {
+            "nf": 998,
+            "skus": 111
+          },
+          {
+            "nf": 1008,
+            "skus": 57
+          },
+          {
+            "nf": 1009,
+            "skus": 23
+          },
+          {
+            "nf": 1010,
+            "skus": 55
+          },
+          {
+            "nf": 1012,
+            "skus": 47
+          },
+          {
+            "nf": 1016,
+            "skus": 317
+          },
+          {
+            "nf": 1015,
+            "skus": 104
+          },
+          {
+            "nf": 1018,
+            "skus": 4
+          },
+          {
+            "nf": 1017,
+            "skus": 19
+          },
+          {
+            "nf": 1020,
+            "skus": 9
+          },
+          {
+            "nf": 1022,
+            "skus": 25
+          },
+          {
+            "nf": 1023,
+            "skus": 12
+          },
+          {
+            "nf": 1019,
+            "skus": 2
+          },
+          {
+            "nf": 1021,
+            "skus": 17
           }
         ],
-        "fornecedores": 5
+        "fornecedores": 9
       },
       "trimestres": {
         "T1": {
@@ -157,53 +189,53 @@
           "meses": [
             {
               "mes": "Janeiro",
-              "unidades_recebidas": 57618,
+              "unidades_recebidas": 57133,
               "notas_emitidas": 33
             },
             {
               "mes": "Fevereiro",
-              "unidades_recebidas": 16426,
+              "unidades_recebidas": 16026,
               "notas_emitidas": 16
             },
             {
               "mes": "Março",
-              "unidades_recebidas": 56714,
+              "unidades_recebidas": 49997,
               "notas_emitidas": 23
             }
           ],
-          "total_unidades": 130758
+          "total_unidades": 123156
         },
         "T2": {
           "label": "2º Trimestre",
           "meses": [
             {
               "mes": "Abril",
-              "unidades_recebidas": 56368,
+              "unidades_recebidas": 46423,
               "notas_emitidas": 19
             },
             {
               "mes": "Maio",
-              "unidades_recebidas": 37590,
+              "unidades_recebidas": 37506,
               "notas_emitidas": 18
             },
             {
-              "mes": "Junho 2026",
-              "unidades_recebidas": 82645,
+              "mes": "Junho",
+              "unidades_recebidas": 80400,
               "notas_emitidas": 24
             }
           ],
-          "total_unidades": 176603
+          "total_unidades": 164329
         },
         "T3": {
           "label": "3º Trimestre",
           "meses": [
             {
-              "mes": "Julho",
-              "unidades_recebidas": 21,
-              "notas_emitidas": 1
+              "mes": "Julho 2026",
+              "unidades_recebidas": 56983,
+              "notas_emitidas": 28
             }
           ],
-          "total_unidades": 21
+          "total_unidades": 56983
         },
         "T4": {
           "label": "4º Trimestre",
@@ -211,129 +243,102 @@
           "total_unidades": 0
         }
       },
-      "unidades_ano_anterior": null
+      "unidades_ano_anterior": 483
     },
     "tela2": {
       "company": "alinare",
       "destaque": {
-        "mes": "Junho 2026",
+        "mes": "Julho 2026",
         "is_destaque": true,
-        "lancamentos": 2326,
-        "lancamentos_realizados": 10,
-        "skus": 1998,
-        "media_prazo": 2.2,
-        "mediana_prazo": 1.0,
-        "removidos_negativos": 181,
+        "lancamentos": 1276,
+        "lancamentos_realizados": 7,
+        "skus": 1221,
+        "media_prazo": 5.3,
+        "mediana_prazo": 4.0,
+        "removidos_negativos": 109,
         "dia_pico": {
-          "data": "19/06",
+          "data": "10/07",
           "dia_semana": "Sexta-feira",
-          "quantidade": 522
+          "quantidade": 377
         },
         "volume_diario": [
           {
             "dia": 1,
-            "data": "01/06",
-            "count": 185
-          },
-          {
-            "dia": 2,
-            "data": "02/06",
-            "count": 1
+            "data": "01/07",
+            "count": 10
           },
           {
             "dia": 3,
-            "data": "03/06",
-            "count": 66
+            "data": "03/07",
+            "count": 97
           },
           {
-            "dia": 5,
-            "data": "05/06",
-            "count": 262
+            "dia": 6,
+            "data": "06/07",
+            "count": 189
+          },
+          {
+            "dia": 7,
+            "data": "07/07",
+            "count": 2
+          },
+          {
+            "dia": 8,
+            "data": "08/07",
+            "count": 100
           },
           {
             "dia": 10,
-            "data": "10/06",
-            "count": 214
-          },
-          {
-            "dia": 11,
-            "data": "11/06",
-            "count": 9
-          },
-          {
-            "dia": 12,
-            "data": "12/06",
-            "count": 52
+            "data": "10/07",
+            "count": 377
           },
           {
             "dia": 15,
-            "data": "15/06",
-            "count": 49
-          },
-          {
-            "dia": 16,
-            "data": "16/06",
-            "count": 149
+            "data": "15/07",
+            "count": 29
           },
           {
             "dia": 17,
-            "data": "17/06",
-            "count": 43
+            "data": "17/07",
+            "count": 152
           },
           {
             "dia": 18,
-            "data": "18/06",
-            "count": 17
+            "data": "18/07",
+            "count": 36
           },
           {
-            "dia": 19,
-            "data": "19/06",
-            "count": 522
+            "dia": 20,
+            "data": "20/07",
+            "count": 3
+          },
+          {
+            "dia": 21,
+            "data": "21/07",
+            "count": 14
           },
           {
             "dia": 22,
-            "data": "22/06",
-            "count": 23
+            "data": "22/07",
+            "count": 76
           },
           {
             "dia": 24,
-            "data": "24/06",
-            "count": 45
+            "data": "24/07",
+            "count": 2
           },
           {
-            "dia": 25,
-            "data": "25/06",
-            "count": 471
-          },
-          {
-            "dia": 26,
-            "data": "26/06",
-            "count": 1
-          },
-          {
-            "dia": 30,
-            "data": "30/06",
-            "count": 217
+            "dia": 27,
+            "data": "27/07",
+            "count": 189
           }
         ]
       },
       "comparacao": [
         {
-          "mes": "Março 2026",
-          "is_destaque": false,
-          "lancamentos": 1470,
-          "lancamentos_realizados": 7,
-          "skus": 1334,
-          "media_prazo": 1.1,
-          "mediana_prazo": 1.0,
-          "removidos_negativos": 297,
-          "dia_pico": null,
-          "volume_diario": null
-        },
-        {
           "mes": "Abril 2026",
           "is_destaque": false,
-          "lancamentos": 2236,
+          "lancamentos": 2233,
           "lancamentos_realizados": 7,
           "skus": 1743,
           "media_prazo": 1.6,
@@ -353,68 +358,105 @@
           "removidos_negativos": 45,
           "dia_pico": null,
           "volume_diario": null
+        },
+        {
+          "mes": "Junho 2026",
+          "is_destaque": false,
+          "lancamentos": 2320,
+          "lancamentos_realizados": 10,
+          "skus": 1994,
+          "media_prazo": 2.2,
+          "mediana_prazo": 1.0,
+          "removidos_negativos": 181,
+          "dia_pico": null,
+          "volume_diario": null
         }
       ],
       "ano_anterior": {
-        "mes": "Junho 2025",
+        "mes": "Julho 2025",
         "is_destaque": false,
-        "lancamentos": 1030,
-        "lancamentos_realizados": 5,
-        "skus": 1018,
-        "media_prazo": 0.5,
-        "mediana_prazo": 0.0,
-        "removidos_negativos": 255,
+        "lancamentos": 2014,
+        "lancamentos_realizados": 8,
+        "skus": 1638,
+        "media_prazo": 1.0,
+        "mediana_prazo": 1.0,
+        "removidos_negativos": 464,
         "dia_pico": null,
         "volume_diario": [
           {
-            "dia": 3,
-            "data": "03/06",
-            "count": 17
+            "dia": 1,
+            "data": "01/07",
+            "count": 87
           },
           {
-            "dia": 5,
-            "data": "05/06",
-            "count": 6
-          },
-          {
-            "dia": 9,
-            "data": "09/06",
-            "count": 57
-          },
-          {
-            "dia": 10,
-            "data": "10/06",
-            "count": 5
-          },
-          {
-            "dia": 11,
-            "data": "11/06",
+            "dia": 2,
+            "data": "02/07",
             "count": 2
           },
           {
-            "dia": 13,
-            "data": "13/06",
-            "count": 223
+            "dia": 4,
+            "data": "04/07",
+            "count": 73
           },
           {
-            "dia": 16,
-            "data": "16/06",
-            "count": 96
+            "dia": 7,
+            "data": "07/07",
+            "count": 16
           },
           {
-            "dia": 23,
-            "data": "23/06",
+            "dia": 8,
+            "data": "08/07",
             "count": 2
+          },
+          {
+            "dia": 12,
+            "data": "12/07",
+            "count": 1
+          },
+          {
+            "dia": 21,
+            "data": "21/07",
+            "count": 123
+          },
+          {
+            "dia": 22,
+            "data": "22/07",
+            "count": 331
           },
           {
             "dia": 24,
-            "data": "24/06",
-            "count": 592
+            "data": "24/07",
+            "count": 201
           },
           {
-            "dia": 27,
-            "data": "27/06",
-            "count": 30
+            "dia": 25,
+            "data": "25/07",
+            "count": 685
+          },
+          {
+            "dia": 26,
+            "data": "26/07",
+            "count": 94
+          },
+          {
+            "dia": 28,
+            "data": "28/07",
+            "count": 2
+          },
+          {
+            "dia": 29,
+            "data": "29/07",
+            "count": 356
+          },
+          {
+            "dia": 30,
+            "data": "30/07",
+            "count": 36
+          },
+          {
+            "dia": 31,
+            "data": "31/07",
+            "count": 5
           }
         ]
       }
@@ -422,18 +464,18 @@
     "tela3": {
       "company": "alinare",
       "mes": "Julho 2026",
-      "total_itens": 7,
-      "status_ok": 5,
-      "status_processo": 2,
-      "mkt_ok": 7,
-      "mkt_processo": 0,
+      "total_itens": 17,
+      "status_ok": 14,
+      "status_processo": 3,
+      "mkt_ok": 14,
+      "mkt_processo": 3,
       "itens": [
         {
           "empresa": "alinare",
           "data": "06/07",
           "descricao": "Pocket 1 - Sparckle + ZC",
           "embarque": "60",
-          "status_raw": "Programado",
+          "status_raw": "Finalizado",
           "status": "OK",
           "mkt": "OK"
         },
@@ -448,7 +490,7 @@
         },
         {
           "empresa": "alinare",
-          "data": "13/07",
+          "data": "16/07",
           "descricao": "Zircônia - Seleção do Estoque 4",
           "embarque": "Estoque 4",
           "status_raw": "Programado",
@@ -457,27 +499,27 @@
         },
         {
           "empresa": "alinare",
-          "data": "Sem data",
+          "data": "14/07",
           "descricao": "Moissa BR E69 (seleção pocket 2 - E60???)",
           "embarque": "69",
-          "status_raw": "Em etiquetagem",
-          "status": "EM PROCESSO",
+          "status_raw": "Programado",
+          "status": "OK",
           "mkt": "OK"
         },
         {
           "empresa": "alinare",
           "data": "18/07",
-          "descricao": "Pocket 2 - Color Mix + Pedra Natural E61/68 (peridoto)",
+          "descricao": "Pocket 2 - Color Mix + Pedra Natural E61/68 (peridoto)+Moi Estoque 4",
           "embarque": "65/67/69/61/68",
-          "status_raw": "Fila Etiquetagem",
-          "status": "EM PROCESSO",
+          "status_raw": "Programado",
+          "status": "OK",
           "mkt": "OK"
         },
         {
           "empresa": "alinare",
-          "data": "Sem data",
-          "descricao": "Grego",
-          "embarque": "Feninjer",
+          "data": "24/07",
+          "descricao": "Capsula 1 - Moi Champg+Letras Peq",
+          "embarque": "Amber73/Sam72",
           "status_raw": "Finalizado",
           "status": "OK",
           "mkt": "OK"
@@ -485,8 +527,98 @@
         {
           "empresa": "alinare",
           "data": "Sem data",
-          "descricao": "Festa",
-          "embarque": "Feninjer",
+          "descricao": "CAPSULA 3 - NANOZIRCÔNIAS",
+          "embarque": "Cereja72",
+          "status_raw": "Finalizado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "alinare",
+          "data": "Sem data",
+          "descricao": "Capsula 4 - Gregos",
+          "embarque": "Cereja53",
+          "status_raw": "Finalizado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "alinare",
+          "data": "Sem data",
+          "descricao": "CAPSULA 6 - PEDRA NATURAL",
+          "embarque": "Cereja61/Cereja68",
+          "status_raw": "Finalizado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "alinare",
+          "data": "Sem data",
+          "descricao": "CAPSULA 7 - MS + ZIRCONIA",
+          "embarque": "Amber60/Amber69",
+          "status_raw": "Marketing pendente",
+          "status": "EM PROCESSO",
+          "mkt": "EM PROCESSO"
+        },
+        {
+          "empresa": "alinare",
+          "data": "Sem data",
+          "descricao": "CAPSULA 8 - MS + ZIRCONIA",
+          "embarque": "Amber69",
+          "status_raw": "Marketing pendente",
+          "status": "EM PROCESSO",
+          "mkt": "EM PROCESSO"
+        },
+        {
+          "empresa": "alinare",
+          "data": "Sem data",
+          "descricao": "CAPSULA 9 - LETRA + CRIANÇA",
+          "embarque": "Amber73/Sam72",
+          "status_raw": "Finalizado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "alinare",
+          "data": "Sem data",
+          "descricao": "CAPSULA 10 - PEDRA NATURAL - PRASIOLITA",
+          "embarque": "Cereja72",
+          "status_raw": "Marketing pendente",
+          "status": "EM PROCESSO",
+          "mkt": "EM PROCESSO"
+        },
+        {
+          "empresa": "alinare",
+          "data": "Sem data",
+          "descricao": "POCKET 2 - MOISSANITE",
+          "embarque": "Amber73/Cereja71",
+          "status_raw": "Finalizado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "alinare",
+          "data": "Sem data",
+          "descricao": "POCKET 3 - MOISSANITE E PEDRA NATURAL",
+          "embarque": "Amber73/Cereja72/Cereja71",
+          "status_raw": "Finalizado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "alinare",
+          "data": "Sem data",
+          "descricao": "POCKET 4 - MOISSANITE E PEDRA NATURAL",
+          "embarque": "Amber73/Cereja72/Cereja71",
+          "status_raw": "Finalizado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "alinare",
+          "data": "28/07",
+          "descricao": "Pedra Natura/ Peridoto",
+          "embarque": "68",
           "status_raw": "Finalizado",
           "status": "OK",
           "mkt": "OK"
@@ -498,118 +630,102 @@
     "tela1": {
       "company": "novitah",
       "destaque": {
-        "mes": "Junho 2026",
-        "mes_num": 6,
-        "notas_emitidas": 16,
-        "sku_total": 1468,
-        "sku_por_nota": 91.8,
-        "unidades_recebidas": 54535,
+        "mes": "Julho 2026",
+        "mes_num": 7,
+        "notas_emitidas": 13,
+        "sku_total": 1081,
+        "sku_por_nota": 83.2,
+        "unidades_recebidas": 33282,
         "is_destaque": true,
         "sku_por_fornecedor": [
           {
             "fornecedor": "GRANT",
-            "skus": 745
+            "skus": 575
           },
           {
             "fornecedor": "CAROLINE",
-            "skus": 405
+            "skus": 271
           },
           {
             "fornecedor": "KIRSTY",
-            "skus": 184
-          },
-          {
-            "fornecedor": "P.A.",
-            "skus": 87
-          },
-          {
-            "fornecedor": "GF BRUTOS",
-            "skus": 18
+            "skus": 148
           },
           {
             "fornecedor": "LIMEIRA FUNDICAO - INDUSTRIA E COMERCIO DE BIJOUTERIAS LTDA",
-            "skus": 16
-          },
-          {
-            "fornecedor": "NOBRE CARACELLI",
-            "skus": 8
-          },
-          {
-            "fornecedor": "FGF FUNDIDOS",
-            "skus": 4
+            "skus": 36
           },
           {
             "fornecedor": "BILDAD UND E COM DE BIJ LT EPP",
-            "skus": 1
+            "skus": 27
+          },
+          {
+            "fornecedor": "NOBRE CARACELLI",
+            "skus": 13
+          },
+          {
+            "fornecedor": "VIE DUTRA",
+            "skus": 9
+          },
+          {
+            "fornecedor": "DUTRA ORNAMENTOS LTDA ME",
+            "skus": 2
           }
         ],
         "notas_detalhe": [
           {
-            "nf": 345,
-            "skus": 6
+            "nf": 377,
+            "skus": 127
           },
           {
-            "nf": 346,
-            "skus": 8
+            "nf": 378,
+            "skus": 9
           },
           {
-            "nf": 347,
-            "skus": 273
+            "nf": 370,
+            "skus": 3
           },
           {
-            "nf": 348,
-            "skus": 0
+            "nf": 369,
+            "skus": 148
           },
           {
-            "nf": 349,
-            "skus": 154
+            "nf": 367,
+            "skus": 24
           },
           {
-            "nf": 350,
+            "nf": 363,
+            "skus": 84
+          },
+          {
+            "nf": 365,
+            "skus": 13
+          },
+          {
+            "nf": 368,
             "skus": 30
           },
           {
-            "nf": 351,
-            "skus": 1
+            "nf": 371,
+            "skus": 57
           },
           {
-            "nf": 352,
-            "skus": 12
+            "nf": 374,
+            "skus": 391
           },
           {
-            "nf": 354,
-            "skus": 16
+            "nf": 376,
+            "skus": 187
           },
           {
-            "nf": 356,
-            "skus": 85
-          },
-          {
-            "nf": 357,
-            "skus": 70
-          },
-          {
-            "nf": 358,
-            "skus": 673
-          },
-          {
-            "nf": 359,
+            "nf": 373,
             "skus": 2
           },
           {
-            "nf": 360,
-            "skus": 4
-          },
-          {
-            "nf": 361,
-            "skus": 2
-          },
-          {
-            "nf": 362,
-            "skus": 132
+            "nf": 372,
+            "skus": 6
           }
         ],
-        "fornecedores": 9
+        "fornecedores": 8
       },
       "trimestres": {
         "T1": {
@@ -638,32 +754,32 @@
           "meses": [
             {
               "mes": "Abril",
-              "unidades_recebidas": 26868,
+              "unidades_recebidas": 26371,
               "notas_emitidas": 18
             },
             {
               "mes": "Maio",
-              "unidades_recebidas": 13819,
+              "unidades_recebidas": 13393,
               "notas_emitidas": 5
             },
             {
-              "mes": "Junho 2026",
-              "unidades_recebidas": 54535,
+              "mes": "Junho",
+              "unidades_recebidas": 52370,
               "notas_emitidas": 16
             }
           ],
-          "total_unidades": 95222
+          "total_unidades": 92134
         },
         "T3": {
           "label": "3º Trimestre",
           "meses": [
             {
-              "mes": "Julho",
-              "unidades_recebidas": 7771,
-              "notas_emitidas": 5
+              "mes": "Julho 2026",
+              "unidades_recebidas": 33282,
+              "notas_emitidas": 13
             }
           ],
-          "total_unidades": 7771
+          "total_unidades": 33282
         },
         "T4": {
           "label": "4º Trimestre",
@@ -671,90 +787,103 @@
           "total_unidades": 0
         }
       },
-      "unidades_ano_anterior": null
+      "unidades_ano_anterior": 14
     },
     "tela2": {
       "company": "novitah",
       "destaque": {
-        "mes": "Junho 2026",
+        "mes": "Julho 2026",
         "is_destaque": true,
-        "lancamentos": 1473,
-        "lancamentos_realizados": 6,
-        "skus": 1328,
-        "media_prazo": 1.5,
-        "mediana_prazo": 0.0,
-        "removidos_negativos": 186,
+        "lancamentos": 1155,
+        "lancamentos_realizados": 5,
+        "skus": 1034,
+        "media_prazo": 10.1,
+        "mediana_prazo": 13.0,
+        "removidos_negativos": 109,
         "dia_pico": {
-          "data": "30/06",
+          "data": "07/07",
           "dia_semana": "Terça-feira",
-          "quantidade": 493
+          "quantidade": 406
         },
         "volume_diario": [
           {
-            "dia": 3,
-            "data": "03/06",
-            "count": 14
+            "dia": 2,
+            "data": "02/07",
+            "count": 188
           },
           {
-            "dia": 5,
-            "data": "05/06",
-            "count": 239
+            "dia": 3,
+            "data": "03/07",
+            "count": 116
+          },
+          {
+            "dia": 6,
+            "data": "06/07",
+            "count": 1
+          },
+          {
+            "dia": 7,
+            "data": "07/07",
+            "count": 406
           },
           {
             "dia": 8,
-            "data": "08/06",
-            "count": 80
-          },
-          {
-            "dia": 12,
-            "data": "12/06",
-            "count": 76
-          },
-          {
-            "dia": 17,
-            "data": "17/06",
-            "count": 6
-          },
-          {
-            "dia": 19,
-            "data": "19/06",
-            "count": 155
-          },
-          {
-            "dia": 22,
-            "data": "22/06",
-            "count": 169
-          },
-          {
-            "dia": 24,
-            "data": "24/06",
+            "data": "08/07",
             "count": 15
           },
           {
-            "dia": 26,
-            "data": "26/06",
-            "count": 226
+            "dia": 10,
+            "data": "10/07",
+            "count": 18
           },
           {
-            "dia": 30,
-            "data": "30/06",
-            "count": 493
+            "dia": 13,
+            "data": "13/07",
+            "count": 19
+          },
+          {
+            "dia": 15,
+            "data": "15/07",
+            "count": 1
+          },
+          {
+            "dia": 17,
+            "data": "17/07",
+            "count": 5
+          },
+          {
+            "dia": 20,
+            "data": "20/07",
+            "count": 2
+          },
+          {
+            "dia": 21,
+            "data": "21/07",
+            "count": 29
+          },
+          {
+            "dia": 22,
+            "data": "22/07",
+            "count": 19
+          },
+          {
+            "dia": 23,
+            "data": "23/07",
+            "count": 81
+          },
+          {
+            "dia": 24,
+            "data": "24/07",
+            "count": 245
+          },
+          {
+            "dia": 27,
+            "data": "27/07",
+            "count": 10
           }
         ]
       },
       "comparacao": [
-        {
-          "mes": "Março 2026",
-          "is_destaque": false,
-          "lancamentos": 752,
-          "lancamentos_realizados": 4,
-          "skus": 737,
-          "media_prazo": 1.8,
-          "mediana_prazo": 3.0,
-          "removidos_negativos": 556,
-          "dia_pico": null,
-          "volume_diario": null
-        },
         {
           "mes": "Abril 2026",
           "is_destaque": false,
@@ -770,66 +899,88 @@
         {
           "mes": "Maio 2026",
           "is_destaque": false,
-          "lancamentos": 1255,
+          "lancamentos": 1242,
           "lancamentos_realizados": 6,
-          "skus": 917,
+          "skus": 906,
           "media_prazo": 1.4,
           "mediana_prazo": 1.0,
           "removidos_negativos": 242,
           "dia_pico": null,
           "volume_diario": null
+        },
+        {
+          "mes": "Junho 2026",
+          "is_destaque": false,
+          "lancamentos": 1444,
+          "lancamentos_realizados": 6,
+          "skus": 1326,
+          "media_prazo": 1.6,
+          "mediana_prazo": 0.0,
+          "removidos_negativos": 185,
+          "dia_pico": null,
+          "volume_diario": null
         }
       ],
       "ano_anterior": {
-        "mes": "Junho 2025",
+        "mes": "Julho 2025",
         "is_destaque": false,
-        "lancamentos": 574,
+        "lancamentos": 159,
         "lancamentos_realizados": 3,
-        "skus": 543,
-        "media_prazo": 2.9,
-        "mediana_prazo": 3.0,
-        "removidos_negativos": 271,
+        "skus": 154,
+        "media_prazo": 2.0,
+        "mediana_prazo": 2.0,
+        "removidos_negativos": 16,
         "dia_pico": null,
         "volume_diario": [
           {
             "dia": 2,
-            "data": "02/06",
-            "count": 6
-          },
-          {
-            "dia": 6,
-            "data": "06/06",
-            "count": 108
-          },
-          {
-            "dia": 10,
-            "data": "10/06",
+            "data": "02/07",
             "count": 1
           },
           {
-            "dia": 13,
-            "data": "13/06",
-            "count": 82
+            "dia": 4,
+            "data": "04/07",
+            "count": 1
           },
           {
-            "dia": 20,
-            "data": "20/06",
-            "count": 327
+            "dia": 8,
+            "data": "08/07",
+            "count": 1
           },
           {
-            "dia": 23,
-            "data": "23/06",
+            "dia": 11,
+            "data": "11/07",
             "count": 3
           },
           {
-            "dia": 25,
-            "data": "25/06",
-            "count": 18
+            "dia": 12,
+            "data": "12/07",
+            "count": 39
           },
           {
-            "dia": 27,
-            "data": "27/06",
-            "count": 29
+            "dia": 14,
+            "data": "14/07",
+            "count": 3
+          },
+          {
+            "dia": 23,
+            "data": "23/07",
+            "count": 35
+          },
+          {
+            "dia": 24,
+            "data": "24/07",
+            "count": 5
+          },
+          {
+            "dia": 25,
+            "data": "25/07",
+            "count": 53
+          },
+          {
+            "dia": 28,
+            "data": "28/07",
+            "count": 18
           }
         ]
       }
@@ -837,11 +988,11 @@
     "tela3": {
       "company": "novitah",
       "mes": "Julho 2026",
-      "total_itens": 4,
-      "status_ok": 2,
-      "status_processo": 2,
+      "total_itens": 5,
+      "status_ok": 4,
+      "status_processo": 1,
       "mkt_ok": 4,
-      "mkt_processo": 0,
+      "mkt_processo": 1,
       "itens": [
         {
           "empresa": "novitah",
@@ -866,8 +1017,8 @@
           "data": "14/07",
           "descricao": "Kirsty/ Grant",
           "embarque": "66/67",
-          "status_raw": "Fila Etiquetagem",
-          "status": "EM PROCESSO",
+          "status_raw": "Programado",
+          "status": "OK",
           "mkt": "OK"
         },
         {
@@ -875,9 +1026,18 @@
           "data": "25/07",
           "descricao": "Kirsty",
           "embarque": "66",
-          "status_raw": "Fila Etiquetagem",
-          "status": "EM PROCESSO",
+          "status_raw": "Programado",
+          "status": "OK",
           "mkt": "OK"
+        },
+        {
+          "empresa": "novitah",
+          "data": "31/07",
+          "descricao": "Caroline58/Caroline63/Grant67/Caroline70/Kirsty70",
+          "embarque": "58/63/67/70",
+          "status_raw": "Pendente",
+          "status": "EM PROCESSO",
+          "mkt": "EM PROCESSO"
         }
       ]
     }

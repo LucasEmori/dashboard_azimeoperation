@@ -1,0 +1,685 @@
+{
+  "meta": {
+    "hoje": "2026-07-28",
+    "destaque": "Junho 2026",
+    "destaque_iso": "2026-06-01",
+    "comparacao": [
+      "Março 2026",
+      "Abril 2026",
+      "Maio 2026"
+    ],
+    "comparacao_iso": [
+      "2026-03-01",
+      "2026-04-01",
+      "2026-05-01"
+    ],
+    "destaque_ano_passado": "Junho 2025",
+    "destaque_ano_passado_iso": "2025-06-01",
+    "proximo_mes": "Julho 2026",
+    "proximo_mes_iso": "2026-07-01"
+  },
+  "alinare": {
+    "tela1": {
+      "company": "alinare",
+      "destaque": {
+        "mes": "Junho 2026",
+        "mes_num": 6,
+        "notas_emitidas": 24,
+        "sku_total": 2511,
+        "sku_por_nota": 104.6,
+        "unidades_recebidas": 82645,
+        "is_destaque": true,
+        "sku_por_fornecedor": [
+          {
+            "fornecedor": "AMBER",
+            "skus": 2058
+          },
+          {
+            "fornecedor": "CEREJA",
+            "skus": 254
+          },
+          {
+            "fornecedor": "KIRSTY",
+            "skus": 126
+          },
+          {
+            "fornecedor": "GRACE MONTAGEM",
+            "skus": 44
+          },
+          {
+            "fornecedor": "GRACE IMPORTADO",
+            "skus": 29
+          }
+        ],
+        "notas_detalhe": [
+          {
+            "nf": 957,
+            "skus": 23
+          },
+          {
+            "nf": 960,
+            "skus": 1
+          },
+          {
+            "nf": 961,
+            "skus": 216
+          },
+          {
+            "nf": 962,
+            "skus": 502
+          },
+          {
+            "nf": 963,
+            "skus": 24
+          },
+          {
+            "nf": 964,
+            "skus": 4
+          },
+          {
+            "nf": 967,
+            "skus": 221
+          },
+          {
+            "nf": 968,
+            "skus": 1
+          },
+          {
+            "nf": 970,
+            "skus": 5
+          },
+          {
+            "nf": 972,
+            "skus": 2
+          },
+          {
+            "nf": 973,
+            "skus": 121
+          },
+          {
+            "nf": 975,
+            "skus": 4
+          },
+          {
+            "nf": 976,
+            "skus": 17
+          },
+          {
+            "nf": 977,
+            "skus": 27
+          },
+          {
+            "nf": 978,
+            "skus": 126
+          },
+          {
+            "nf": 979,
+            "skus": 129
+          },
+          {
+            "nf": 980,
+            "skus": 496
+          },
+          {
+            "nf": 981,
+            "skus": 125
+          },
+          {
+            "nf": 983,
+            "skus": 221
+          },
+          {
+            "nf": 984,
+            "skus": 7
+          },
+          {
+            "nf": 985,
+            "skus": 87
+          },
+          {
+            "nf": 986,
+            "skus": 18
+          },
+          {
+            "nf": 987,
+            "skus": 5
+          },
+          {
+            "nf": 988,
+            "skus": 129
+          }
+        ],
+        "fornecedores": 5
+      },
+      "trimestres": {
+        "T1": {
+          "label": "1º Trimestre",
+          "meses": [
+            {
+              "mes": "Janeiro",
+              "unidades_recebidas": 57618,
+              "notas_emitidas": 33
+            },
+            {
+              "mes": "Fevereiro",
+              "unidades_recebidas": 16426,
+              "notas_emitidas": 16
+            },
+            {
+              "mes": "Março",
+              "unidades_recebidas": 56714,
+              "notas_emitidas": 23
+            }
+          ],
+          "total_unidades": 130758
+        },
+        "T2": {
+          "label": "2º Trimestre",
+          "meses": [
+            {
+              "mes": "Abril",
+              "unidades_recebidas": 56368,
+              "notas_emitidas": 19
+            },
+            {
+              "mes": "Maio",
+              "unidades_recebidas": 37590,
+              "notas_emitidas": 18
+            },
+            {
+              "mes": "Junho 2026",
+              "unidades_recebidas": 82645,
+              "notas_emitidas": 24
+            }
+          ],
+          "total_unidades": 176603
+        },
+        "T3": {
+          "label": "3º Trimestre",
+          "meses": [
+            {
+              "mes": "Julho",
+              "unidades_recebidas": 21,
+              "notas_emitidas": 1
+            }
+          ],
+          "total_unidades": 21
+        },
+        "T4": {
+          "label": "4º Trimestre",
+          "meses": [],
+          "total_unidades": 0
+        }
+      },
+      "unidades_ano_anterior": null
+    },
+    "tela2": {
+      "company": "alinare",
+      "destaque": null,
+      "comparacao": [],
+      "ano_anterior": null
+    },
+    "tela3": {
+      "company": "alinare",
+      "mes": "Julho 2026",
+      "total_itens": 7,
+      "status_ok": 5,
+      "status_processo": 2,
+      "mkt_ok": 7,
+      "mkt_processo": 0,
+      "itens": [
+        {
+          "empresa": "alinare",
+          "data": "06/07",
+          "descricao": "Pocket 1 - Sparckle + ZC",
+          "embarque": "60",
+          "status_raw": "Programado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "alinare",
+          "data": "09/07",
+          "descricao": "Moissanite Leve (Fruta ED68)",
+          "embarque": "68",
+          "status_raw": "Programado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "alinare",
+          "data": "13/07",
+          "descricao": "Zircônia - Seleção do Estoque 4",
+          "embarque": "Estoque 4",
+          "status_raw": "Programado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "alinare",
+          "data": "Sem data",
+          "descricao": "Moissa BR E69 (seleção pocket 2 - E60???)",
+          "embarque": "69",
+          "status_raw": "Em etiquetagem",
+          "status": "EM PROCESSO",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "alinare",
+          "data": "18/07",
+          "descricao": "Pocket 2 - Color Mix + Pedra Natural E61/68 (peridoto)",
+          "embarque": "65/67/69/61/68",
+          "status_raw": "Fila Etiquetagem",
+          "status": "EM PROCESSO",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "alinare",
+          "data": "Sem data",
+          "descricao": "Grego",
+          "embarque": "Feninjer",
+          "status_raw": "Finalizado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "alinare",
+          "data": "Sem data",
+          "descricao": "Festa",
+          "embarque": "Feninjer",
+          "status_raw": "Finalizado",
+          "status": "OK",
+          "mkt": "OK"
+        }
+      ]
+    }
+  },
+  "novitah": {
+    "tela1": {
+      "company": "novitah",
+      "destaque": {
+        "mes": "Junho 2026",
+        "mes_num": 6,
+        "notas_emitidas": 16,
+        "sku_total": 1468,
+        "sku_por_nota": 91.8,
+        "unidades_recebidas": 54535,
+        "is_destaque": true,
+        "sku_por_fornecedor": [
+          {
+            "fornecedor": "GRANT",
+            "skus": 745
+          },
+          {
+            "fornecedor": "CAROLINE",
+            "skus": 405
+          },
+          {
+            "fornecedor": "KIRSTY",
+            "skus": 184
+          },
+          {
+            "fornecedor": "P.A.",
+            "skus": 87
+          },
+          {
+            "fornecedor": "GF BRUTOS",
+            "skus": 18
+          },
+          {
+            "fornecedor": "LIMEIRA FUNDICAO - INDUSTRIA E COMERCIO DE BIJOUTERIAS LTDA",
+            "skus": 16
+          },
+          {
+            "fornecedor": "NOBRE CARACELLI",
+            "skus": 8
+          },
+          {
+            "fornecedor": "FGF FUNDIDOS",
+            "skus": 4
+          },
+          {
+            "fornecedor": "BILDAD UND E COM DE BIJ LT EPP",
+            "skus": 1
+          }
+        ],
+        "notas_detalhe": [
+          {
+            "nf": 345,
+            "skus": 6
+          },
+          {
+            "nf": 346,
+            "skus": 8
+          },
+          {
+            "nf": 347,
+            "skus": 273
+          },
+          {
+            "nf": 348,
+            "skus": 0
+          },
+          {
+            "nf": 349,
+            "skus": 154
+          },
+          {
+            "nf": 350,
+            "skus": 30
+          },
+          {
+            "nf": 351,
+            "skus": 1
+          },
+          {
+            "nf": 352,
+            "skus": 12
+          },
+          {
+            "nf": 354,
+            "skus": 16
+          },
+          {
+            "nf": 356,
+            "skus": 85
+          },
+          {
+            "nf": 357,
+            "skus": 70
+          },
+          {
+            "nf": 358,
+            "skus": 673
+          },
+          {
+            "nf": 359,
+            "skus": 2
+          },
+          {
+            "nf": 360,
+            "skus": 4
+          },
+          {
+            "nf": 361,
+            "skus": 2
+          },
+          {
+            "nf": 362,
+            "skus": 132
+          }
+        ],
+        "fornecedores": 9
+      },
+      "trimestres": {
+        "T1": {
+          "label": "1º Trimestre",
+          "meses": [
+            {
+              "mes": "Janeiro",
+              "unidades_recebidas": 98,
+              "notas_emitidas": 22
+            },
+            {
+              "mes": "Fevereiro",
+              "unidades_recebidas": 0,
+              "notas_emitidas": 7
+            },
+            {
+              "mes": "Março",
+              "unidades_recebidas": 6783,
+              "notas_emitidas": 17
+            }
+          ],
+          "total_unidades": 6881
+        },
+        "T2": {
+          "label": "2º Trimestre",
+          "meses": [
+            {
+              "mes": "Abril",
+              "unidades_recebidas": 26868,
+              "notas_emitidas": 18
+            },
+            {
+              "mes": "Maio",
+              "unidades_recebidas": 13819,
+              "notas_emitidas": 5
+            },
+            {
+              "mes": "Junho 2026",
+              "unidades_recebidas": 54535,
+              "notas_emitidas": 16
+            }
+          ],
+          "total_unidades": 95222
+        },
+        "T3": {
+          "label": "3º Trimestre",
+          "meses": [
+            {
+              "mes": "Julho",
+              "unidades_recebidas": 7771,
+              "notas_emitidas": 5
+            }
+          ],
+          "total_unidades": 7771
+        },
+        "T4": {
+          "label": "4º Trimestre",
+          "meses": [],
+          "total_unidades": 0
+        }
+      },
+      "unidades_ano_anterior": null
+    },
+    "tela2": {
+      "company": "novitah",
+      "destaque": {
+        "mes": "Junho 2026",
+        "is_destaque": true,
+        "lancamentos": 1473,
+        "lancamentos_realizados": 6,
+        "skus": 1328,
+        "media_prazo": 1.5,
+        "mediana_prazo": 0.0,
+        "removidos_negativos": 186,
+        "dia_pico": {
+          "data": "30/06",
+          "dia_semana": "Terça-feira",
+          "quantidade": 493
+        },
+        "volume_diario": [
+          {
+            "dia": 3,
+            "data": "03/06",
+            "count": 14
+          },
+          {
+            "dia": 5,
+            "data": "05/06",
+            "count": 239
+          },
+          {
+            "dia": 8,
+            "data": "08/06",
+            "count": 80
+          },
+          {
+            "dia": 12,
+            "data": "12/06",
+            "count": 76
+          },
+          {
+            "dia": 17,
+            "data": "17/06",
+            "count": 6
+          },
+          {
+            "dia": 19,
+            "data": "19/06",
+            "count": 155
+          },
+          {
+            "dia": 22,
+            "data": "22/06",
+            "count": 169
+          },
+          {
+            "dia": 24,
+            "data": "24/06",
+            "count": 15
+          },
+          {
+            "dia": 26,
+            "data": "26/06",
+            "count": 226
+          },
+          {
+            "dia": 30,
+            "data": "30/06",
+            "count": 493
+          }
+        ]
+      },
+      "comparacao": [
+        {
+          "mes": "Março 2026",
+          "is_destaque": false,
+          "lancamentos": 752,
+          "lancamentos_realizados": 4,
+          "skus": 737,
+          "media_prazo": 1.8,
+          "mediana_prazo": 3.0,
+          "removidos_negativos": 556,
+          "dia_pico": null,
+          "volume_diario": null
+        },
+        {
+          "mes": "Abril 2026",
+          "is_destaque": false,
+          "lancamentos": 731,
+          "lancamentos_realizados": 3,
+          "skus": 720,
+          "media_prazo": 1.9,
+          "mediana_prazo": 1.0,
+          "removidos_negativos": 3,
+          "dia_pico": null,
+          "volume_diario": null
+        },
+        {
+          "mes": "Maio 2026",
+          "is_destaque": false,
+          "lancamentos": 1255,
+          "lancamentos_realizados": 6,
+          "skus": 917,
+          "media_prazo": 1.4,
+          "mediana_prazo": 1.0,
+          "removidos_negativos": 242,
+          "dia_pico": null,
+          "volume_diario": null
+        }
+      ],
+      "ano_anterior": {
+        "mes": "Junho 2025",
+        "is_destaque": false,
+        "lancamentos": 574,
+        "lancamentos_realizados": 3,
+        "skus": 543,
+        "media_prazo": 2.9,
+        "mediana_prazo": 3.0,
+        "removidos_negativos": 271,
+        "dia_pico": null,
+        "volume_diario": [
+          {
+            "dia": 2,
+            "data": "02/06",
+            "count": 6
+          },
+          {
+            "dia": 6,
+            "data": "06/06",
+            "count": 108
+          },
+          {
+            "dia": 10,
+            "data": "10/06",
+            "count": 1
+          },
+          {
+            "dia": 13,
+            "data": "13/06",
+            "count": 82
+          },
+          {
+            "dia": 20,
+            "data": "20/06",
+            "count": 327
+          },
+          {
+            "dia": 23,
+            "data": "23/06",
+            "count": 3
+          },
+          {
+            "dia": 25,
+            "data": "25/06",
+            "count": 18
+          },
+          {
+            "dia": 27,
+            "data": "27/06",
+            "count": 29
+          }
+        ]
+      }
+    },
+    "tela3": {
+      "company": "novitah",
+      "mes": "Julho 2026",
+      "total_itens": 4,
+      "status_ok": 2,
+      "status_processo": 2,
+      "mkt_ok": 4,
+      "mkt_processo": 0,
+      "itens": [
+        {
+          "empresa": "novitah",
+          "data": "01/07",
+          "descricao": "Grant/ Caroline/ Kirsty",
+          "embarque": "58/63/66/67",
+          "status_raw": "Finalizado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "novitah",
+          "data": "09/07",
+          "descricao": "Grant/ Caroline/ Kirsty/ Nacionais",
+          "embarque": "58/66/67",
+          "status_raw": "Programado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "novitah",
+          "data": "14/07",
+          "descricao": "Kirsty/ Grant",
+          "embarque": "66/67",
+          "status_raw": "Fila Etiquetagem",
+          "status": "EM PROCESSO",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "novitah",
+          "data": "25/07",
+          "descricao": "Kirsty",
+          "embarque": "66",
+          "status_raw": "Fila Etiquetagem",
+          "status": "EM PROCESSO",
+          "mkt": "OK"
+        }
+      ]
+    }
+  }
+}

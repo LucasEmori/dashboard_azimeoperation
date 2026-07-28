@@ -10,17 +10,16 @@ from __future__ import annotations
 
 import logging
 
-import pandas as pd
-
 from . import config
-from . import io as iomod
 
 log = logging.getLogger("dashboard.screen3")
 
 
-def compute(ws) -> dict[str, dict]:
-    """Processa a aba Lancamentos e retorna dados para ambas as empresas."""
-    records = iomod.parse_lancamentos(ws)
+def compute(records) -> dict[str, dict]:
+    """Processa registros de lancamentos (Excel parse ou BQ) e retorna dados
+    para ambas as empresas."""
+    if records is None:
+        records = []
 
     results = {}
     for company in config.COMPANIES:

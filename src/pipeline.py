@@ -17,6 +17,9 @@ log = logging.getLogger("dashboard.pipeline")
 def run() -> dict:
     logging.basicConfig(level=logging.INFO, format="%(levelname)s %(name)s: %(message)s")
 
+    src = config.DATA_SOURCE.upper()
+    log.info("=== FONTE DE DADOS: %s ===", src)
+
     results = {"meta": _build_meta(), "alinare": {}, "novitah": {}}
 
     # Telas 1 e 2: por empresa
@@ -29,10 +32,14 @@ def run() -> dict:
         results[company]["tela1"] = s1.compute(company, p3, geral)
         results[company]["tela2"] = s2.compute(company, p1)
 
-    # Tela 3: sempre do arquivo da Alinare
-    log.info("=== Processando Tela 3 (Alinare) ===")
-    ws = iomod.load_lancamentos()
-    s3_results = s3.compute(ws)
+    # Tela 3: sempre do arquivo da Alinare (Excel) ou bronze.lancamentos (BQ)
+    log.info("=== Processando Tela 3 ===")
+    if config.DATA_SOURCE == "bq":
+        records = iomod.load_lancamentos_bq()
+    else:
+        ws = iomod.load_lancamentos()
+        records = iomod.parse_lancamentos(ws)
+    s3_results = s3.compute(records)
     results["alinare"]["tela3"] = s3_results["alinare"]
     results["novitah"]["tela3"] = s3_results["novitah"]
 
