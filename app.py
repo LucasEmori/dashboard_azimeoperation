@@ -587,9 +587,9 @@ def _daily_volume_chart(company, destaque, ano):
 # Plotly - graficos trimestrais (Tela 1)
 # ---------------------------------------------------------------------------
 def _trim_keys(trimestres):
-    """Apenas trimestres completos (3 meses) — exclui T3/T4 em andamento."""
+    """Trimestres com pelo menos 1 mes de dados — inclui T3/T4 em andamento."""
     return [k for k in ("T1", "T2", "T3", "T4")
-            if len(trimestres.get(k, {}).get("meses", [])) == 3]
+            if trimestres.get(k, {}).get("meses")]
 
 
 def _trimester_month_chart(company, trimestres, sel):
