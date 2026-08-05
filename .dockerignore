@@ -1,0 +1,31 @@
+# Build / cache
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# Editor / metadata
+.opencode/
+.devcontainer/
+.claude/
+.git/
+.github/
+
+# Logs
+*.log
+
+# Secrets locais (Railway usa variaveis, nao arquivos)
+.streamlit/secrets.toml
+.env
+operationsdw-*.json
+*-afecd52f8582.json
+*.service-account.json
+credentials/
+
+# Legado
+old/
+docs/
+
+# Streamlit cache gerado em runtime
+.streamlit/cache/
