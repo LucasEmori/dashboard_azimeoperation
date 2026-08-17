@@ -5,12 +5,11 @@ Dashboard Alinare & Novitah (Streamlit). Container Docker no Railway.
 ## Como o app funciona em producao
 
 `app.py` le `output/data.json` (ja commitado no repo). **Nao roda pipeline em runtime**
-e **nao precisa credencial BigQuery no container**. Pipeline (`python -m src.pipeline`)
+e **nao precisa credencial Supabase no container**. Pipeline (`python -m src.pipeline`)
 roda offline na maquina local e o `data.json` resultante e commitado.
 
 Para atualizar dados em producao: rode o pipeline localmente (com
-`GOOGLE_APPLICATION_CREDENTIALS` apontando para a service account) e push do
-`output/data.json` atualizado.
+`PG_DSN` configurado) e push do `output/data.json` atualizado.
 
 ## Deploy (1 vez)
 
@@ -30,9 +29,13 @@ Para atualizar dados em producao: rode o pipeline localmente (com
 
 ```bash
 # local
-export GOOGLE_APPLICATION_CREDENTIALS=./operationsdw-afecd52f8582.json
+export PG_DSN="postgresql://postgres.xzoohqiejbuaskpiktfj:azime202600@aws-0-sa-east-1.pooler.supabase.com:6543/postgres"
 python -m src.pipeline          # regenera output/data.json
 git add output/data.json && git commit -m "data: atualiza data.json" && git push
 ```
 
 Railway re-deploy automatico a cada push.
+
+Opcional: sobrescrever defaults via env:
+- `PG_T2_SOURCE` — `lancamentos` (default) ou `itens_efetivo`
+- `PG_SCHEMA` / `PG_T3_SCHEMA` — schemas do DW (defaults: `ouro` / `bronze`)

@@ -49,7 +49,7 @@ def find_file(company: str, prefix: str) -> str:
     return matches[0] if matches else None
 
 
-def _use_bq() -> bool:
+def _use_pg() -> bool:
     return config.DATA_SOURCE == "bq"
 
 
@@ -57,7 +57,7 @@ def _use_bq() -> bool:
 # Planilha 1 - Produtos Lancados
 # ---------------------------------------------------------------------------
 def load_p1(company: str) -> pd.DataFrame:
-    if _use_bq():
+    if _use_pg():
         from . import bq
         return bq.load_p1_bq(company)
     path = find_file(company, config.BASE_DIR.name and "1")
@@ -78,7 +78,7 @@ def load_p1(company: str) -> pd.DataFrame:
 # Planilha 3 - Notas de Entrada
 # ---------------------------------------------------------------------------
 def load_p3(company: str) -> pd.DataFrame:
-    if _use_bq():
+    if _use_pg():
         from . import bq
         return bq.load_p3_bq(company)
     path = find_file(company, "3")
@@ -103,7 +103,7 @@ def load_p3(company: str) -> pd.DataFrame:
 # Planilha 2 - Geral
 # ---------------------------------------------------------------------------
 def load_geral(company: str) -> pd.DataFrame:
-    if _use_bq():
+    if _use_pg():
         from . import bq
         return bq.load_geral_bq(company)
     path = find_file(company, "2")

@@ -60,46 +60,64 @@ def weekday_pt(d) -> str:
 def ym(d: date) -> tuple[int, int]:
     return (d.year, d.month)
 
-
 # ---------------------------------------------------------------------------
 # Abas da Planilha Geral por empresa
 # ---------------------------------------------------------------------------
 SHEET_GERAL = {"alinare": "Geral", "novitah": "BASE GERAL"}
 
 # ---------------------------------------------------------------------------
-# Fonte de dados: "excel" (planilhas locais) ou "bq" (BigQuery / DW)
+# Fonte de dados: "excel" (planilhas locais) ou "bq" (DW: antes BigQuery,
+# agora Supabase/Postgres) ou "pg" (alias de bq p/ retrocompatibilidade).
+# Valor "bq" mantido p/ nao quebrar env existente (DATA_SOURCE=bq no Railway).
 # ---------------------------------------------------------------------------
-DATA_SOURCE = os.getenv("DATA_SOURCE", "bq").lower()
-BQ_PROJECT = os.getenv("BQ_PROJECT", "operationsdw")
+_v = os.getenv("DATA_SOURCE", "bq").lower()
+DATA_SOURCE = "bq" if _v in ("bq", "pg") else _v
 
-# Camada do DW e nomes das tabelas. Sobrescrever via env se necessario.
-BQ_DATASET = os.getenv("BQ_DATASET", "ouro")
-BQ_T3_DATASET = os.getenv("BQ_T3_DATASET", "bronze")  # Tela 3: so bronze tem MKT/EMBARQUE
+# ---------------------------------------------------------------------------
+# Supabase / Postgres (substitui BigQuery)
+# String completa opcional; se ausente, monta das partes.
+# Ex (Supabase pooler): postgresql://postgres.xzoohqiejbuaskpiktfj:pwd@aws-0-sa-east-1.pooler.supabase.com:6543/postgres
+# ---------------------------------------------------------------------------
+PG_DSN = os.getenv(
+    "PG_DSN",
+    "postgresql://postgres.xzoohqiejbuaskpiktfj:azime202600@aws-0-sa-east-1.pooler.supabase.com:6543/postgres",
+)
+
+# Schemas do DW (mesma semantica das antigas camadas BQ ouro/bronze)
+PG_SCHEMA = os.getenv("PG_SCHEMA", "ouro")        # telas 1 e 2
+PG_T3_SCHEMA = os.getenv("PG_T3_SCHEMA", "bronze")  # tela 3: so bronze tem MKT/EMBARQUE
 
 # Tabela de Tela 2 (Produtos Lancados). Alterna via env para comparacao:
-#   "lancamentos"        -> ouro.lancamentos_<emp>     (bate com P1, ~100%)
-#   "itens_efetivo"      -> ouro.itens_lancados_efetivo_<emp>  (~3%, distorce)
-BQ_T2_SOURCE = os.getenv("BQ_T2_SOURCE", "lancamentos").lower()
+#   "lancamentos"   -> ouro.lancamentos_<emp>     (bate com P1, ~100%)
+#   "itens_efetivo" -> ouro.itens_lancados_efetivo_<emp>  (~3%, distorce)
+PG_T2_SOURCE = os.getenv("PG_T2_SOURCE", "lancamentos").lower()
 
-BQ_TABLES = {
-    "p3": "{emp}",            # nf_alinare / nf_novitah  (Tela 1 notas)
-    "geral": "{emp}",         # geral_estoque_alinare / geral_estoque_novitah
+PG_TABLES = {
+    "p3": "{emp}",              # nf_alinare / nf_novitah  (Tela 1 notas)
+    "geral": "{emp}",           # geral_alinare / geral_novitah
     "lancamentos_t3": "lancamentos",  # bronze.lancamentos (Tela 3)
-    "fornecedor": "fornecedor",
 }
 
-def bq_t2_table(company: str) -> str:
-    """Nome da tabela de Tela 2 conforme BQ_T2_SOURCE."""
-    if BQ_T2_SOURCE == "itens_efetivo":
+# Tela 1 (Geral): geral_<empresa> (bruto). NAO geral_estoque_*.
+PG_GERAL_TABLES = {
+    "alinare": os.getenv("PG_GERAL_ALINARE", "geral_alinare"),
+    "novitah": os.getenv("PG_GERAL_NOVITAH", "geral_novitah"),
+}
+
+# Tela 1 (Notas): tabela de fornecedores por empresa (ouro.fornecedores_<emp>).
+# Antes BQ usava tabela unica `fornecedor`; Postgres tem uma por empresa.
+PG_FORN_TABLES = {
+    "alinare": os.getenv("PG_FORN_ALINARE", "fornecedores_alinare"),
+    "novitah": os.getenv("PG_FORN_NOVITAH", "fornecedores_novitah"),
+}
+
+
+def pg_t2_table(company: str) -> str:
+    """Nome da tabela de Tela 2 conforme PG_T2_SOURCE."""
+    if PG_T2_SOURCE == "itens_efetivo":
         return f"itens_lancados_efetivo_{company}"
     return f"lancamentos_{company}"
 
-# Tela 1 (Geral): usar geral_<empresa> (bruto). NAO geral_estoque_* (agrupa
-# lancamentos+estoque, recorte que perde NFs recentes).
-BQ_GERAL_TABLES = {
-    "alinare": os.getenv("BQ_GERAL_ALINARE", "geral_alinare"),
-    "novitah": os.getenv("BQ_GERAL_NOVITAH", "geral_novitah"),
-}
 
 # ---------------------------------------------------------------------------
 # Cores da marca
