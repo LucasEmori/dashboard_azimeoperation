@@ -1,0 +1,1983 @@
+{
+  "meta": {
+    "hoje": "2026-08-17",
+    "destaque": "Agosto 2026",
+    "destaque_iso": "2026-08-01",
+    "comparacao": [
+      "Maio 2026",
+      "Junho 2026",
+      "Julho 2026"
+    ],
+    "comparacao_iso": [
+      "2026-05-01",
+      "2026-06-01",
+      "2026-07-01"
+    ],
+    "destaque_ano_passado": "Agosto 2025",
+    "destaque_ano_passado_iso": "2025-08-01",
+    "proximo_mes": "Agosto 2026",
+    "proximo_mes_iso": "2026-08-01"
+  },
+  "alinare": {
+    "tela1": {
+      "company": "alinare",
+      "destaque": {
+        "mes": "Agosto 2026",
+        "mes_num": 8,
+        "notas_emitidas": 15,
+        "sku_total": 449,
+        "sku_por_nota": 29.9,
+        "unidades_recebidas": 13374,
+        "is_destaque": true,
+        "sku_por_fornecedor": [
+          {
+            "fornecedor": "CEREJA",
+            "skus": 369
+          },
+          {
+            "fornecedor": "GRACE IMPORTADO",
+            "skus": 44
+          },
+          {
+            "fornecedor": "GRACE MONTAGEM",
+            "skus": 35
+          },
+          {
+            "fornecedor": "V & V",
+            "skus": 1
+          }
+        ],
+        "notas_detalhe": [
+          {
+            "nf": 1029,
+            "skus": 1
+          },
+          {
+            "nf": 1030,
+            "skus": 35
+          },
+          {
+            "nf": 1031,
+            "skus": 66
+          },
+          {
+            "nf": 1032,
+            "skus": 266
+          },
+          {
+            "nf": 1033,
+            "skus": 2
+          },
+          {
+            "nf": 1034,
+            "skus": 9
+          },
+          {
+            "nf": 1027,
+            "skus": 2
+          },
+          {
+            "nf": 1037,
+            "skus": 17
+          },
+          {
+            "nf": 1038,
+            "skus": 12
+          },
+          {
+            "nf": 1039,
+            "skus": 4
+          },
+          {
+            "nf": 1040,
+            "skus": 3
+          },
+          {
+            "nf": 1035,
+            "skus": 2
+          },
+          {
+            "nf": 1028,
+            "skus": 9
+          },
+          {
+            "nf": 1036,
+            "skus": 18
+          },
+          {
+            "nf": 1026,
+            "skus": 3
+          }
+        ],
+        "fornecedores": 4
+      },
+      "trimestres": {
+        "T1": {
+          "label": "1º Trimestre",
+          "meses": [
+            {
+              "mes": "Janeiro",
+              "unidades_recebidas": 57133,
+              "notas_emitidas": 33
+            },
+            {
+              "mes": "Fevereiro",
+              "unidades_recebidas": 16026,
+              "notas_emitidas": 16
+            },
+            {
+              "mes": "Março",
+              "unidades_recebidas": 49997,
+              "notas_emitidas": 23
+            }
+          ],
+          "total_unidades": 123156
+        },
+        "T2": {
+          "label": "2º Trimestre",
+          "meses": [
+            {
+              "mes": "Abril",
+              "unidades_recebidas": 46423,
+              "notas_emitidas": 19
+            },
+            {
+              "mes": "Maio",
+              "unidades_recebidas": 37506,
+              "notas_emitidas": 18
+            },
+            {
+              "mes": "Junho",
+              "unidades_recebidas": 80425,
+              "notas_emitidas": 24
+            }
+          ],
+          "total_unidades": 164354
+        },
+        "T3": {
+          "label": "3º Trimestre",
+          "meses": [
+            {
+              "mes": "Julho",
+              "unidades_recebidas": 54077,
+              "notas_emitidas": 30
+            },
+            {
+              "mes": "Agosto 2026",
+              "unidades_recebidas": 13374,
+              "notas_emitidas": 15
+            }
+          ],
+          "total_unidades": 67451
+        },
+        "T4": {
+          "label": "4º Trimestre",
+          "meses": [],
+          "total_unidades": 0
+        }
+      },
+      "unidades_ano_anterior": 86
+    },
+    "tela2": {
+      "company": "alinare",
+      "destaque": {
+        "mes": "Agosto 2026",
+        "is_destaque": true,
+        "lancamentos": 1203,
+        "lancamentos_realizados": 6,
+        "skus": 1136,
+        "media_prazo": 3.0,
+        "mediana_prazo": 2.0,
+        "removidos_negativos": 53,
+        "dia_pico": {
+          "data": "11/08",
+          "dia_semana": "Terça-feira",
+          "quantidade": 254
+        },
+        "volume_diario": [
+          {
+            "dia": 1,
+            "data": "01/08",
+            "count": 5
+          },
+          {
+            "dia": 3,
+            "data": "03/08",
+            "count": 56
+          },
+          {
+            "dia": 4,
+            "data": "04/08",
+            "count": 43
+          },
+          {
+            "dia": 6,
+            "data": "06/08",
+            "count": 168
+          },
+          {
+            "dia": 7,
+            "data": "07/08",
+            "count": 110
+          },
+          {
+            "dia": 8,
+            "data": "08/08",
+            "count": 122
+          },
+          {
+            "dia": 10,
+            "data": "10/08",
+            "count": 58
+          },
+          {
+            "dia": 11,
+            "data": "11/08",
+            "count": 254
+          },
+          {
+            "dia": 12,
+            "data": "12/08",
+            "count": 115
+          },
+          {
+            "dia": 13,
+            "data": "13/08",
+            "count": 174
+          },
+          {
+            "dia": 14,
+            "data": "14/08",
+            "count": 98
+          }
+        ]
+      },
+      "comparacao": [
+        {
+          "mes": "Maio 2026",
+          "is_destaque": false,
+          "lancamentos": 1717,
+          "lancamentos_realizados": 7,
+          "skus": 1495,
+          "media_prazo": 2.8,
+          "mediana_prazo": 3.0,
+          "removidos_negativos": 45,
+          "dia_pico": null,
+          "volume_diario": null
+        },
+        {
+          "mes": "Junho 2026",
+          "is_destaque": false,
+          "lancamentos": 2320,
+          "lancamentos_realizados": 10,
+          "skus": 1994,
+          "media_prazo": 2.2,
+          "mediana_prazo": 1.0,
+          "removidos_negativos": 181,
+          "dia_pico": null,
+          "volume_diario": null
+        },
+        {
+          "mes": "Julho 2026",
+          "is_destaque": false,
+          "lancamentos": 1746,
+          "lancamentos_realizados": 9,
+          "skus": 1649,
+          "media_prazo": 4.4,
+          "mediana_prazo": 3.0,
+          "removidos_negativos": 111,
+          "dia_pico": null,
+          "volume_diario": null
+        }
+      ],
+      "ano_anterior": {
+        "mes": "Agosto 2025",
+        "is_destaque": false,
+        "lancamentos": 2848,
+        "lancamentos_realizados": 8,
+        "skus": 2730,
+        "media_prazo": 0.5,
+        "mediana_prazo": 0.0,
+        "removidos_negativos": 667,
+        "dia_pico": null,
+        "volume_diario": [
+          {
+            "dia": 1,
+            "data": "01/08",
+            "count": 367
+          },
+          {
+            "dia": 2,
+            "data": "02/08",
+            "count": 726
+          },
+          {
+            "dia": 3,
+            "data": "03/08",
+            "count": 143
+          },
+          {
+            "dia": 4,
+            "data": "04/08",
+            "count": 105
+          },
+          {
+            "dia": 6,
+            "data": "06/08",
+            "count": 7
+          },
+          {
+            "dia": 7,
+            "data": "07/08",
+            "count": 108
+          },
+          {
+            "dia": 11,
+            "data": "11/08",
+            "count": 2
+          },
+          {
+            "dia": 12,
+            "data": "12/08",
+            "count": 306
+          },
+          {
+            "dia": 14,
+            "data": "14/08",
+            "count": 239
+          },
+          {
+            "dia": 18,
+            "data": "18/08",
+            "count": 229
+          },
+          {
+            "dia": 19,
+            "data": "19/08",
+            "count": 26
+          },
+          {
+            "dia": 21,
+            "data": "21/08",
+            "count": 83
+          },
+          {
+            "dia": 22,
+            "data": "22/08",
+            "count": 2
+          },
+          {
+            "dia": 23,
+            "data": "23/08",
+            "count": 183
+          },
+          {
+            "dia": 25,
+            "data": "25/08",
+            "count": 1
+          },
+          {
+            "dia": 26,
+            "data": "26/08",
+            "count": 315
+          },
+          {
+            "dia": 27,
+            "data": "27/08",
+            "count": 6
+          }
+        ]
+      }
+    },
+    "tela3": {
+      "company": "alinare",
+      "mes": "Agosto 2026",
+      "total_itens": 84,
+      "status_ok": 84,
+      "status_processo": 0,
+      "mkt_ok": 84,
+      "mkt_processo": 0,
+      "itens": [
+        {
+          "empresa": "alinare",
+          "data": "01/08",
+          "descricao": "FESTA/PEDRA NATURAL/POCKET 1/SELEÇÃO MOI E-75",
+          "embarque": "48/52/58",
+          "status_raw": "Lançado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "alinare",
+          "data": "03/08",
+          "descricao": "GRACE",
+          "embarque": "212/216/221",
+          "status_raw": "Lançado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "alinare",
+          "data": "05/08",
+          "descricao": "PARTE POCKET 2",
+          "embarque": "73/64/71",
+          "status_raw": "Lançado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "alinare",
+          "data": "08/08",
+          "descricao": "SPARKLE/ZIRCONIA-REGILIOSOS E-77",
+          "embarque": "60/69/73/75/74/77",
+          "status_raw": "Lançado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "alinare",
+          "data": "15/08",
+          "descricao": "SPARKLE/ZIRCONIA-POCKET 3- GREGO - GRACE - SELEÇÃO 77",
+          "embarque": "60/69/73/75",
+          "status_raw": "Programado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "alinare",
+          "data": "17/08",
+          "descricao": "PONTO DE LUZ - POCKET 4- GRACE - LAB GROWN",
+          "embarque": "75",
+          "status_raw": "Programado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "alinare",
+          "data": "12/08",
+          "descricao": "V&V",
+          "embarque": "75",
+          "status_raw": "Lançado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "alinare",
+          "data": "01/08",
+          "descricao": "FESTA/PEDRA NATURAL/POCKET 1/SELEÇÃO MOI E-75",
+          "embarque": "48/52/58",
+          "status_raw": "Lançado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "alinare",
+          "data": "03/08",
+          "descricao": "GRACE",
+          "embarque": "212/216/221",
+          "status_raw": "Lançado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "alinare",
+          "data": "05/08",
+          "descricao": "PARTE POCKET 2",
+          "embarque": "73/64/71",
+          "status_raw": "Lançado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "alinare",
+          "data": "08/08",
+          "descricao": "SPARKLE/ZIRCONIA-REGILIOSOS E-77",
+          "embarque": "60/69/73/75/74/77",
+          "status_raw": "Lançado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "alinare",
+          "data": "15/08",
+          "descricao": "SPARKLE/ZIRCONIA-POCKET 3- GREGO - GRACE - SELEÇÃO 77",
+          "embarque": "60/69/73/75",
+          "status_raw": "Programado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "alinare",
+          "data": "17/08",
+          "descricao": "PONTO DE LUZ - POCKET 4- GRACE - LAB GROWN",
+          "embarque": "75",
+          "status_raw": "Programado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "alinare",
+          "data": "12/08",
+          "descricao": "V&V",
+          "embarque": "75",
+          "status_raw": "Lançado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "alinare",
+          "data": "01/08",
+          "descricao": "FESTA/PEDRA NATURAL/POCKET 1/SELEÇÃO MOI E-75",
+          "embarque": "48/52/58",
+          "status_raw": "Lançado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "alinare",
+          "data": "03/08",
+          "descricao": "GRACE",
+          "embarque": "212/216/221",
+          "status_raw": "Lançado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "alinare",
+          "data": "05/08",
+          "descricao": "PARTE POCKET 2",
+          "embarque": "73/64/71",
+          "status_raw": "Lançado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "alinare",
+          "data": "08/08",
+          "descricao": "SPARKLE/ZIRCONIA-REGILIOSOS E-77",
+          "embarque": "60/69/73/75/74/77",
+          "status_raw": "Lançado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "alinare",
+          "data": "15/08",
+          "descricao": "SPARKLE/ZIRCONIA-POCKET 3- GREGO - GRACE - SELEÇÃO 77",
+          "embarque": "60/69/73/75",
+          "status_raw": "Programado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "alinare",
+          "data": "17/08",
+          "descricao": "PONTO DE LUZ - POCKET 4- GRACE - LAB GROWN",
+          "embarque": "75",
+          "status_raw": "Programado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "alinare",
+          "data": "12/08",
+          "descricao": "V&V",
+          "embarque": "75",
+          "status_raw": "Lançado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "alinare",
+          "data": "01/08",
+          "descricao": "FESTA/PEDRA NATURAL/POCKET 1/SELEÇÃO MOI E-75",
+          "embarque": "48/52/58",
+          "status_raw": "Lançado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "alinare",
+          "data": "03/08",
+          "descricao": "GRACE",
+          "embarque": "212/216/221",
+          "status_raw": "Lançado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "alinare",
+          "data": "05/08",
+          "descricao": "PARTE POCKET 2",
+          "embarque": "73/64/71",
+          "status_raw": "Lançado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "alinare",
+          "data": "08/08",
+          "descricao": "SPARKLE/ZIRCONIA-REGILIOSOS E-77",
+          "embarque": "60/69/73/75/74/77",
+          "status_raw": "Lançado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "alinare",
+          "data": "15/08",
+          "descricao": "SPARKLE/ZIRCONIA-POCKET 3- GREGO - GRACE - SELEÇÃO 77",
+          "embarque": "60/69/73/75",
+          "status_raw": "Programado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "alinare",
+          "data": "17/08",
+          "descricao": "PONTO DE LUZ - POCKET 4- GRACE - LAB GROWN",
+          "embarque": "75",
+          "status_raw": "Programado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "alinare",
+          "data": "12/08",
+          "descricao": "V&V",
+          "embarque": "75",
+          "status_raw": "Lançado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "alinare",
+          "data": "01/08",
+          "descricao": "FESTA/PEDRA NATURAL/POCKET 1/SELEÇÃO MOI E-75",
+          "embarque": "48/52/58",
+          "status_raw": "Lançado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "alinare",
+          "data": "03/08",
+          "descricao": "GRACE",
+          "embarque": "212/216/221",
+          "status_raw": "Lançado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "alinare",
+          "data": "05/08",
+          "descricao": "PARTE POCKET 2",
+          "embarque": "73/64/71",
+          "status_raw": "Lançado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "alinare",
+          "data": "08/08",
+          "descricao": "SPARKLE/ZIRCONIA-REGILIOSOS E-77",
+          "embarque": "60/69/73/75/74/77",
+          "status_raw": "Lançado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "alinare",
+          "data": "15/08",
+          "descricao": "SPARKLE/ZIRCONIA-POCKET 3- GREGO - GRACE - SELEÇÃO 77",
+          "embarque": "60/69/73/75",
+          "status_raw": "Programado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "alinare",
+          "data": "17/08",
+          "descricao": "PONTO DE LUZ - POCKET 4- GRACE - LAB GROWN",
+          "embarque": "75",
+          "status_raw": "Programado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "alinare",
+          "data": "12/08",
+          "descricao": "V&V",
+          "embarque": "75",
+          "status_raw": "Lançado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "alinare",
+          "data": "01/08",
+          "descricao": "FESTA/PEDRA NATURAL/POCKET 1/SELEÇÃO MOI E-75",
+          "embarque": "48/52/58",
+          "status_raw": "Lançado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "alinare",
+          "data": "03/08",
+          "descricao": "GRACE",
+          "embarque": "212/216/221",
+          "status_raw": "Lançado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "alinare",
+          "data": "05/08",
+          "descricao": "PARTE POCKET 2",
+          "embarque": "73/64/71",
+          "status_raw": "Lançado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "alinare",
+          "data": "08/08",
+          "descricao": "SPARKLE/ZIRCONIA-REGILIOSOS E-77",
+          "embarque": "60/69/73/75/74/77",
+          "status_raw": "Lançado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "alinare",
+          "data": "15/08",
+          "descricao": "SPARKLE/ZIRCONIA-POCKET 3- GREGO - GRACE - SELEÇÃO 77",
+          "embarque": "60/69/73/75",
+          "status_raw": "Programado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "alinare",
+          "data": "17/08",
+          "descricao": "PONTO DE LUZ - POCKET 4- GRACE - LAB GROWN",
+          "embarque": "75",
+          "status_raw": "Programado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "alinare",
+          "data": "12/08",
+          "descricao": "V&V",
+          "embarque": "75",
+          "status_raw": "Lançado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "alinare",
+          "data": "01/08",
+          "descricao": "FESTA/PEDRA NATURAL/POCKET 1/SELEÇÃO MOI E-75",
+          "embarque": "48/52/58",
+          "status_raw": "Lançado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "alinare",
+          "data": "03/08",
+          "descricao": "GRACE",
+          "embarque": "212/216/221",
+          "status_raw": "Lançado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "alinare",
+          "data": "05/08",
+          "descricao": "PARTE POCKET 2",
+          "embarque": "73/64/71",
+          "status_raw": "Lançado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "alinare",
+          "data": "08/08",
+          "descricao": "SPARKLE/ZIRCONIA-REGILIOSOS E-77",
+          "embarque": "60/69/73/75/74/77",
+          "status_raw": "Lançado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "alinare",
+          "data": "15/08",
+          "descricao": "SPARKLE/ZIRCONIA-POCKET 3- GREGO - GRACE - SELEÇÃO 77",
+          "embarque": "60/69/73/75",
+          "status_raw": "Programado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "alinare",
+          "data": "17/08",
+          "descricao": "PONTO DE LUZ - POCKET 4- GRACE - LAB GROWN",
+          "embarque": "75",
+          "status_raw": "Programado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "alinare",
+          "data": "12/08",
+          "descricao": "V&V",
+          "embarque": "75",
+          "status_raw": "Lançado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "alinare",
+          "data": "01/08",
+          "descricao": "FESTA/PEDRA NATURAL/POCKET 1/SELEÇÃO MOI E-75",
+          "embarque": "48/52/58",
+          "status_raw": "Lançado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "alinare",
+          "data": "03/08",
+          "descricao": "GRACE",
+          "embarque": "212/216/221",
+          "status_raw": "Lançado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "alinare",
+          "data": "05/08",
+          "descricao": "PARTE POCKET 2",
+          "embarque": "73/64/71",
+          "status_raw": "Lançado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "alinare",
+          "data": "08/08",
+          "descricao": "SPARKLE/ZIRCONIA-REGILIOSOS E-77",
+          "embarque": "60/69/73/75/74/77",
+          "status_raw": "Lançado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "alinare",
+          "data": "15/08",
+          "descricao": "SPARKLE/ZIRCONIA-POCKET 3- GREGO - GRACE - SELEÇÃO 77",
+          "embarque": "60/69/73/75",
+          "status_raw": "Programado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "alinare",
+          "data": "17/08",
+          "descricao": "PONTO DE LUZ - POCKET 4- GRACE - LAB GROWN",
+          "embarque": "75",
+          "status_raw": "Programado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "alinare",
+          "data": "12/08",
+          "descricao": "V&V",
+          "embarque": "75",
+          "status_raw": "Lançado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "alinare",
+          "data": "01/08",
+          "descricao": "FESTA/PEDRA NATURAL/POCKET 1/SELEÇÃO MOI E-75",
+          "embarque": "48/52/58",
+          "status_raw": "Lançado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "alinare",
+          "data": "03/08",
+          "descricao": "GRACE",
+          "embarque": "212/216/221",
+          "status_raw": "Lançado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "alinare",
+          "data": "05/08",
+          "descricao": "PARTE POCKET 2",
+          "embarque": "73/64/71",
+          "status_raw": "Lançado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "alinare",
+          "data": "08/08",
+          "descricao": "SPARKLE/ZIRCONIA-REGILIOSOS E-77",
+          "embarque": "60/69/73/75/74/77",
+          "status_raw": "Lançado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "alinare",
+          "data": "15/08",
+          "descricao": "SPARKLE/ZIRCONIA-POCKET 3- GREGO - GRACE - SELEÇÃO 77",
+          "embarque": "60/69/73/75",
+          "status_raw": "Programado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "alinare",
+          "data": "17/08",
+          "descricao": "PONTO DE LUZ - POCKET 4- GRACE - LAB GROWN",
+          "embarque": "75",
+          "status_raw": "Programado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "alinare",
+          "data": "12/08",
+          "descricao": "V&V",
+          "embarque": "75",
+          "status_raw": "Lançado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "alinare",
+          "data": "01/08",
+          "descricao": "FESTA/PEDRA NATURAL/POCKET 1/SELEÇÃO MOI E-75",
+          "embarque": "48/52/58",
+          "status_raw": "Lançado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "alinare",
+          "data": "03/08",
+          "descricao": "GRACE",
+          "embarque": "212/216/221",
+          "status_raw": "Lançado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "alinare",
+          "data": "05/08",
+          "descricao": "PARTE POCKET 2",
+          "embarque": "73/64/71",
+          "status_raw": "Lançado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "alinare",
+          "data": "08/08",
+          "descricao": "SPARKLE/ZIRCONIA-REGILIOSOS E-77",
+          "embarque": "60/69/73/75/74/77",
+          "status_raw": "Lançado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "alinare",
+          "data": "15/08",
+          "descricao": "SPARKLE/ZIRCONIA-POCKET 3- GREGO - GRACE - SELEÇÃO 77",
+          "embarque": "60/69/73/75",
+          "status_raw": "Programado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "alinare",
+          "data": "17/08",
+          "descricao": "PONTO DE LUZ - POCKET 4- GRACE - LAB GROWN",
+          "embarque": "75",
+          "status_raw": "Programado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "alinare",
+          "data": "12/08",
+          "descricao": "V&V",
+          "embarque": "75",
+          "status_raw": "Lançado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "alinare",
+          "data": "01/08",
+          "descricao": "FESTA/PEDRA NATURAL/POCKET 1/SELEÇÃO MOI E-75",
+          "embarque": "48/52/58",
+          "status_raw": "Lançado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "alinare",
+          "data": "03/08",
+          "descricao": "GRACE",
+          "embarque": "212/216/221",
+          "status_raw": "Lançado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "alinare",
+          "data": "05/08",
+          "descricao": "PARTE POCKET 2",
+          "embarque": "73/64/71",
+          "status_raw": "Lançado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "alinare",
+          "data": "08/08",
+          "descricao": "SPARKLE/ZIRCONIA-REGILIOSOS E-77",
+          "embarque": "60/69/73/75/74/77",
+          "status_raw": "Lançado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "alinare",
+          "data": "15/08",
+          "descricao": "SPARKLE/ZIRCONIA-POCKET 3- GREGO - GRACE - SELEÇÃO 77",
+          "embarque": "60/69/73/75",
+          "status_raw": "Programado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "alinare",
+          "data": "17/08",
+          "descricao": "PONTO DE LUZ - POCKET 4- GRACE - LAB GROWN",
+          "embarque": "75",
+          "status_raw": "Programado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "alinare",
+          "data": "12/08",
+          "descricao": "V&V",
+          "embarque": "75",
+          "status_raw": "Lançado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "alinare",
+          "data": "01/08",
+          "descricao": "FESTA/PEDRA NATURAL/POCKET 1/SELEÇÃO MOI E-75",
+          "embarque": "48/52/58",
+          "status_raw": "Lançado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "alinare",
+          "data": "03/08",
+          "descricao": "GRACE",
+          "embarque": "212/216/221",
+          "status_raw": "Lançado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "alinare",
+          "data": "05/08",
+          "descricao": "PARTE POCKET 2",
+          "embarque": "73/64/71",
+          "status_raw": "Lançado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "alinare",
+          "data": "08/08",
+          "descricao": "SPARKLE/ZIRCONIA-REGILIOSOS E-77",
+          "embarque": "60/69/73/75/74/77",
+          "status_raw": "Lançado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "alinare",
+          "data": "15/08",
+          "descricao": "SPARKLE/ZIRCONIA-POCKET 3- GREGO - GRACE - SELEÇÃO 77",
+          "embarque": "60/69/73/75",
+          "status_raw": "Programado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "alinare",
+          "data": "17/08",
+          "descricao": "PONTO DE LUZ - POCKET 4- GRACE - LAB GROWN",
+          "embarque": "75",
+          "status_raw": "Programado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "alinare",
+          "data": "12/08",
+          "descricao": "V&V",
+          "embarque": "75",
+          "status_raw": "Lançado",
+          "status": "OK",
+          "mkt": "OK"
+        }
+      ]
+    }
+  },
+  "novitah": {
+    "tela1": {
+      "company": "novitah",
+      "destaque": {
+        "mes": "Agosto 2026",
+        "mes_num": 8,
+        "notas_emitidas": 2,
+        "sku_total": 18,
+        "sku_por_nota": 9.0,
+        "unidades_recebidas": 385,
+        "is_destaque": true,
+        "sku_por_fornecedor": [
+          {
+            "fornecedor": "GF BRUTOS",
+            "skus": 12
+          },
+          {
+            "fornecedor": "LIMEIRA FUNDICAO - INDUSTRIA E COMERCIO DE BIJOUTERIAS LTDA",
+            "skus": 6
+          }
+        ],
+        "notas_detalhe": [
+          {
+            "nf": 384,
+            "skus": 12
+          },
+          {
+            "nf": 385,
+            "skus": 6
+          }
+        ],
+        "fornecedores": 2
+      },
+      "trimestres": {
+        "T1": {
+          "label": "1º Trimestre",
+          "meses": [
+            {
+              "mes": "Janeiro",
+              "unidades_recebidas": 98,
+              "notas_emitidas": 22
+            },
+            {
+              "mes": "Fevereiro",
+              "unidades_recebidas": 0,
+              "notas_emitidas": 7
+            },
+            {
+              "mes": "Março",
+              "unidades_recebidas": 6783,
+              "notas_emitidas": 17
+            }
+          ],
+          "total_unidades": 6881
+        },
+        "T2": {
+          "label": "2º Trimestre",
+          "meses": [
+            {
+              "mes": "Abril",
+              "unidades_recebidas": 26371,
+              "notas_emitidas": 18
+            },
+            {
+              "mes": "Maio",
+              "unidades_recebidas": 13393,
+              "notas_emitidas": 5
+            },
+            {
+              "mes": "Junho",
+              "unidades_recebidas": 51977,
+              "notas_emitidas": 16
+            }
+          ],
+          "total_unidades": 91741
+        },
+        "T3": {
+          "label": "3º Trimestre",
+          "meses": [
+            {
+              "mes": "Julho",
+              "unidades_recebidas": 33238,
+              "notas_emitidas": 18
+            },
+            {
+              "mes": "Agosto 2026",
+              "unidades_recebidas": 385,
+              "notas_emitidas": 2
+            }
+          ],
+          "total_unidades": 33623
+        },
+        "T4": {
+          "label": "4º Trimestre",
+          "meses": [],
+          "total_unidades": 0
+        }
+      },
+      "unidades_ano_anterior": null
+    },
+    "tela2": {
+      "company": "novitah",
+      "destaque": {
+        "mes": "Agosto 2026",
+        "is_destaque": true,
+        "lancamentos": 623,
+        "lancamentos_realizados": 5,
+        "skus": 431,
+        "media_prazo": 2.5,
+        "mediana_prazo": 0.0,
+        "removidos_negativos": 66,
+        "dia_pico": {
+          "data": "05/08",
+          "dia_semana": "Quarta-feira",
+          "quantidade": 346
+        },
+        "volume_diario": [
+          {
+            "dia": 5,
+            "data": "05/08",
+            "count": 346
+          },
+          {
+            "dia": 6,
+            "data": "06/08",
+            "count": 55
+          },
+          {
+            "dia": 7,
+            "data": "07/08",
+            "count": 72
+          },
+          {
+            "dia": 10,
+            "data": "10/08",
+            "count": 130
+          },
+          {
+            "dia": 12,
+            "data": "12/08",
+            "count": 20
+          }
+        ]
+      },
+      "comparacao": [
+        {
+          "mes": "Maio 2026",
+          "is_destaque": false,
+          "lancamentos": 1242,
+          "lancamentos_realizados": 6,
+          "skus": 906,
+          "media_prazo": 1.4,
+          "mediana_prazo": 1.0,
+          "removidos_negativos": 242,
+          "dia_pico": null,
+          "volume_diario": null
+        },
+        {
+          "mes": "Junho 2026",
+          "is_destaque": false,
+          "lancamentos": 1442,
+          "lancamentos_realizados": 6,
+          "skus": 1324,
+          "media_prazo": 1.6,
+          "mediana_prazo": 0.0,
+          "removidos_negativos": 185,
+          "dia_pico": null,
+          "volume_diario": null
+        },
+        {
+          "mes": "Julho 2026",
+          "is_destaque": false,
+          "lancamentos": 1735,
+          "lancamentos_realizados": 7,
+          "skus": 1557,
+          "media_prazo": 7.4,
+          "mediana_prazo": 5.0,
+          "removidos_negativos": 109,
+          "dia_pico": null,
+          "volume_diario": null
+        }
+      ],
+      "ano_anterior": {
+        "mes": "Agosto 2025",
+        "is_destaque": false,
+        "lancamentos": 1073,
+        "lancamentos_realizados": 8,
+        "skus": 930,
+        "media_prazo": 1.0,
+        "mediana_prazo": 1.0,
+        "removidos_negativos": 288,
+        "dia_pico": null,
+        "volume_diario": [
+          {
+            "dia": 1,
+            "data": "01/08",
+            "count": 372
+          },
+          {
+            "dia": 3,
+            "data": "03/08",
+            "count": 1
+          },
+          {
+            "dia": 5,
+            "data": "05/08",
+            "count": 69
+          },
+          {
+            "dia": 6,
+            "data": "06/08",
+            "count": 2
+          },
+          {
+            "dia": 7,
+            "data": "07/08",
+            "count": 37
+          },
+          {
+            "dia": 8,
+            "data": "08/08",
+            "count": 13
+          },
+          {
+            "dia": 12,
+            "data": "12/08",
+            "count": 53
+          },
+          {
+            "dia": 13,
+            "data": "13/08",
+            "count": 3
+          },
+          {
+            "dia": 15,
+            "data": "15/08",
+            "count": 215
+          },
+          {
+            "dia": 19,
+            "data": "19/08",
+            "count": 49
+          },
+          {
+            "dia": 20,
+            "data": "20/08",
+            "count": 30
+          },
+          {
+            "dia": 21,
+            "data": "21/08",
+            "count": 3
+          },
+          {
+            "dia": 22,
+            "data": "22/08",
+            "count": 100
+          },
+          {
+            "dia": 25,
+            "data": "25/08",
+            "count": 1
+          },
+          {
+            "dia": 26,
+            "data": "26/08",
+            "count": 125
+          }
+        ]
+      }
+    },
+    "tela3": {
+      "company": "novitah",
+      "mes": "Agosto 2026",
+      "total_itens": 60,
+      "status_ok": 60,
+      "status_processo": 0,
+      "mkt_ok": 60,
+      "mkt_processo": 0,
+      "itens": [
+        {
+          "empresa": "novitah",
+          "data": "01/08",
+          "descricao": "Caroline58/Caroline63/Grant67/Caroline70/Kirsty70",
+          "embarque": "58/63/67/70",
+          "status_raw": "Lançado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "novitah",
+          "data": "05/08",
+          "descricao": "Caroline58/Caroline63/Grant67/Caroline70/Kirsty70",
+          "embarque": "58/63/67/70",
+          "status_raw": "Lançado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "novitah",
+          "data": "08/08",
+          "descricao": "Caroline63/Grant67/Caroline70/Kirsty70",
+          "embarque": "63/67/70",
+          "status_raw": "Lançado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "novitah",
+          "data": "15/08",
+          "descricao": "Caroline63/Grant67/Caroline70/Kirsty70",
+          "embarque": "63/67/70",
+          "status_raw": "Programado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "novitah",
+          "data": "25/08",
+          "descricao": "Caroline63/Grant67/Caroline70/Kirsty70",
+          "embarque": "63/67/70",
+          "status_raw": "Programado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "novitah",
+          "data": "01/08",
+          "descricao": "Caroline58/Caroline63/Grant67/Caroline70/Kirsty70",
+          "embarque": "58/63/67/70",
+          "status_raw": "Lançado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "novitah",
+          "data": "05/08",
+          "descricao": "Caroline58/Caroline63/Grant67/Caroline70/Kirsty70",
+          "embarque": "58/63/67/70",
+          "status_raw": "Lançado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "novitah",
+          "data": "08/08",
+          "descricao": "Caroline63/Grant67/Caroline70/Kirsty70",
+          "embarque": "63/67/70",
+          "status_raw": "Lançado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "novitah",
+          "data": "15/08",
+          "descricao": "Caroline63/Grant67/Caroline70/Kirsty70",
+          "embarque": "63/67/70",
+          "status_raw": "Programado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "novitah",
+          "data": "25/08",
+          "descricao": "Caroline63/Grant67/Caroline70/Kirsty70",
+          "embarque": "63/67/70",
+          "status_raw": "Programado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "novitah",
+          "data": "01/08",
+          "descricao": "Caroline58/Caroline63/Grant67/Caroline70/Kirsty70",
+          "embarque": "58/63/67/70",
+          "status_raw": "Lançado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "novitah",
+          "data": "05/08",
+          "descricao": "Caroline58/Caroline63/Grant67/Caroline70/Kirsty70",
+          "embarque": "58/63/67/70",
+          "status_raw": "Lançado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "novitah",
+          "data": "08/08",
+          "descricao": "Caroline63/Grant67/Caroline70/Kirsty70",
+          "embarque": "63/67/70",
+          "status_raw": "Lançado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "novitah",
+          "data": "15/08",
+          "descricao": "Caroline63/Grant67/Caroline70/Kirsty70",
+          "embarque": "63/67/70",
+          "status_raw": "Programado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "novitah",
+          "data": "25/08",
+          "descricao": "Caroline63/Grant67/Caroline70/Kirsty70",
+          "embarque": "63/67/70",
+          "status_raw": "Programado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "novitah",
+          "data": "01/08",
+          "descricao": "Caroline58/Caroline63/Grant67/Caroline70/Kirsty70",
+          "embarque": "58/63/67/70",
+          "status_raw": "Lançado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "novitah",
+          "data": "05/08",
+          "descricao": "Caroline58/Caroline63/Grant67/Caroline70/Kirsty70",
+          "embarque": "58/63/67/70",
+          "status_raw": "Lançado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "novitah",
+          "data": "08/08",
+          "descricao": "Caroline63/Grant67/Caroline70/Kirsty70",
+          "embarque": "63/67/70",
+          "status_raw": "Lançado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "novitah",
+          "data": "15/08",
+          "descricao": "Caroline63/Grant67/Caroline70/Kirsty70",
+          "embarque": "63/67/70",
+          "status_raw": "Programado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "novitah",
+          "data": "25/08",
+          "descricao": "Caroline63/Grant67/Caroline70/Kirsty70",
+          "embarque": "63/67/70",
+          "status_raw": "Programado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "novitah",
+          "data": "01/08",
+          "descricao": "Caroline58/Caroline63/Grant67/Caroline70/Kirsty70",
+          "embarque": "58/63/67/70",
+          "status_raw": "Lançado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "novitah",
+          "data": "05/08",
+          "descricao": "Caroline58/Caroline63/Grant67/Caroline70/Kirsty70",
+          "embarque": "58/63/67/70",
+          "status_raw": "Lançado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "novitah",
+          "data": "08/08",
+          "descricao": "Caroline63/Grant67/Caroline70/Kirsty70",
+          "embarque": "63/67/70",
+          "status_raw": "Lançado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "novitah",
+          "data": "15/08",
+          "descricao": "Caroline63/Grant67/Caroline70/Kirsty70",
+          "embarque": "63/67/70",
+          "status_raw": "Programado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "novitah",
+          "data": "25/08",
+          "descricao": "Caroline63/Grant67/Caroline70/Kirsty70",
+          "embarque": "63/67/70",
+          "status_raw": "Programado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "novitah",
+          "data": "01/08",
+          "descricao": "Caroline58/Caroline63/Grant67/Caroline70/Kirsty70",
+          "embarque": "58/63/67/70",
+          "status_raw": "Lançado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "novitah",
+          "data": "05/08",
+          "descricao": "Caroline58/Caroline63/Grant67/Caroline70/Kirsty70",
+          "embarque": "58/63/67/70",
+          "status_raw": "Lançado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "novitah",
+          "data": "08/08",
+          "descricao": "Caroline63/Grant67/Caroline70/Kirsty70",
+          "embarque": "63/67/70",
+          "status_raw": "Lançado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "novitah",
+          "data": "15/08",
+          "descricao": "Caroline63/Grant67/Caroline70/Kirsty70",
+          "embarque": "63/67/70",
+          "status_raw": "Programado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "novitah",
+          "data": "25/08",
+          "descricao": "Caroline63/Grant67/Caroline70/Kirsty70",
+          "embarque": "63/67/70",
+          "status_raw": "Programado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "novitah",
+          "data": "01/08",
+          "descricao": "Caroline58/Caroline63/Grant67/Caroline70/Kirsty70",
+          "embarque": "58/63/67/70",
+          "status_raw": "Lançado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "novitah",
+          "data": "05/08",
+          "descricao": "Caroline58/Caroline63/Grant67/Caroline70/Kirsty70",
+          "embarque": "58/63/67/70",
+          "status_raw": "Lançado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "novitah",
+          "data": "08/08",
+          "descricao": "Caroline63/Grant67/Caroline70/Kirsty70",
+          "embarque": "63/67/70",
+          "status_raw": "Lançado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "novitah",
+          "data": "15/08",
+          "descricao": "Caroline63/Grant67/Caroline70/Kirsty70",
+          "embarque": "63/67/70",
+          "status_raw": "Programado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "novitah",
+          "data": "25/08",
+          "descricao": "Caroline63/Grant67/Caroline70/Kirsty70",
+          "embarque": "63/67/70",
+          "status_raw": "Programado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "novitah",
+          "data": "01/08",
+          "descricao": "Caroline58/Caroline63/Grant67/Caroline70/Kirsty70",
+          "embarque": "58/63/67/70",
+          "status_raw": "Lançado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "novitah",
+          "data": "05/08",
+          "descricao": "Caroline58/Caroline63/Grant67/Caroline70/Kirsty70",
+          "embarque": "58/63/67/70",
+          "status_raw": "Lançado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "novitah",
+          "data": "08/08",
+          "descricao": "Caroline63/Grant67/Caroline70/Kirsty70",
+          "embarque": "63/67/70",
+          "status_raw": "Lançado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "novitah",
+          "data": "15/08",
+          "descricao": "Caroline63/Grant67/Caroline70/Kirsty70",
+          "embarque": "63/67/70",
+          "status_raw": "Programado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "novitah",
+          "data": "25/08",
+          "descricao": "Caroline63/Grant67/Caroline70/Kirsty70",
+          "embarque": "63/67/70",
+          "status_raw": "Programado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "novitah",
+          "data": "01/08",
+          "descricao": "Caroline58/Caroline63/Grant67/Caroline70/Kirsty70",
+          "embarque": "58/63/67/70",
+          "status_raw": "Lançado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "novitah",
+          "data": "05/08",
+          "descricao": "Caroline58/Caroline63/Grant67/Caroline70/Kirsty70",
+          "embarque": "58/63/67/70",
+          "status_raw": "Lançado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "novitah",
+          "data": "08/08",
+          "descricao": "Caroline63/Grant67/Caroline70/Kirsty70",
+          "embarque": "63/67/70",
+          "status_raw": "Lançado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "novitah",
+          "data": "15/08",
+          "descricao": "Caroline63/Grant67/Caroline70/Kirsty70",
+          "embarque": "63/67/70",
+          "status_raw": "Programado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "novitah",
+          "data": "25/08",
+          "descricao": "Caroline63/Grant67/Caroline70/Kirsty70",
+          "embarque": "63/67/70",
+          "status_raw": "Programado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "novitah",
+          "data": "01/08",
+          "descricao": "Caroline58/Caroline63/Grant67/Caroline70/Kirsty70",
+          "embarque": "58/63/67/70",
+          "status_raw": "Lançado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "novitah",
+          "data": "05/08",
+          "descricao": "Caroline58/Caroline63/Grant67/Caroline70/Kirsty70",
+          "embarque": "58/63/67/70",
+          "status_raw": "Lançado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "novitah",
+          "data": "08/08",
+          "descricao": "Caroline63/Grant67/Caroline70/Kirsty70",
+          "embarque": "63/67/70",
+          "status_raw": "Lançado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "novitah",
+          "data": "15/08",
+          "descricao": "Caroline63/Grant67/Caroline70/Kirsty70",
+          "embarque": "63/67/70",
+          "status_raw": "Programado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "novitah",
+          "data": "25/08",
+          "descricao": "Caroline63/Grant67/Caroline70/Kirsty70",
+          "embarque": "63/67/70",
+          "status_raw": "Programado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "novitah",
+          "data": "01/08",
+          "descricao": "Caroline58/Caroline63/Grant67/Caroline70/Kirsty70",
+          "embarque": "58/63/67/70",
+          "status_raw": "Lançado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "novitah",
+          "data": "05/08",
+          "descricao": "Caroline58/Caroline63/Grant67/Caroline70/Kirsty70",
+          "embarque": "58/63/67/70",
+          "status_raw": "Lançado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "novitah",
+          "data": "08/08",
+          "descricao": "Caroline63/Grant67/Caroline70/Kirsty70",
+          "embarque": "63/67/70",
+          "status_raw": "Lançado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "novitah",
+          "data": "15/08",
+          "descricao": "Caroline63/Grant67/Caroline70/Kirsty70",
+          "embarque": "63/67/70",
+          "status_raw": "Programado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "novitah",
+          "data": "25/08",
+          "descricao": "Caroline63/Grant67/Caroline70/Kirsty70",
+          "embarque": "63/67/70",
+          "status_raw": "Programado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "novitah",
+          "data": "01/08",
+          "descricao": "Caroline58/Caroline63/Grant67/Caroline70/Kirsty70",
+          "embarque": "58/63/67/70",
+          "status_raw": "Lançado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "novitah",
+          "data": "05/08",
+          "descricao": "Caroline58/Caroline63/Grant67/Caroline70/Kirsty70",
+          "embarque": "58/63/67/70",
+          "status_raw": "Lançado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "novitah",
+          "data": "08/08",
+          "descricao": "Caroline63/Grant67/Caroline70/Kirsty70",
+          "embarque": "63/67/70",
+          "status_raw": "Lançado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "novitah",
+          "data": "15/08",
+          "descricao": "Caroline63/Grant67/Caroline70/Kirsty70",
+          "embarque": "63/67/70",
+          "status_raw": "Programado",
+          "status": "OK",
+          "mkt": "OK"
+        },
+        {
+          "empresa": "novitah",
+          "data": "25/08",
+          "descricao": "Caroline63/Grant67/Caroline70/Kirsty70",
+          "embarque": "63/67/70",
+          "status_raw": "Programado",
+          "status": "OK",
+          "mkt": "OK"
+        }
+      ]
+    }
+  }
+}

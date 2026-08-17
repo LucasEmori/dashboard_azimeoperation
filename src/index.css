@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-primary: 30 64 175;
+    --color-on-primary: 255 255 255;
+    --color-secondary: 59 130 246;
+    --color-accent: 217 119 6;
+    --color-background: 248 250 252;
+    --color-foreground: 30 58 138;
+    --color-muted: 233 238 246;
+    --color-border: 219 234 254;
+    --color-destructive: 220 38 38;
+    --color-ring: 30 64 175;
+    --color-muted-foreground: 100 116 139;
+
+    /* Company accents */
+    --alinare: 121, 134, 203;
+    --novitah: 215, 169, 169;
+  }
+
+  .dark {
+    --color-primary: 59 130 246;
+    --color-on-primary: 255 255 255;
+    --color-secondary: 96 165 250;
+    --color-accent: 245 158 11;
+    --color-background: 10 14 26;
+    --color-foreground: 232 237 245;
+    --color-muted: 18 24 38;
+    --color-border: 42 55 74;
+    --color-destructive: 239 68 68;
+    --color-ring: 59 130 246;
+    --color-muted-foreground: 139 156 181;
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+}
+
+/* Company brand band gradients */
+.band-alinare {
+  background: linear-gradient(135deg, #1a237e 0%, #283593 100%);
+}
+.band-novitah {
+  background: linear-gradient(135deg, #a07a7a 0%, #8d6b6b 100%);
+}
+
+/* Per-company accent (cards, pills, icons) */
+.co-alinare {
+  --co-accent: 59 130 246;      /* blue */
+  --co-accent-dark: 96 165 250;
+}
+.co-novitah {
+  --co-accent: 190 24 93;       /* rose — light */
+  --co-accent-dark: 244 114 182; /* rose — dark */
+}
+.dark .co-novitah {
+  --co-accent: 244 114 182;
+}
+.dark .co-alinare {
+  --co-accent: 96 165 250;
+}
+
+/* Recharts dark/light tooltip polish */
+.recharts-default-tooltip {
+  border-radius: 8px;
+}

@@ -1,9 +1,3 @@
-streamlit>=1.45,<2
-plotly>=5.20,<7
 pandas>=2.2,<4
 openpyxl>=3.1,<4
 psycopg2-binary>=2.9,<3
-# Pin starlette: Streamlit 1.61 chama GZipResponder sem 'thread_minimum_size',
-# starlette >= 1.0 tornou esse arg keyword-only obrigatorio => 500 em todos
-# endpoints estaticos quando proxy envia Accept-Encoding: gzip (Railway faz).
-starlette<1.0
