@@ -1,11 +1,30 @@
-import { useData } from '../App.jsx'
-import { fmtInt } from '../utils/format.js'
-import { Calendar, CheckCircle, Clock, Send, AlertCircle } from 'lucide-react'
+import { useData, useMonth } from '../App.jsx'
+import { resolveTela3Month } from '../utils/dataResolver.js'
+import { Calendar, CheckCircle, Clock, Send } from 'lucide-react'
 import KPIRow from './KPIRow.jsx'
 
 export default function Screen3({ company }) {
   const data = useData()
-  const t3 = data[company].tela3
+  const { month } = useMonth()
+  const t3 = resolveTela3Month(data, company, month)
+
+  if (!t3) {
+    return (
+      <div className={`co-${company}`}>
+        <section className="flex items-center gap-2 mb-4">
+          <Calendar size={22} className="text-co-accent" />
+          <h2 className="text-2xl font-bold text-foreground">Próximos Lançamentos</h2>
+          <span className="ml-auto px-3 py-1 rounded-full text-xs font-bold bg-co-accent/20 text-co-accent border border-co-accent/40">
+            {month}
+          </span>
+        </section>
+        <div className="text-center py-12 text-foreground/50 border border-dashed border-border rounded-xl">
+          Nenhum dado de planejamento disponível para {month}.
+        </div>
+      </div>
+    )
+  }
+
   const items = t3.itens || []
   const ok = t3.status_ok || 0
   const proc = t3.status_processo || 0

@@ -21,7 +21,6 @@ COMPANY_DIRS = {c: DATA_DIR / c for c in COMPANIES}
 # ---------------------------------------------------------------------------
 TODAY = date.today()
 
-
 def sub_months(d: date, n: int) -> date:
     m = d.month - n
     y = d.year
@@ -30,14 +29,29 @@ def sub_months(d: date, n: int) -> date:
         y -= 1
     return date(y, m, 1)
 
-
 DESTAQUE = sub_months(TODAY, 0)  # mes atual (Julho/2026)
-# Ordem cronologica (mais antigo -> mais recente): Marco, Abril, Maio
-COMPARACAO_MESES = [sub_months(DESTAQUE, i) for i in range(3, 0, -1)]
-DESTAQUE_ANO_PASSADO = date(DESTAQUE.year - 1, DESTAQUE.month, 1)
+COMPARACAO_MESES = []
+DESTAQUE_ANO_PASSADO = date(TODAY.year, TODAY.month, 1)
 PROXIMO_MES = date(TODAY.year, TODAY.month, 1)
+ALL_MONTHS = []
 
-ALL_MONTHS = [DESTAQUE] + COMPARACAO_MESES
+def set_destaque(d: date) -> None:
+    global DESTAQUE, COMPARACAO_MESES, DESTAQUE_ANO_PASSADO, PROXIMO_MES, ALL_MONTHS, TODAY
+    # Define o mes base
+    DESTAQUE = date(d.year, d.month, 1)
+    # 3 meses anteriores ao destaque
+    COMPARACAO_MESES = [sub_months(DESTAQUE, i) for i in range(3, 0, -1)]
+    # Mesmo mes, ano passado
+    DESTAQUE_ANO_PASSADO = date(DESTAQUE.year - 1, DESTAQUE.month, 1)
+    # Proximo mes baseia-se em TODAY ou no destaque escolhido?
+    # Se user volta no tempo, Tela 3 (proximo mes) deve ser mes+1?
+    # Originalmente baseia-se em TODAY (nao sub_months). Vou manter +1 do destaque.
+    PROXIMO_MES = date(DESTAQUE.year + (DESTAQUE.month == 12), (DESTAQUE.month % 12) + 1, 1)
+
+    ALL_MONTHS = [DESTAQUE] + COMPARACAO_MESES
+
+# Inicializa state padrão
+set_destaque(TODAY)
 
 _MONTH_NAMES = [
     "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho",

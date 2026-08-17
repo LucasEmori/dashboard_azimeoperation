@@ -1,6 +1,6 @@
-import { useData } from '../App.jsx'
+import { useData, useMonth } from '../App.jsx'
 import { fmtInt } from '../utils/format.js'
-import { FolderKanban, Box, Users, Package, ChevronRight } from 'lucide-react'
+import { FolderKanban, Box, Users, Package } from 'lucide-react'
 import KPIRow from './KPIRow.jsx'
 import TrimesterCharts from './TrimesterCharts.jsx'
 
@@ -13,8 +13,15 @@ const ICONS = {
 
 export default function Screen1({ company }) {
   const data = useData()
+  const { month } = useMonth()
   const t1 = data[company].tela1
   const d = t1.destaque
+
+  // Mês na tela1 é sempre o destaque fixo (pq não há base por mês de comparativo nela)
+  // Se o mês selecionado não for o destaque, mostramos aviso, mas preservamos a base dos trimestres e KPI destaque.
+  const isSelectedDestaque = month === d.mes
+  const displayMonth = isSelectedDestaque ? d.mes : `${month} (Visualizando base ${d.mes})`
+
   const topForn = d.sku_por_fornecedor?.[0] || {}
 
   const kpis = [
@@ -30,7 +37,7 @@ export default function Screen1({ company }) {
         {ICONS.notas}
         <h2 className="text-2xl font-bold text-foreground">Notas de Entrada</h2>
         <span className="ml-auto px-3 py-1 rounded-full text-xs font-bold bg-co-accent/20 text-co-accent border border-co-accent/40">
-          {d.mes}
+          {displayMonth}
         </span>
       </section>
 

@@ -20,7 +20,7 @@ export default function Dashboard() {
 
   return (
     <div className="max-w-[1400px] mx-auto px-3 pb-8 font-sans">
-      <TopBar meta={meta} />
+      <TopBar meta={meta} company={activeCompany} />
 
       {/* Company tabs — centered */}
       <div className="flex justify-center items-center gap-2 mb-4">

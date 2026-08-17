@@ -1,0 +1,23 @@
+[master 5aff014] Streamlit
+ 26 files changed, 5965 insertions(+), 1681 deletions(-)
+ create mode 100644 package-lock.json
+ create mode 100644 package.json
+ create mode 100644 postcss.config.js
+ rename alinare_logo.jpg => public/alinare_logo.jpg (100%)
+ create mode 100644 public/data.json
+ rename novitah_logo.jpg => public/novitah_logo.jpg (100%)
+ create mode 100644 src/App.jsx
+ create mode 100644 src/Dashboard.jsx
+ create mode 100644 src/components/BrandBand.jsx
+ create mode 100644 src/components/KPIRow.jsx
+ create mode 100644 src/components/Screen1.jsx
+ create mode 100644 src/components/Screen2.jsx
+ create mode 100644 src/components/Screen3.jsx
+ create mode 100644 src/components/TopBar.jsx
+ create mode 100644 src/components/TrimesterCharts.jsx
+ create mode 100644 src/components/VolumeChart.jsx
+ create mode 100644 src/index.css
+ create mode 100644 src/main.jsx
+ create mode 100644 src/utils/format.js
+ create mode 100644 tailwind.config.js
+ create mode 100644 vite.config.js
