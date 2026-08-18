@@ -97,12 +97,12 @@ function PlanItem({ item }) {
       </div>
       <div className="flex items-center gap-1.5 flex-shrink-0">
         <span className={`px-2.5 py-1 rounded-full text-[11px] font-bold ${
-          statusOK ? 'bg-green-500/30 text-green-200' : 'bg-yellow-400/30 text-yellow-200'
+          statusOK ? 'bg-green-500/20 text-green-700 dark:bg-green-500/30 dark:text-green-200' : 'bg-yellow-400/20 text-yellow-700 dark:bg-yellow-400/30 dark:text-yellow-200'
         }`}>
           {statusOK ? 'Pronto' : 'Em processo'}
         </span>
         <span className={`px-2 py-1 rounded-md text-[10px] font-bold ${
-          mktOK ? 'bg-green-500/30 text-green-200' : 'bg-yellow-400/30 text-yellow-200'
+          mktOK ? 'bg-green-500/20 text-green-700 dark:bg-green-500/30 dark:text-green-200' : 'bg-yellow-400/20 text-yellow-700 dark:bg-yellow-400/30 dark:text-yellow-200'
         }`}>
           {mktOK ? 'MKT enviado' : 'MKT pendente'}
         </span>
