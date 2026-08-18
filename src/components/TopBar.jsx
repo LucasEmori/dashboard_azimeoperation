@@ -1,28 +1,22 @@
-import { useState, useEffect } from 'react'
-import { useTheme, useMonth } from '../App.jsx'
-import { yyyymmToLabel } from '../utils/format.js'
+import { useTheme, useMonth, useData } from '../App.jsx'
+import { monthToYYYYMM } from '../utils/format.js'
 import { Sun, Moon, CalendarDays, RefreshCw, Check } from 'lucide-react'
 
 export default function TopBar({ meta, company }) {
   const { dark, toggle } = useTheme()
-  const { month, setMonth, loading, refresh } = useMonth()
-  const [months, setMonths] = useState([])
-  const [open, setOpen] = useState(false)
+  const { month, setMonth, syncing, triggerSync } = useMonth()
+  const data = useData()
 
-  useEffect(() => {
-    fetch('/api/months')
-      .then(r => r.json())
-      .then(d => setMonths(Array.isArray(d.months) ? d.months : []))
-      .catch(() => {
-        // fallback: meses do próprio meta
-        const fb = [
-          meta?.destaque_iso, ...(meta?.comparacao_iso || []), meta?.destaque_ano_passado_iso,
-        ].filter(Boolean).map(iso => iso.substring(0, 7))
-        setMonths([...new Set(fb)])
-      })
-  }, [])
-
-  const isDestaqueAtual = month === meta?.destaque_iso?.substring(0, 7)
+  // Meses disponíveis vêm do data.json: destaque + comparacao + ano anterior
+  const meses = [
+    ...new Set([
+      meta?.destaque,
+      ...(meta?.comparacao || []),
+      meta?.destaque_ano_passado,
+    ].filter(Boolean)),
+  ]
+  const monthLabel = data && month === null ? meta?.destaque : null
+  const isDestaqueAtual = month === monthToYYYYMM(meta?.destaque)
 
   return (
     <div className="flex items-center justify-between gap-3 px-4 py-3 mt-2 mb-3 bg-muted rounded-xl border border-border flex-wrap">
@@ -33,14 +27,14 @@ export default function TopBar({ meta, company }) {
           id="mes-destaque"
           value={month || ''}
           onChange={e => setMonth(e.target.value)}
-          disabled={loading}
+          disabled={syncing}
           className="bg-background border border-border text-foreground rounded-lg px-3 py-1.5 text-sm font-bold focus:ring-2 focus:ring-ring outline-none cursor-pointer disabled:opacity-50"
         >
-          {months.map(m => (
-            <option key={m} value={m}>{yyyymmToLabel(m)}</option>
+          {meses.map(m => (
+            <option key={m} value={monthToYYYYMM(m)}>{m}</option>
           ))}
         </select>
-        {isDestaqueAtual && !loading && (
+        {isDestaqueAtual && !syncing && (
           <span className="hidden sm:flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold bg-co-accent/20 text-co-accent border border-co-accent/40">
             <Check size={11} /> atual
           </span>
@@ -48,13 +42,13 @@ export default function TopBar({ meta, company }) {
       </div>
 
       <button
-        onClick={refresh}
-        disabled={loading}
+        onClick={triggerSync}
+        disabled={syncing}
         aria-label="Atualizar dados do Data Warehouse"
         className="flex items-center gap-2 px-3 h-9 rounded-lg bg-background border border-border text-foreground text-xs font-bold hover:ring-2 hover:ring-ring/50 transition-all cursor-pointer disabled:opacity-50"
       >
-        <RefreshCw size={14} className={loading ? 'animate-spin' : ''} />
-        <span className="hidden sm:inline">{loading ? 'Consultando DW...' : 'Atualizar do DW'}</span>
+        <RefreshCw size={14} className={syncing ? 'animate-spin' : ''} />
+        <span className="hidden sm:inline">{syncing ? 'Sincronizando DW...' : 'Atualizar do DW'}</span>
       </button>
 
       <button

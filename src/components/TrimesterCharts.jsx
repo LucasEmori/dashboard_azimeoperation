@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useData, useTheme } from '../App.jsx'
-import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell } from 'recharts'
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell } from 'recharts'
 import { fmtInt } from '../utils/format.js'
 
 export default function TrimesterCharts({ company }) {
@@ -73,9 +73,21 @@ export default function TrimesterCharts({ company }) {
         <div className="h-[360px] w-full">
           <h3 className="text-center font-bold text-foreground text-sm mb-4">{trimestres[selectedTrim].label}</h3>
           <ResponsiveContainer width="100%" height="100%">
-            <BarChart data={c1Data} margin={{ top: 20, right: 10, left: 0, bottom: 20 }}>
-              <XAxis dataKey="name" axisLine={false} tickLine={false} tick={{ fill: txtColor, fontSize: 11 }} />
-              <YAxis hide />
+            <BarChart data={c1Data} margin={{ top: 20, right: 10, left: 50, bottom: 60 }}>
+              <XAxis
+                dataKey="name"
+                axisLine={{ stroke: txtColor, strokeWidth: 1 }}
+                tickLine={{ stroke: txtColor, strokeWidth: 1 }}
+                tick={{ fill: txtColor, fontSize: 11 }}
+                label={{ value: 'Mês', position: 'insideBottom', offset: -40, fill: txtColor, fontSize: 12 }}
+              />
+              <YAxis
+                axisLine={{ stroke: txtColor, strokeWidth: 1 }}
+                tickLine={{ stroke: txtColor, strokeWidth: 1 }}
+                tick={{ fill: txtColor, fontSize: 10 }}
+                label={{ value: 'Unidades Recebidas', angle: -90, position: 'insideLeft', fill: txtColor, fontSize: 12, offset: 40 }}
+              />
+              <CartesianGrid stroke={txtColor} strokeOpacity={0.1} vertical={false} />
               <Tooltip cursor={{ fill: 'transparent' }} content={<CustomTooltip />} />
               <Bar dataKey="value" fill={accentHex} radius={[4, 4, 0, 0]} barSize={56} maxBarSize={64} label={<CustomLabel />} />
             </BarChart>
@@ -86,9 +98,21 @@ export default function TrimesterCharts({ company }) {
         <div className="h-[360px] w-full">
           <h3 className="text-center font-bold text-foreground text-sm mb-4">Comparativo Trimestral</h3>
           <ResponsiveContainer width="100%" height="100%">
-            <BarChart data={c2Data} margin={{ top: 20, right: 10, left: 0, bottom: 20 }}>
-              <XAxis dataKey="name" axisLine={false} tickLine={false} tick={{ fill: txtColor, fontSize: 11 }} />
-              <YAxis hide />
+            <BarChart data={c2Data} margin={{ top: 20, right: 10, left: 50, bottom: 60 }}>
+              <XAxis
+                dataKey="name"
+                axisLine={{ stroke: txtColor, strokeWidth: 1 }}
+                tickLine={{ stroke: txtColor, strokeWidth: 1 }}
+                tick={{ fill: txtColor, fontSize: 11 }}
+                label={{ value: 'Trimestre', position: 'insideBottom', offset: -40, fill: txtColor, fontSize: 12 }}
+              />
+              <YAxis
+                axisLine={{ stroke: txtColor, strokeWidth: 1 }}
+                tickLine={{ stroke: txtColor, strokeWidth: 1 }}
+                tick={{ fill: txtColor, fontSize: 10 }}
+                label={{ value: 'Unidades Recebidas', angle: -90, position: 'insideLeft', fill: txtColor, fontSize: 12, offset: 40 }}
+              />
+              <CartesianGrid stroke={txtColor} strokeOpacity={0.1} vertical={false} />
               <Tooltip cursor={{ fill: 'transparent' }} content={<CustomTooltip />} />
               <Bar dataKey="value" fill={accentHex} radius={[4, 4, 0, 0]} barSize={56} maxBarSize={64} label={<CustomLabel />}>
                 {c2Data.map((entry, index) => (

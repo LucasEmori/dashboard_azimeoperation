@@ -41,7 +41,7 @@ def compute(company: str, p1: pd.DataFrame) -> dict:
 
     for i, md in enumerate(config.ALL_MONTHS):
         entry = _calc_month(yr_filter, data_col, dlanc_col, prod_col, md, i == 0, weekdays,
-                            with_volume=(i == 0))
+                            with_volume=True)
         if i == 0:
             result["destaque"] = entry
         else:
