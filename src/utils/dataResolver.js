@@ -12,9 +12,12 @@ export function resolveTela2Month(data, company, month) {
   return companyData.tela2
 }
 
-// tela3 only has data for its own month (destaque or proximo_mes)
-export function resolveTela3Month(data, company, month) {
-  const companyData = getCompanyMonth(data, company, month)
+// tela3 always shows the latest available data (current system month)
+export function resolveTela3Month(data, company) {
+  // Pega o primeiro mês disponível no array de meses (o mais recente)
+  const latestMonth = data.meta?.months?.[0]
+  if (!latestMonth) return null
+  const companyData = getCompanyMonth(data, company, latestMonth)
   if (!companyData) return null
   return companyData.tela3
 }

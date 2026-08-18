@@ -11,19 +11,22 @@ export default function TrimesterCharts({ company }) {
   const t1 = resolveTela1Month(data, company, month)
   const trimestres = t1?.trimestres || {}
 
-  // Filter trimesters with actual data
-  const validTrims = ['T1', 'T2', 'T3', 'T4'].filter(k => trimestres[k]?.meses?.length > 0)
+  // Filter trimesters with actual data (notas > 0; meses zerados nao contam)
+  const validTrims = ['T1', 'T2', 'T3', 'T4'].filter(
+    k => (trimestres[k]?.meses || []).some(m => m.notas_emitidas > 0)
+  )
 
-  // Default to the last available trimester
+  // Default to the last available trimester; fallback se troca de mes invalida selecao
   const [selectedTrim, setSelectedTrim] = useState(validTrims[validTrims.length - 1] || null)
+  const activeTrim = validTrims.includes(selectedTrim) ? selectedTrim : (validTrims[validTrims.length - 1] || null)
 
-  if (!selectedTrim) return null
+  if (!activeTrim) return null
 
   const accentHex = company === 'alinare' ? (dark ? '#60A5FA' : '#1E40AF') : (dark ? '#D7A9A9' : '#A07A7A')
   const txtColor = dark ? '#E8EDF5' : '#1a2233'
 
   // Data for chart 1 (Months)
-  const c1Data = trimestres[selectedTrim].meses.map(m => ({
+  const c1Data = trimestres[activeTrim].meses.map(m => ({
     name: m.mes.split(' ')[0],
     value: m.unidades_recebidas,
     notas: m.notas_emitidas
@@ -57,10 +60,11 @@ export default function TrimesterCharts({ company }) {
 
   return (
     <div>
+      <h3 className="text-base font-bold text-foreground mb-3">Unidades Recebidas por Trimestre</h3>
       <div className="mb-4 w-64">
         <label className="block text-sm font-bold text-foreground mb-2">Trimestre</label>
         <select
-          value={selectedTrim}
+          value={activeTrim}
           onChange={e => setSelectedTrim(e.target.value)}
           className="w-full bg-background border border-border text-foreground rounded-lg p-2 font-medium focus:ring-2 focus:ring-ring outline-none"
         >
@@ -73,7 +77,7 @@ export default function TrimesterCharts({ company }) {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Chart 1 */}
         <div className="h-[360px] w-full">
-          <h3 className="text-center font-bold text-foreground text-sm mb-4">{trimestres[selectedTrim].label}</h3>
+          <h3 className="text-center font-bold text-foreground text-sm mb-4">{trimestres[activeTrim].label}</h3>
           <ResponsiveContainer width="100%" height="100%">
             <BarChart data={c1Data} margin={{ top: 20, right: 10, left: 50, bottom: 60 }}>
               <XAxis
@@ -87,7 +91,6 @@ export default function TrimesterCharts({ company }) {
                 axisLine={{ stroke: txtColor, strokeWidth: 1 }}
                 tickLine={{ stroke: txtColor, strokeWidth: 1 }}
                 tick={{ fill: txtColor, fontSize: 10 }}
-                label={{ value: 'Unidades Recebidas', angle: -90, position: 'insideLeft', fill: txtColor, fontSize: 12, offset: 40 }}
               />
               <CartesianGrid stroke={txtColor} strokeOpacity={0.1} vertical={false} />
               <Tooltip cursor={{ fill: 'transparent' }} content={<CustomTooltip />} />
@@ -112,13 +115,12 @@ export default function TrimesterCharts({ company }) {
                 axisLine={{ stroke: txtColor, strokeWidth: 1 }}
                 tickLine={{ stroke: txtColor, strokeWidth: 1 }}
                 tick={{ fill: txtColor, fontSize: 10 }}
-                label={{ value: 'Unidades Recebidas', angle: -90, position: 'insideLeft', fill: txtColor, fontSize: 12, offset: 40 }}
               />
               <CartesianGrid stroke={txtColor} strokeOpacity={0.1} vertical={false} />
               <Tooltip cursor={{ fill: 'transparent' }} content={<CustomTooltip />} />
               <Bar dataKey="value" fill={accentHex} radius={[4, 4, 0, 0]} barSize={56} maxBarSize={64} label={<CustomLabel />}>
                 {c2Data.map((entry, index) => (
-                  <Cell key={`cell-${index}`} fill={entry.name === trimestres[selectedTrim].label ? accentHex : `${accentHex}88`} />
+                  <Cell key={`cell-${index}`} fill={entry.name === trimestres[activeTrim].label ? accentHex : `${accentHex}88`} />
                 ))}
               </Bar>
             </BarChart>
