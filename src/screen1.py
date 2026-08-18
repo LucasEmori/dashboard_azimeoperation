@@ -62,18 +62,17 @@ def compute(company: str, p3: pd.DataFrame, geral: pd.DataFrame) -> dict:
     p3_yr = p3[p3[data_entrada_col].dt.year == yr].copy()
     if p3_yr.empty:
         log.warning("[%s] P3 sem dados para ano %d", company, yr)
-        return result
+        # Nao retonamos vazio imediato, senao unidades_ano_anterior = None e quebra.
 
     all_months = {}  # month_num -> entry
 
     for month_num in range(1, 13):
         mask = p3_yr[data_entrada_col].dt.month == month_num
         mdf = p3_yr[mask]
-        if mdf.empty:
-            continue
 
-        notas_emitidas = len(mdf)
-        nfs = set(mdf["_nf"].dropna().astype(int).unique()) if "_nf" in mdf.columns else set()
+        # mesmo q mdf empty, adicionamos 0.
+        notas_emitidas = len(mdf) if not mdf.empty else 0
+        nfs = set(mdf["_nf"].dropna().astype(int).unique()) if not mdf.empty and "_nf" in mdf.columns else set()
         nfs_list = list(nfs)
         sku_total = int(nf_skus.reindex(nfs_list).fillna(0).sum()) if nfs else 0
         unidades = int(nf_qtd.reindex(nfs_list).fillna(0).sum()) if nfs else 0
@@ -94,6 +93,13 @@ def compute(company: str, p3: pd.DataFrame, geral: pd.DataFrame) -> dict:
         if month_num == config.DESTAQUE.month:
             entry["mes"] = f"{config.month_label(md)} {yr}"
             entry["is_destaque"] = True
+
+            if mdf.empty:
+                entry["sku_por_fornecedor"] = []
+                entry["notas_detalhe"] = []
+                entry["fornecedores"] = 0
+                result["destaque"] = entry
+                continue
 
             notas_detalhe = []
             forn_data = {}

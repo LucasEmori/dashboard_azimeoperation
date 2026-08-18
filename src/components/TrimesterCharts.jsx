@@ -1,13 +1,15 @@
 import { useState } from 'react'
-import { useData, useTheme } from '../App.jsx'
+import { useData, useTheme, useMonth } from '../App.jsx'
+import { resolveTela1Month } from '../utils/dataResolver.js'
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell } from 'recharts'
 import { fmtInt } from '../utils/format.js'
 
 export default function TrimesterCharts({ company }) {
   const data = useData()
   const { dark } = useTheme()
-  const t1 = data[company].tela1
-  const trimestres = t1.trimestres || {}
+  const { month } = useMonth()
+  const t1 = resolveTela1Month(data, company, month)
+  const trimestres = t1?.trimestres || {}
 
   // Filter trimesters with actual data
   const validTrims = ['T1', 'T2', 'T3', 'T4'].filter(k => trimestres[k]?.meses?.length > 0)

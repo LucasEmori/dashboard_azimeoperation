@@ -34,11 +34,14 @@ def compute(company: str, p1: pd.DataFrame) -> dict:
         log.warning("[%s] P1 sem colunas Data/Data Lancamento", company)
         return result
 
-    # Filtrar apenas ano atual
-    yr_filter = p1[p1[data_col].dt.year == config.TODAY.year].copy()
+    # Filtrar apenas ano passado como base de corte para loop de meses (2024 pra ca)
+    yr_filter = p1[p1[data_col].dt.year >= 2024].copy()
 
     weekdays = ["Seg", "Ter", "Qua", "Qui", "Sex", "Sab", "Dom"]
 
+    # Se estamos passando year (novo padrao), iterar tudo. O frontend que escolhe.
+    # Antigamente: [destaque, comparacao1, comparacao2, comparacao3]
+    # Agora calculamos ALL_MONTHS da configuracao q estara' setada pro 'month' loop.
     for i, md in enumerate(config.ALL_MONTHS):
         entry = _calc_month(yr_filter, data_col, dlanc_col, prod_col, md, i == 0, weekdays,
                             with_volume=True)
@@ -49,6 +52,7 @@ def compute(company: str, p1: pd.DataFrame) -> dict:
 
     # Ano anterior (mes destaque do ano passado)
     yr_prev = p1[p1[data_col].dt.year == config.DESTAQUE_ANO_PASSADO.year].copy()
+
     result["ano_anterior"] = _calc_month(
         yr_prev, data_col, dlanc_col, prod_col, config.DESTAQUE_ANO_PASSADO,
         False, weekdays, with_volume=True

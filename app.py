@@ -22,7 +22,7 @@ OUTPUT_DATA = BASE_DIR / "output" / "data.json"
 FALLBACK_DATA = DIST_DIR / "data.json"
 sys.path.insert(0, str(BASE_DIR))
 
-sync_status = {"state": "idle", "error": None}
+sync_status = {"state": "idle", "error": None, "stage": None, "progress": 0}
 _sync_lock = threading.Lock()
 
 @asynccontextmanager
@@ -35,11 +35,21 @@ def _run_pipeline_bg():
     with _sync_lock:
         sync_status["state"] = "syncing"
         sync_status["error"] = None
+        sync_status["stage"] = None
+        sync_status["progress"] = 0
     try:
         from src import pipeline
-        pipeline.run()
+
+        def _progress(stage, progress):
+            with _sync_lock:
+                sync_status["stage"] = stage
+                sync_status["progress"] = progress
+
+        pipeline.run(progress_cb=_progress)
         with _sync_lock:
             sync_status["state"] = "idle"
+            sync_status["stage"] = None
+            sync_status["progress"] = 100
     except Exception as e:
         with _sync_lock:
             sync_status["state"] = "idle"

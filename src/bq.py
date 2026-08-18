@@ -11,7 +11,7 @@ Os aliases no SELECT preservam os nomes ASCII que screen1/screen2/pipeline esper
 from __future__ import annotations
 
 import logging
-from functools import lru_cache
+import threading
 
 import pandas as pd
 import psycopg2
@@ -23,22 +23,47 @@ log = logging.getLogger("dashboard.bq")
 
 PRONTO_KW = ("programado", "finalizado", "lancado")
 
+_local = threading.local()
 
-@lru_cache(maxsize=1)
-def _conn():
-    return psycopg2.connect(config.PG_DSN, connect_timeout=15)
+
+def _get_conn():
+    conn = getattr(_local, "conn", None)
+    if conn is None or conn.closed:
+        dsn = config.PG_DSN
+        if "sslmode" not in dsn:
+            dsn += "?sslmode=require" if "?" not in dsn else "&sslmode=require"
+        # autocommit permanece OFF: named cursor exige transaction block.
+        conn = psycopg2.connect(dsn, connect_timeout=15)
+        _local.conn = conn
+    return conn
 
 
 def query_df(sql: str) -> pd.DataFrame:
-    """Roda query no Postgres e devolve DataFrame pandas."""
-    log.info("PG query: %s", " ".join(sql.split())[:160])
-    conn = _conn()
-    with conn.cursor() as cur:
-        cur.execute(sql)
-        cols = [d[0] for d in cur.description]
-        df = pd.DataFrame(cur.fetchall(), columns=cols)
-    log.info("PG retornou %d linhas, %d colunas", len(df), len(df.columns))
-    return df
+    """Roda query no Postgres e devolve DataFrame pandas.
+
+    Named (server-side) cursor + fetchmany streama sem estourar memoria.
+    Rollback ao final encerra a transacao -> pooler transaction mode
+    (Supabase 6543) nao segura transacao ociosa.
+    """
+    for attempt in range(2):
+        try:
+            log.info("PG query: %s", " ".join(sql.split())[:160])
+            conn = _get_conn()
+            conn.rollback()  # descarta transacao pendente/antiga
+            with conn.cursor() as cur:
+                cur.execute("SET statement_timeout = 0;")
+                cur.execute(sql)
+                cols = [d[0] for d in cur.description]
+                df = pd.DataFrame(cur.fetchall(), columns=cols)
+            conn.rollback()
+            log.info("PG retornou %d linhas, %d colunas", len(df), len(df.columns))
+            return df
+        except psycopg2.OperationalError as e:
+            log.error("Erro operacional PG: %s", str(e))
+            _local.conn = None
+            if attempt == 0:
+                continue
+            raise
 
 
 def _full(table: str, schema: str | None = None) -> str:
@@ -67,6 +92,7 @@ def load_p1_bq(company: str) -> pd.DataFrame:
       {prod_col}                AS "Produto"{virada}
     FROM {_full(table)}
     WHERE finalizado IS NOT NULL
+      AND finalizado >= '2024-01-01'
     """
     df = query_df(sql)
     # Garantir tipos datetime (screen2 usa .dt)
@@ -88,6 +114,7 @@ def load_p3_bq(company: str) -> pd.DataFrame:
     FROM {_full(f"nf_{company}")} nf
     LEFT JOIN {_full(config.PG_FORN_TABLES[company])} fo
       ON nf.id_fornecedor = fo.id
+    WHERE nf.data_entrada >= '2024-01-01'
     """
     df = query_df(sql)
     # BQ ja devolve NF como numerico; mantem compatibilidade com norm_nf
@@ -111,6 +138,7 @@ def load_geral_bq(company: str) -> pd.DataFrame:
       marca,
       lancamento  AS "LANCAMENTO"
     FROM {_full(config.PG_GERAL_TABLES[company])}
+    WHERE lancamento >= '2024-01-01'
     """
     df = query_df(sql)
     df["_nf"] = pd.to_numeric(df["nf"], errors="coerce")
@@ -139,9 +167,12 @@ def load_lancamentos_bq() -> list[dict]:
     return parse_lancamentos_df(df)
 
 
-def parse_lancamentos_df(df: pd.DataFrame) -> list[dict]:
+def parse_lancamentos_df(df: pd.DataFrame, target_month: date | None = None) -> list[dict]:
     """Equivalente a io.parse_lancamentos(ws), mas sobre DataFrame bronze."""
     import pandas as _pd
+    if target_month is None:
+        target_month = config.PROXIMO_MES
+
     records = []
 
     for _, row in df.iterrows():
@@ -174,7 +205,7 @@ def parse_lancamentos_df(df: pd.DataFrame) -> list[dict]:
             in_scope = True
         else:
             dt = _pd.to_datetime(data_raw, errors="coerce")
-            if _pd.notna(dt) and dt.year == config.PROXIMO_MES.year and dt.month == config.PROXIMO_MES.month:
+            if _pd.notna(dt) and dt.year == target_month.year and dt.month == target_month.month:
                 data_val = dt.strftime("%d/%m")
                 in_scope = True
 

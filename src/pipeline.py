@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import json
 import logging
+from datetime import date
 from pathlib import Path
 
 from . import config
@@ -14,36 +15,109 @@ from . import screen3 as s3
 log = logging.getLogger("dashboard.pipeline")
 
 
-def run() -> dict:
+def _month_range(start_ym: tuple[int, int], end_ym: tuple[int, int]) -> list[date]:
+    """Retorna lista de datas (dia 1) entre start e end, decrescente."""
+    y, m = end_ym
+    sy, sm = start_ym
+    res = []
+    while (y, m) >= (sy, sm):
+        res.append(date(y, m, 1))
+        m -= 1
+        if m == 0:
+            m = 12
+            y -= 1
+    return res
+
+
+def run(progress_cb=None) -> dict:
     logging.basicConfig(level=logging.INFO, format="%(levelname)s %(name)s: %(message)s")
 
     src = config.DATA_SOURCE.upper()
     log.info("=== FONTE DE DADOS: %s ===", src)
 
-    results = {"meta": _build_meta(), "alinare": {}, "novitah": {}}
+    if progress_cb:
+        progress_cb("Iniciando pulls do BD", 0)
 
-    # Telas 1 e 2: por empresa
-    for company in config.COMPANIES:
-        log.info("=== Processando %s (Telas 1 e 2) ===", company.upper())
-        p1 = iomod.load_p1(company)
-        p3 = iomod.load_p3(company)
-        geral = iomod.load_geral(company)
+    # 1. Pulls seriais
+    # Extrair todos dataframes do Supabase sequencialmente p/ nao bater connection limit (pgbouncer).
+    # Como e thread background, demorar 2 min nao trava API nem da timeout 150s.
+    dfs = {}
+    def do_load(k, fn, *args):
+        if progress_cb:
+            progress_cb(f"Extraindo {k}...", 10)
+        dfs[k] = fn(*args)
 
-        results[company]["tela1"] = s1.compute(company, p3, geral)
-        results[company]["tela2"] = s2.compute(company, p1)
+    for c in config.COMPANIES:
+        do_load(f"p1_{c}", iomod.load_p1, c)
+        do_load(f"p3_{c}", iomod.load_p3, c)
+        do_load(f"geral_{c}", iomod.load_geral, c)
 
-    # Tela 3: sempre do arquivo da Alinare (Excel) ou bronze.lancamentos (BQ)
-    log.info("=== Processando Tela 3 ===")
     if config.DATA_SOURCE == "bq":
-        records = iomod.load_lancamentos_bq()
+        from .bq import query_df, _full
+        def get_bronze():
+            sql = f"SELECT bu, data, embarque_pedra, embarque, mkt, status FROM {_full('lancamentos', schema=config.PG_T3_SCHEMA)}"
+            return query_df(sql)
+        do_load("bronze", get_bronze)
     else:
-        ws = iomod.load_lancamentos()
-        records = iomod.parse_lancamentos(ws)
-    s3_results = s3.compute(records)
-    results["alinare"]["tela3"] = s3_results["alinare"]
-    results["novitah"]["tela3"] = s3_results["novitah"]
+        def get_bronze_excel():
+            return iomod.load_lancamentos()
+        do_load("bronze_ws", get_bronze_excel)
+
+    # 2. Gerar lista de meses p/ processar: Jan/2024 ate mes_atual
+    meses_alvo = _month_range((2024, 1), (config.TODAY.year, config.TODAY.month))
+
+    # Montar estrutura JSON
+    results = {
+        "meta": {
+            "hoje": config.TODAY.isoformat(),
+            "months": [m.strftime("%Y-%m") for m in meses_alvo],
+            "month_labels": {m.strftime("%Y-%m"): f"{config.month_label(m)} {m.year}" for m in meses_alvo},
+            "destaque_iso": config.TODAY.isoformat(), # default UI
+        },
+        "by_month": {}
+    }
+
+    if progress_cb:
+        progress_cb("Processando metricas", 50)
+
+    for idx, M in enumerate(meses_alvo):
+        # State config dita comportamento de S1/S2/S3
+        config.set_destaque(M)
+
+        m_key = M.strftime("%Y-%m")
+        results["by_month"][m_key] = {"alinare": {}, "novitah": {}}
+
+        # Meta legado/padrao no top level usa o destaque configurado p/ compatibilidade basica.
+        if idx == 0:
+            results["meta"].update(_build_meta())
+
+        for company in config.COMPANIES:
+            p1 = dfs[f"p1_{company}"]
+            p3 = dfs[f"p3_{company}"]
+            geral = dfs[f"geral_{company}"]
+
+            results["by_month"][m_key][company]["tela1"] = s1.compute(company, p3, geral)
+            results["by_month"][m_key][company]["tela2"] = s2.compute(company, p1)
+
+        # Tela 3
+        if config.DATA_SOURCE == "bq":
+            from .bq import parse_lancamentos_df
+            records = parse_lancamentos_df(dfs["bronze"], config.PROXIMO_MES)
+        else:
+            records = iomod.parse_lancamentos(dfs["bronze_ws"])
+
+        s3_results = s3.compute(records)
+        results["by_month"][m_key]["alinare"]["tela3"] = s3_results["alinare"]
+        results["by_month"][m_key]["novitah"]["tela3"] = s3_results["novitah"]
+
+    if progress_cb:
+        progress_cb("Exportando", 90)
 
     _export(results)
+
+    if progress_cb:
+        progress_cb("Concluido", 100)
+
     return results
 
 

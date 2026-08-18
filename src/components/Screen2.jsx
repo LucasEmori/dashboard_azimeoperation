@@ -15,13 +15,29 @@ const ICONS = {
 export default function Screen2({ company }) {
   const data = useData()
   const { month } = useMonth()
-  const t2 = data[company].tela2
-  const d = resolveTela2Month(data, company, month)
+  const t2 = resolveTela2Month(data, company, month)
+  if (!t2) {
+    return (
+      <div className={`co-${company}`}>
+        <section className="flex items-center gap-2 mb-4">
+          <CheckCircle size={22} className="text-co-accent" />
+          <h2 className="text-2xl font-bold text-foreground">Produtos Lançados</h2>
+          <span className="ml-auto px-3 py-1 rounded-full text-xs font-bold bg-co-accent/20 text-co-accent border border-co-accent/40">
+            {month}
+          </span>
+        </section>
+        <div className="text-center py-12 text-foreground/50 border border-dashed border-border rounded-xl">
+          Nenhum dado disponível para este mês.
+        </div>
+      </div>
+    )
+  }
+
+  const d = t2.destaque
   const comps = t2.comparacao || []
-  // ano_anterior só faz sentido comparado ao mês destaque (Agosto 2026 × Agosto 2025).
-  // Meses comparativos não têm dado de ano anterior no pipeline.
-  const isDestaque = d.mes === t2.destaque.mes
-  const ano = isDestaque ? (t2.ano_anterior || {}) : {}
+  // ano_anterior no formato atual é mês anterior (ou nulo)
+  const ano = t2.ano_anterior || {}
+
 
   const md = d.media_prazo
   const mdStr = fmtMedia(md)

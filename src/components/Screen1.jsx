@@ -1,4 +1,5 @@
 import { useData, useMonth } from '../App.jsx'
+import { resolveTela1Month } from '../utils/dataResolver.js'
 import { fmtInt } from '../utils/format.js'
 import { FolderKanban, Box, Users, Package } from 'lucide-react'
 import KPIRow from './KPIRow.jsx'
@@ -14,13 +15,25 @@ const ICONS = {
 export default function Screen1({ company }) {
   const data = useData()
   const { month } = useMonth()
-  const t1 = data[company].tela1
+  const t1 = resolveTela1Month(data, company, month)
+  if (!t1) {
+    return (
+      <div className={`co-${company}`}>
+        <section className="flex items-center gap-2 mb-4">
+          {ICONS.notas}
+          <h2 className="text-2xl font-bold text-foreground">Notas de Entrada</h2>
+          <span className="ml-auto px-3 py-1 rounded-full text-xs font-bold bg-co-accent/20 text-co-accent border border-co-accent/40">
+            {month}
+          </span>
+        </section>
+        <div className="text-center py-12 text-foreground/50 border border-dashed border-border rounded-xl">
+          Nenhum dado disponível para este mês.
+        </div>
+      </div>
+    )
+  }
   const d = t1.destaque
-
-  // Mês na tela1 é sempre o destaque fixo (pq não há base por mês de comparativo nela)
-  // Se o mês selecionado não for o destaque, mostramos aviso, mas preservamos a base dos trimestres e KPI destaque.
-  const isSelectedDestaque = month === d.mes
-  const displayMonth = isSelectedDestaque ? d.mes : `${month} (Visualizando base ${d.mes})`
+  const displayMonth = d.mes
 
   const topForn = d.sku_por_fornecedor?.[0] || {}
 

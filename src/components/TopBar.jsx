@@ -7,16 +7,9 @@ export default function TopBar({ meta, company }) {
   const { month, setMonth, syncing, triggerSync } = useMonth()
   const data = useData()
 
-  // Meses disponíveis vêm do data.json: destaque + comparacao + ano anterior
-  const meses = [
-    ...new Set([
-      meta?.destaque,
-      ...(meta?.comparacao || []),
-      meta?.destaque_ano_passado,
-    ].filter(Boolean)),
-  ]
-  const monthLabel = data && month === null ? meta?.destaque : null
-  const isDestaqueAtual = month === monthToYYYYMM(meta?.destaque)
+  // Meses disponíveis vêm da lista calculada no backend
+  const meses = meta?.months || []
+  const isDestaqueAtual = month === meta?.destaque_iso?.substring(0, 7)
 
   return (
     <div className="flex items-center justify-between gap-3 px-4 py-3 mt-2 mb-3 bg-muted rounded-xl border border-border flex-wrap">
@@ -31,7 +24,7 @@ export default function TopBar({ meta, company }) {
           className="bg-background border border-border text-foreground rounded-lg px-3 py-1.5 text-sm font-bold focus:ring-2 focus:ring-ring outline-none cursor-pointer disabled:opacity-50"
         >
           {meses.map(m => (
-            <option key={m} value={monthToYYYYMM(m)}>{m}</option>
+            <option key={m} value={m}>{meta?.month_labels?.[m] || m}</option>
           ))}
         </select>
         {isDestaqueAtual && !syncing && (
