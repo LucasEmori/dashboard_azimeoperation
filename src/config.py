@@ -94,7 +94,7 @@ DATA_SOURCE = "bq" if _v in ("bq", "pg") else _v
 # ---------------------------------------------------------------------------
 PG_DSN = os.getenv(
     "PG_DSN",
-    "postgresql://postgres.xzoohqiejbuaskpiktfj:azime202600@aws-0-sa-east-1.pooler.supabase.com:6543/postgres",
+    "postgresql://postgres:azime202600@db.anlrvoefhjdqnttvbgud.supabase.co:5432/postgres",
 )
 
 # Schemas do DW (mesma semantica das antigas camadas BQ ouro/bronze)
