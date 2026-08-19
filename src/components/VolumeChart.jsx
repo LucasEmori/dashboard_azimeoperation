@@ -83,14 +83,14 @@ export default function VolumeChart({ company, destaque, ano }) {
         <BarChart3 size={18} className="text-co-accent" />
         Volume Acumulado — {hasCur ? `${destaque.mes}` : ''} {hasBoth ? '×' : ''} {hasPrev ? `${ano.mes}` : ''}
       </div>
-      <div className="h-[420px] w-full bg-background/30 rounded-xl border border-border p-4">
+      <div className="h-[300px] sm:h-[360px] lg:h-[420px] w-full bg-background/30 rounded-xl border border-border p-3 sm:p-4">
         <ResponsiveContainer width="100%" height="100%">
           <ComposedChart data={chartData} margin={{ top: 10, right: 20, left: 0, bottom: 10 }}>
             <CartesianGrid stroke={gridColor} vertical={false} />
-            <XAxis dataKey="dia" tick={{ fill: txtColor, fontSize: 9 }} angle={-45} textAnchor="end" height={40}
-                   label={{ value: 'Dia do mês', position: 'insideBottom', offset: -5, fill: txtColor, fontSize: 11 }} />
-            <YAxis tick={{ fill: txtColor, fontSize: 10 }}
-                   label={{ value: 'Lançamentos acumulados', angle: -90, position: 'insideLeft', fill: txtColor, fontSize: 11 }} />
+            <XAxis dataKey="dia" tick={{ fill: txtColor, fontSize: 8 }} angle={-45} textAnchor="end" height={36}
+                   label={{ value: 'Dia do mês', position: 'insideBottom', offset: -5, fill: txtColor, fontSize: 10 }} />
+            <YAxis tick={{ fill: txtColor, fontSize: 9 }}
+                   label={{ value: 'Lançamentos acumulados', angle: -90, position: 'insideLeft', fill: txtColor, fontSize: 10 }} />
             <Tooltip content={<CustomTooltip />} />
             <Legend wrapperStyle={{ color: txtColor, fontSize: 12 }} />
             {hasCur && (

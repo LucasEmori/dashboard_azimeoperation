@@ -60,13 +60,13 @@ export default function TrimesterCharts({ company }) {
 
   return (
     <div>
-      <h3 className="text-base font-bold text-foreground mb-3">Unidades Recebidas por Trimestre</h3>
-      <div className="mb-4 w-64">
-        <label className="block text-sm font-bold text-foreground mb-2">Trimestre</label>
+      <h3 className="text-sm sm:text-base font-bold text-foreground mb-2 sm:mb-3">Unidades Recebidas por Trimestre</h3>
+      <div className="mb-3 sm:mb-4 w-full sm:w-64">
+        <label className="block text-xs sm:text-sm font-bold text-foreground mb-1.5 sm:mb-2">Trimestre</label>
         <select
           value={activeTrim}
           onChange={e => setSelectedTrim(e.target.value)}
-          className="w-full bg-background border border-border text-foreground rounded-lg p-2 font-medium focus:ring-2 focus:ring-ring outline-none"
+          className="w-full bg-background border border-border text-foreground rounded-lg p-2 text-sm font-medium focus:ring-2 focus:ring-ring outline-none"
         >
           {validTrims.map(k => (
             <option key={k} value={k}>{trimestres[k].label}</option>
@@ -74,9 +74,9 @@ export default function TrimesterCharts({ company }) {
         </select>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
         {/* Chart 1 */}
-        <div className="h-[360px] w-full">
+        <div className="h-[300px] sm:h-[340px] lg:h-[360px] w-full">
           <h3 className="text-center font-bold text-foreground text-sm mb-4">{trimestres[activeTrim].label}</h3>
           <ResponsiveContainer width="100%" height="100%">
             <BarChart data={c1Data} margin={{ top: 20, right: 10, left: 50, bottom: 60 }}>
@@ -100,7 +100,7 @@ export default function TrimesterCharts({ company }) {
         </div>
 
         {/* Chart 2 */}
-        <div className="h-[360px] w-full">
+        <div className="h-[300px] sm:h-[340px] lg:h-[360px] w-full">
           <h3 className="text-center font-bold text-foreground text-sm mb-4">Comparativo Trimestral</h3>
           <ResponsiveContainer width="100%" height="100%">
             <BarChart data={c2Data} margin={{ top: 20, right: 10, left: 50, bottom: 60 }}>

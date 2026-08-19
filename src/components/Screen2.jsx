@@ -56,9 +56,10 @@ export default function Screen2({ company }) {
   return (
     <div className={`co-${company}`}>
       <section className="flex items-center gap-2 mb-4">
-        <CheckCircle size={22} className="text-co-accent" />
-        <h2 className="text-2xl font-bold text-foreground">Produtos Lançados</h2>
-        <span className="ml-auto px-3 py-1 rounded-full text-xs font-bold bg-co-accent/20 text-co-accent border border-co-accent/40">
+        <CheckCircle size={20} className="text-co-accent flex-shrink-0 sm:hidden" />
+        <CheckCircle size={22} className="text-co-accent flex-shrink-0 hidden sm:block" />
+        <h2 className="text-lg sm:text-2xl font-bold text-foreground truncate">Produtos Lançados</h2>
+        <span className="ml-auto px-2 sm:px-3 py-0.5 sm:py-1 rounded-full text-[10px] sm:text-xs font-bold bg-co-accent/20 text-co-accent border border-co-accent/40 flex-shrink-0">
           {d.mes}
         </span>
       </section>
@@ -66,25 +67,25 @@ export default function Screen2({ company }) {
       <KPIRow kpis={kpis} />
 
       {hasAno && (
-        <div className="bg-co-accent/5 border border-co-accent/20 rounded-2xl p-5 mb-6">
-          <div className="flex items-center gap-2 text-sm font-bold text-foreground mb-4">
-            <BarChart3 size={18} className="text-co-accent" />
-            Comparativo Ano a Ano • {d.mes} × {ano.mes}
+        <div className="bg-co-accent/5 border border-co-accent/20 rounded-2xl p-3 sm:p-5 mb-4 sm:mb-6">
+          <div className="flex items-center gap-2 text-xs sm:text-sm font-bold text-foreground mb-3 sm:mb-4">
+            <BarChart3 size={18} className="text-co-accent flex-shrink-0" />
+            <span className="truncate">Ano a Ano • {d.mes} × {ano.mes}</span>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 sm:gap-4">
             <YoyCard label="SKU's Únicos" now={d.skus} prev={ano.skus} fmt={fmtInt} />
-            <YoyCard label="Lançamentos Realizados" now={d.lancamentos_realizados} prev={ano.lancamentos_realizados} fmt={fmtInt} />
-            <YoyCard label="Média de Prazo" now={d.media_prazo} prev={ano.media_prazo} fmt={fmtMedia} />
+            <YoyCard label="Lançamentos" now={d.lancamentos_realizados} prev={ano.lancamentos_realizados} fmt={fmtInt} />
+            <YoyCard label="Média Prazo" now={d.media_prazo} prev={ano.media_prazo} fmt={fmtMedia} />
           </div>
         </div>
       )}
 
       {(comps.length > 0 || hasAno) && (
         <>
-          <div className="flex items-center gap-2 text-base font-bold text-foreground/80 mb-3 mt-2">
+          <div className="flex items-center gap-2 text-sm sm:text-base font-bold text-foreground/80 mb-3 mt-2">
             <BarChart3 size={18} className="text-co-accent" /> Comparativo — Meses Anteriores
           </div>
-          <div className={`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-${hasAno ? '4' : '3'} gap-3 mb-6`}>
+          <div className={`grid grid-cols-2 sm:grid-cols-3 md:grid-cols-${hasAno ? '4' : '3'} gap-2 sm:gap-3 mb-6`}>
             {comps.map((c, i) => (
               <CompCard
                 key={i}
@@ -121,17 +122,17 @@ function YoyCard({ label, now, prev, fmt }) {
   const delta = deltaPct(now, prev)
 
   return (
-    <div className="bg-background rounded-xl p-4 shadow-sm border border-border">
-      <div className="text-xs uppercase tracking-wide text-foreground/60 mb-2">{label}</div>
-      <div className="flex items-baseline flex-wrap gap-2">
-        <span className="text-3xl font-extrabold text-foreground">{nowStr}</span>
-        <span className="text-xs text-foreground/50">vs {prevStr} (ano anterior)</span>
+    <div className="bg-background rounded-xl p-3 sm:p-4 shadow-sm border border-border">
+      <div className="text-[10px] sm:text-xs uppercase tracking-wide text-foreground/60 mb-1.5 sm:mb-2">{label}</div>
+      <div className="flex items-baseline flex-wrap gap-1.5 sm:gap-2">
+        <span className="text-2xl sm:text-3xl font-extrabold text-foreground">{nowStr}</span>
+        <span className="text-[10px] sm:text-xs text-foreground/50">vs {prevStr} (ano ant.)</span>
       </div>
-      <div className="mt-2">
+      <div className="mt-1.5 sm:mt-2">
         {delta === null ? (
-          <span className="text-sm font-bold text-foreground/50">—</span>
+          <span className="text-xs sm:text-sm font-bold text-foreground/50">—</span>
         ) : (
-          <span className={`text-sm font-bold ${delta >= 0 ? 'text-green-500' : 'text-red-500'}`}>
+          <span className={`text-xs sm:text-sm font-bold ${delta >= 0 ? 'text-green-500' : 'text-red-500'}`}>
             {delta >= 0 ? '▲' : '▼'} {delta > 0 ? '+' : ''}{delta.toFixed(1)}%
           </span>
         )}
@@ -142,19 +143,19 @@ function YoyCard({ label, now, prev, fmt }) {
 
 function CompCard({ month, rows, yearPrev }) {
   return (
-    <div className={`rounded-xl p-4 border bg-background/50 ${
+    <div className={`rounded-xl p-2.5 sm:p-4 border bg-background/50 ${
       yearPrev
         ? 'border-t-[3px] border-t-yellow-400/60 border-dashed bg-yellow-400/5'
         : 'border-t-[3px] border-t-co-accent/50'
     }`}>
-      <div className="flex items-center gap-2 text-sm font-bold text-foreground mb-3 capitalize">
+      <div className="flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm font-bold text-foreground mb-2 sm:mb-3 capitalize">
         {monthShort(month)}
-        {yearPrev && <span className="text-[10px] bg-yellow-400/20 text-yellow-600 dark:text-yellow-200 px-2 py-0.5 rounded-full">{yearOf(month)}</span>}
+        {yearPrev && <span className="text-[9px] sm:text-[10px] bg-yellow-400/20 text-yellow-600 dark:text-yellow-200 px-1.5 sm:px-2 py-0.5 rounded-full">{yearOf(month)}</span>}
       </div>
       {rows.map((r, i) => (
-        <div key={i} className={i > 0 ? 'mt-2' : ''}>
-          <div className="text-[11px] text-foreground/60">{r.label}</div>
-          <div className="text-xl font-bold text-foreground">{r.value}</div>
+        <div key={i} className={i > 0 ? 'mt-1.5 sm:mt-2' : ''}>
+          <div className="text-[9px] sm:text-[11px] text-foreground/60">{r.label}</div>
+          <div className="text-lg sm:text-xl font-bold text-foreground">{r.value}</div>
         </div>
       ))}
     </div>

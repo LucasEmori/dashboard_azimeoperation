@@ -35,9 +35,9 @@ export default function Screen3({ company }) {
   return (
     <div className={`co-${company}`}>
       <section className="flex items-center gap-2 mb-4">
-        <Calendar size={22} className="text-co-accent" />
-        <h2 className="text-2xl font-bold text-foreground">Próximos Lançamentos</h2>
-        <span className="ml-auto px-3 py-1 rounded-full text-xs font-bold bg-co-accent/20 text-co-accent border border-co-accent/40">
+        <span className="text-co-accent flex-shrink-0 [&>svg]:w-5 [&>svg]:h-5 sm:[&>svg]:w-[20px] sm:[&>svg]:h-[20px]"><Calendar size={22} /></span>
+        <h2 className="text-lg sm:text-2xl font-bold text-foreground truncate">Próximos Lançamentos</h2>
+        <span className="ml-auto px-2 sm:px-3 py-0.5 sm:py-1 rounded-full text-[10px] sm:text-xs font-bold bg-co-accent/20 text-co-accent border border-co-accent/40 flex-shrink-0">
           {t3.mes}
         </span>
       </section>
@@ -45,10 +45,10 @@ export default function Screen3({ company }) {
       <KPIRow kpis={kpis} />
 
       {/* Month header */}
-      <div className="flex items-center gap-2 text-lg font-bold text-foreground mb-4">
-        <Calendar size={19} className="text-co-accent" />
-        {t3.mes}
-        <span className="text-sm font-medium opacity-65 ml-1.5">
+      <div className="flex flex-wrap items-center gap-2 text-sm sm:text-lg font-bold text-foreground mb-3 sm:mb-4">
+        <span className="text-co-accent flex-shrink-0 [&>svg]:w-4 [&>svg]:h-4 sm:[&>svg]:w-[19px] sm:[&>svg]:h-[19px]"><Calendar size={19} /></span>
+        <span className="truncate">{t3.mes}</span>
+        <span className="text-xs sm:text-sm font-medium opacity-65 ml-auto">
           {t3.total_itens} itens • {ok} prontos • {proc} em processo
         </span>
       </div>
@@ -64,10 +64,10 @@ export default function Screen3({ company }) {
       </div>
 
       {/* Total card */}
-      <div className="p-4 bg-co-accent/10 border border-co-accent/30 rounded-xl">
+      <div className="p-4 bg-co-accent/10 border border-co-accent/30 rounded-xl mb-4">
         <div className="text-sm opacity-70 text-foreground">Total do Mês</div>
-        <div className="text-[28px] font-extrabold text-foreground mt-1">{t3.total_itens} itens</div>
-        <div className="flex gap-5 mt-2 text-sm text-foreground/80">
+        <div className="text-2xl sm:text-[28px] font-extrabold text-foreground mt-1">{t3.total_itens} itens</div>
+        <div className="flex flex-wrap gap-3 sm:gap-5 mt-2 text-xs sm:text-sm text-foreground/80">
           <span>
             <span className="inline-block w-2 h-2 rounded-full bg-green-500 mr-1.5 align-middle" />
             {ok} Prontos
@@ -88,20 +88,20 @@ function PlanItem({ item }) {
   const mktOK = item.mkt === 'OK'
 
   return (
-    <div className={`flex items-center gap-3 px-4 py-3.5 rounded-xl border ${statusClass} bg-background/50`}>
+    <div className={`flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-3 px-3 sm:px-4 py-3 rounded-xl border ${statusClass} bg-background/50`}>
       <div className="min-w-0 flex-1">
-        <div className="text-[15px] font-semibold text-foreground">{item.descricao}</div>
+        <div className="text-base sm:text-[15px] font-semibold text-foreground truncate">{item.descricao}</div>
         <div className="text-xs opacity-70 text-foreground/70 mt-0.5">
           {item.data}{item.embarque && <> • Embarque {item.embarque}</>}
         </div>
       </div>
-      <div className="flex items-center gap-1.5 flex-shrink-0">
-        <span className={`px-2.5 py-1 rounded-full text-[11px] font-bold ${
+      <div className="flex items-center gap-1.5 flex-shrink-0 flex-wrap">
+        <span className={`px-2.5 py-1 rounded-full text-[10px] sm:text-[11px] font-bold ${
           statusOK ? 'bg-green-500/20 text-green-700 dark:bg-green-500/30 dark:text-green-200' : 'bg-yellow-400/20 text-yellow-700 dark:bg-yellow-400/30 dark:text-yellow-200'
         }`}>
           {statusOK ? 'Pronto' : 'Em processo'}
         </span>
-        <span className={`px-2 py-1 rounded-md text-[10px] font-bold ${
+        <span className={`px-2 py-1 rounded-md text-[9px] sm:text-[10px] font-bold ${
           mktOK ? 'bg-green-500/20 text-green-700 dark:bg-green-500/30 dark:text-green-200' : 'bg-yellow-400/20 text-yellow-700 dark:bg-yellow-400/30 dark:text-yellow-200'
         }`}>
           {mktOK ? 'MKT enviado' : 'MKT pendente'}

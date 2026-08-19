@@ -19,16 +19,16 @@ export default function Dashboard() {
   const meta = data.meta
 
   return (
-    <div className="max-w-[1400px] mx-auto px-3 pb-8 font-sans">
+    <div className="max-w-[1400px] mx-auto px-2 sm:px-3 pb-8 font-sans">
       <TopBar meta={meta} company={activeCompany} />
 
       {/* Company tabs — centered */}
-      <div className="flex justify-center items-center gap-2 mb-4">
+      <div className="flex justify-center items-center gap-1.5 sm:gap-2 mb-3 sm:mb-4">
         {COMPANIES.map(c => (
           <button
             key={c}
             onClick={() => { setActiveCompany(c); setActiveScreen(0) }}
-            className={`px-8 py-3 rounded-xl text-base font-bold transition-all duration-200 border
+            className={`flex-1 sm:flex-none px-4 sm:px-8 py-2.5 sm:py-3 rounded-xl text-sm sm:text-base font-bold transition-all duration-200 border
               ${activeCompany === c
                 ? 'bg-muted text-foreground shadow-lg shadow-co-accent/10 border-co-accent/40'
                 : 'bg-muted/60 text-foreground/80 border-border hover:bg-muted hover:text-foreground'
@@ -43,12 +43,12 @@ export default function Dashboard() {
       <BrandBand company={activeCompany} meta={meta} />
 
       {/* Sub-tabs */}
-      <div className="flex gap-1.5 bg-muted rounded-xl p-2 mb-5 border border-border">
+      <div className="flex gap-1 sm:gap-1.5 bg-muted rounded-xl p-1.5 sm:p-2 mb-4 sm:mb-5 border border-border">
         {TABS.map((t, i) => (
           <button
             key={i}
             onClick={() => setActiveScreen(i)}
-            className={`flex-1 py-2 px-5 rounded-lg text-sm font-bold transition-all duration-200 border border-transparent
+            className={`flex-1 py-2 px-2 sm:px-5 rounded-lg text-xs sm:text-sm font-bold transition-all duration-200 border border-transparent
               ${activeScreen === i
                 ? 'bg-background text-foreground shadow-sm border-border'
                 : 'bg-background/40 text-foreground/75 hover:text-foreground hover:bg-background/80'

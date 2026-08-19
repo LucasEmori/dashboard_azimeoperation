@@ -47,9 +47,9 @@ export default function Screen1({ company }) {
   return (
     <div className={`co-${company}`}>
       <section className="flex items-center gap-2 mb-4">
-        {ICONS.notas}
-        <h2 className="text-2xl font-bold text-foreground">Notas de Entrada</h2>
-        <span className="ml-auto px-3 py-1 rounded-full text-xs font-bold bg-co-accent/20 text-co-accent border border-co-accent/40">
+        <span className="text-co-accent flex-shrink-0 [&>svg]:w-5 [&>svg]:h-5 sm:[&>svg]:w-[20px] sm:[&>svg]:h-[20px]">{ICONS.notas}</span>
+        <h2 className="text-lg sm:text-2xl font-bold text-foreground truncate">Notas de Entrada</h2>
+        <span className="ml-auto px-2 sm:px-3 py-0.5 sm:py-1 rounded-full text-[10px] sm:text-xs font-bold bg-co-accent/20 text-co-accent border border-co-accent/40 flex-shrink-0">
           {displayMonth}
         </span>
       </section>
